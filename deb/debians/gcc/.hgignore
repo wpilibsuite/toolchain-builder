@@ -1,0 +1,7 @@
+syntax: glob
+gcc-powerpc-wrs-vxworks.substvars
+gcc-powerpc-wrs-vxworks.debhelper.log
+gcc-powerpc-wrs-vxworks.postinst.debhelper
+gcc-powerpc-wrs-vxworks.postrm.debhelper
+gcc-powerpc-wrs-vxworks/*
+files

@@ -1,0 +1,55 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Sample debian/rules that uses debhelper.
+#
+# This file was originally written by Joey Hess and Craig Small.
+# As a special exception, when this file is copied by dh-make into a
+# dh-make output file, you may use that output file without restriction.
+# This special exception was added by Craig Small in version 0.37 of dh-make.
+#
+# Modified to make a template file for a multi-binary package with separated
+# build-arch and build-indep targets  by Bill Allombert 2001
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# This has to be exported to make some magic below work.
+export DH_OPTIONS
+
+GCC_BUILD_DIR=${CURDIR}/../gcc-build-deb-package
+USELESS_VALUE=$(shell mkdir -p ${GCC_BUILD_DIR})
+SRC_DIR=${CURDIR}
+
+export CFLAGS=-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security
+export CPPFLAGS=-D_FORTIFY_SOURCE=2
+export CXXFLAGS=-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security
+export FFLAGS=-g -O2
+export LDFLAGS=-Wl,-Bsymbolic-functions -Wl,-z,relro
+export CFLAGS_FOR_TARGET=-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security
+export CPPFLAGS_FOR_TARGET=-D_FORTIFY_SOURCE=2
+export CXXFLAGS_FOR_TARGET=-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security
+export FFLAGS_FOR_TARGET=-g -O2
+export LDFLAGS_FOR_TARGET=-Wl,-Bsymbolic-functions -Wl,-z,relro
+
+%:
+	dh $@  -B${GCC_BUILD_DIR} --with autotools-dev 
+
+override_dh_auto_configure:
+
+	dh_auto_configure -B${GCC_BUILD_DIR}  --  --enable-threads=posix --target=arm-linux-gnueabi --with-arch=armv7-a --with-cpu=cortex-a9 --with-float=softfp --with-fpu=vfp --with-specs='%{save-temps: -fverbose-asm} %{funwind-tables|fno-unwind-tables|mabi=*|ffreestanding|nostdlib:;:-funwind-tables}' --enable-languages=c,c++ --enable-shared --enable-lto --disable-nls --with-pkgversion='GCC for FRC' --with-cloog --disable-multilib --disable-multiarch --prefix=/usr --with-sysroot=/usr/arm-frc-linux-gnueabi --enable-poison-system-directories --enable-plugin --with-system-zlib --disable-libmudflap --with-build-sysroot=/usr/arm-frc-linux-gnueabi
+
+override_dh_shlibdeps:
+	LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/arm-frc-linux-gnueabi/lib dh_shlibdeps --  --ignore-missing-info
+
+override_dh_auto_install:
+	cd ${GCC_BUILD_DIR} && make -j1 install DESTDIR=${SRC_DIR}/debian/gcc-armel AM_UPDATE_INFO_DIR=no
+	sed -i "/dependency_libs/ s/'.*'/''/" `find . -name '*.la'`
+	
+override_dh_strip:
+	DEB_HOST_GNU_TYPE=arm-linux-gnueabi dh_strip -O-B${GCC_BUILD_DIR} -X liblto_plugin.so.0.0.0 -X cc1 -X lto -X collect2 -X arm-linux-gnueabi- -X fixincl -X gengtype
+	dh_strip -O-B${GCC_BUILD_DIR} -X usr/arm-linux-gnueabi/lib -X libgcov.a -X libgcc.a -X libgcc_eh.a
+	rm -rf ${SRC_DIR}/debian/gcc-armel/usr/share/man/man7
+	rm -rf ${SRC_DIR}/debian/gcc-armel/usr/share/info
+	
+override_dh_auto_test:
+

@@ -1,0 +1,21 @@
+Source: gcc-armel
+Section: contrib/devel
+Priority: extra
+Maintainer: Patrick Plenefisch <phplenefisch@wpi.edu>
+Build-Depends: debhelper (>= 9.0.0), autotools-dev, libmpfr-dev (>= 3.1.2), libgmp-dev (>= 2:5.1.2), libmpc-dev (>= 1.0.1), libcloog-isl-dev (>= 0.18.1), flex, texinfo, zlib1g-dev, bison
+Standards-Version: 3.9.4
+Homepage: http://gcc.gnu.org/
+
+Package: gcc-armel
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: cpp-4.8-arm-linux-gnueabi, g++-4.8-arm-linux-gnueabi, gcc-4.8-arm-linux-gnueabi, gcc-4.8-arm-linux-gnueabi-base
+Description: GNU C preprocessor
+ A macro processor that is used automatically by the GNU C compiler
+ to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the compiler.
+ .
+ This package contains preprocessor configured for armel architecture.
+

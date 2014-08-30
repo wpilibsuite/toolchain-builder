@@ -1,0 +1,42 @@
+gcc-armel (4.9.1-1) precise; urgency=low
+
+  * update for 4.9
+
+ -- Patrick Plenefisch <phplenfisch@wpi.edu>  Fri, 29 Aug 2014 22:26:33 -0400
+
+gcc-4.8 (4.8.2-1) precise; urgency=low
+
+  * Forking for armel packages
+
+ -- Patrick Plenefisch <phplenfisch@wpi.edu>  Mon, 26 May 2014 14:35:12 -0400
+
+gcc-powerpc-wrs-vxworks (4.8.0+1-1) stable; urgency=low
+
+  * Updating to release tarball
+  * Pre-depending on headers
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Fri, 22 Mar 2013 22:10:44 -0400
+
+gcc-powerpc-wrs-vxworks (4.8.0+0svn196132-1debian3) stable; urgency=low
+
+  * Fixing 64 bit builds on launchpad
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Mon, 18 Mar 2013 19:26:48 -0400
+
+gcc-powerpc-wrs-vxworks (4.8.0+0svn196132-1debian2) stable; urgency=low
+
+  * Fixing ubuntu compile flags
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Sun, 17 Mar 2013 23:35:42 -0400
+  
+gcc-powerpc-wrs-vxworks (4.8.0+0svn196132-1debian1) stable; urgency=low
+
+  * Changing dependencies
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Sun, 17 Mar 2013 01:35:53 -0400
+
+gcc-powerpc-wrs-vxworks (4.8.0+0svn196132-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Wed, 06 Mar 2013 23:39:23 -0500
