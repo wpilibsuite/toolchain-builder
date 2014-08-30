@@ -1,0 +1,2 @@
+mkdir -p sysroot-install/c/frc
+cp sysroot-${V_SYSROOT}/* sysroot-install/c/frc/ -r

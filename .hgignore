@@ -2,3 +2,5 @@ syntax: glob
 *.tar.bz2
 deb/*-*
 *.tar.gz
+windows/*-*
+windows/wix/
