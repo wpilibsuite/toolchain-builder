@@ -1,0 +1,5 @@
+binutils-arm-linux-gnueabi: non-standard-dir-in-usr usr/arm-linux-gnueabi/
+binutils-arm-linux-gnueabi: package-contains-hardlink
+binutils-arm-linux-gnueabi: manpage-has-errors-from-man
+binutils-arm-linux-gnueabi: binary-without-manpage usr/bin/arm-linux-gnueabi-ld.bfd
+

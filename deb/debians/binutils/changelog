@@ -1,0 +1,5 @@
+binutils-armel-cross-frc (2.24-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Fri, 29 Aug 2014 19:26:26 -0400

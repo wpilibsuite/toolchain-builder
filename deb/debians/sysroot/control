@@ -1,0 +1,19 @@
+Source: roborio-sysroot
+Maintainer: Patrick Plenefisch <phplenefisch@wpi.edu>
+Section: devel
+Priority: extra
+Standards-Version: 3.9.3
+Build-Depends: debhelper (>= 9)
+
+Package: roborio-sysroot
+Architecture: all
+Depends: ${misc:Depends}
+Description: System Root for RoboRIO targets
+ This package contains the headers and library files necessary for
+ building linux programs. These headers
+ are used by the installed headers for GNU glibc and other system
+ libraries.
+ .
+ This package contains files for armel architecture, for use in cross-compile
+ environments.
+

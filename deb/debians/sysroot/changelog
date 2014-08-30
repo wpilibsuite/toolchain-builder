@@ -1,0 +1,5 @@
+roborio-sysroot (1.0-1) UNRELEASED; urgency=low
+
+  * Initial release with 2.17-r4 and 3.2.35-rt52
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Thu, 22 May 2014 13:52:08 -0400
