@@ -6,11 +6,9 @@ all:
 	@echo "please specify which you want. binutils must be installed before gcc"
 
 sysroot:
-	cp ../roborio-sysroot_$(V_SYSROOT).orig.tar.gz roborio-sysroot_$(V_SYSROOT).orig.tar.gz
-	tar xf roborio-sysroot_$(V_SYSROOT).orig.tar.gz
-	cp makes/sysroot sysroot/debian -r
+	tar xf ../roborio-sysroot_$(V_SYSROOT).orig.tar.gz
 	mv sysroot sysroot-$(V_SYSROOT)
-	cd sysroot-$(V_SYSROOT) && debuild -us -uc
+	V_SYSROOT=$(V_SYSROOT) makes/sysroot
 
 binutils:
 	tar xf ../binutils-$(V_BINUTILS).tar.bz2
