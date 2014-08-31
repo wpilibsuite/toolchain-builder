@@ -1,10 +1,9 @@
 #!/bin/zsh
 
-mkdir -p sysroot-install/c/
+mkdir -p sysroot-install/c/frc
 # remove symlinks
-rsync sysroot-${V_SYSROOT}/usr sysroot-install/c/ -a --copy-links
-mv sysroot-install/c/usr sysroot-install/c/frc
+rsync sysroot-${V_SYSROOT}/usr sysroot-install/c/frc -a --copy-links
 rsync sysroot-${V_SYSROOT}/lib sysroot-install/c/frc/ -a --copy-links
 echo "Stripping (symlinks may give warnings)"
 arm-linux-gnueabi-strip --remove-section=.comment --remove-section=.note --strip-unneeded sysroot-install/**/*.so*
-arm-linux-gnueabi-strip --strip-debug sysroot-install/c/frc/lib/libc_nonshared.a sysroot-install/c/frc/lib/libpthread_nonshared.a
+arm-linux-gnueabi-strip --strip-debug sysroot-install/c/frc/usr/lib/libc_nonshared.a sysroot-install/c/frc/usr/lib/libpthread_nonshared.a

@@ -50,7 +50,7 @@ mv gmp-${V_GMPf} gcc-${V_GCC}/gmp
 mkdir gcc-build
 mkdir gcc-install
 cd gcc-build
-../gcc-${V_GCC}/configure --host=i686-w64-mingw32 --enable-threads=posix --target=arm-linux-gnueabi --with-arch=armv7-a --with-cpu=cortex-a9 --with-float=softfp --with-fpu=vfp --with-specs='%{save-temps: -fverbose-asm} %{funwind-tables|fno-unwind-tables|mabi=*|ffreestanding|nostdlib:;:-funwind-tables}' --enable-languages=c,c++ --enable-shared --enable-lto --disable-nls --with-pkgversion='GCC for FRC' --with-cloog --disable-multilib --disable-multiarch --prefix=/c/frc --with-sysroot=/c/frc --enable-poison-system-directories --disable-libmudflap --with-build-sysroot=/usr/arm-frc-linux-gnueabi
+../gcc-${V_GCC}/configure --host=i686-w64-mingw32 --enable-threads=posix --target=arm-linux-gnueabi --with-arch=armv7-a --with-cpu=cortex-a9 --with-float=softfp --with-fpu=vfp --with-specs='%{save-temps: -fverbose-asm} %{funwind-tables|fno-unwind-tables|mabi=*|ffreestanding|nostdlib:;:-funwind-tables}' --enable-languages=c,c++ --enable-shared --enable-lto --disable-nls --with-pkgversion='GCC for FRC' --with-cloog --disable-multilib --disable-multiarch --prefix=/frc --with-sysroot=/frc --enable-poison-system-directories --disable-libmudflap --with-build-sysroot=/usr/arm-frc-linux-gnueabi
 make -j3
 DESTDIR=$PWD/../gcc-install make install
 
