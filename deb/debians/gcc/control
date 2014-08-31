@@ -9,7 +9,7 @@ Homepage: http://gcc.gnu.org/
 Package: gcc-armel
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: cpp-4.8-arm-linux-gnueabi, g++-4.8-arm-linux-gnueabi, gcc-4.8-arm-linux-gnueabi, gcc-4.8-arm-linux-gnueabi-base
+Replaces: cpp-4.8-arm-linux-gnueabi, g++-4.8-arm-linux-gnueabi, gcc-4.8-arm-linux-gnueabi, gcc-4.8-arm-linux-gnueabi-base,cpp-4.6-arm-linux-gnueabi, g++-4.6-arm-linux-gnueabi, gcc-4.6-arm-linux-gnueabi, gcc-4.6-arm-linux-gnueabi-base,cpp-4.7-arm-linux-gnueabi, g++-4.7-arm-linux-gnueabi, gcc-4.7-arm-linux-gnueabi, gcc-4.7-arm-linux-gnueabi-base, libgomp1-armel-cross, libstdc++6-4.6-dev-armel-cross, libstdc++6-4.7-dev-armel-cross, libgcc1-armel-cross, libstdc++6-armel-cross, cpp-arm-linux-gnueabi, g++-arm-linux-gnueabi, gcc-arm-linux-gnueabi, libc6-dev-armel-cross, libc6-armel-cross, linux-libc-dev-armel-cross
 Description: GNU C preprocessor
  A macro processor that is used automatically by the GNU C compiler
  to transform programs before actual compilation.
