@@ -42,6 +42,10 @@ override_dh_auto_configure:
 
 override_dh_shlibdeps:
 	LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/arm-frc-linux-gnueabi/lib dh_shlibdeps --  --ignore-missing-info
+	
+override_dh_auto_build:
+	mkdir -p ${GCC_BUILD_DIR}/arm-linux-gnueabi/libatomic/.deps
+	dh_auto_build -B${GCC_BUILD_DIR}  -- -j3
 
 override_dh_auto_install:
 	cd ${GCC_BUILD_DIR} && make -j1 install DESTDIR=${SRC_DIR}/debian/gcc-armel AM_UPDATE_INFO_DIR=no
