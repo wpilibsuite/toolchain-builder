@@ -1,3 +1,5 @@
+#!/bin/bash
+
 mkdir binutils-build
 mkdir binutils-install
 cd binutils-build

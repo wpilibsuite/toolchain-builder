@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="D9FE50EB-4F46-4F61-B764-495D73143FA5" Name="FRC Toolchain" Language="1033" Version="1.0.14050" Manufacturer="WPI" UpgradeCode="17FA5361-A849-4BC0-8229-9624693117EA">
+        <Package Description="GNU Toolchain for FRC" Comments="FRC Toolchain including Binutils, GCC, and RoboRIO headers" InstallerVersion="405" Compressed="yes" />
+        <Media Id="1" Cabinet="simple.cab" EmbedCab="yes" />
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="APPLICATIONFOLDER" Name="frc">
+                <Component Id="PATHENVIRON" Guid="39AD8D16-4319-42F3-891E-CAD370C019CF" KeyPath="yes">
+                    <Environment Id="PATH" Name="PATH" Value="[APPLICATIONFOLDER]bin" System="yes" Action="set" Part="last" Permanent="no" />
+                </Component>
+            </Directory>
+            <Directory Id="ProgramMenuFolder">
+                <Directory Id="ProgramMenuDir" Name="FRC">
+                    <Component Id="StartMenuShortcuts" Guid="7FFF9A36-0D91-4FC2-9FF4-684E8FADB669">
+                        <RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+                        <RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" Value="" />
+                        <Shortcut Id="UninstallProduct" Name="Uninstall Toolchain" Description="Uninstalls FRC Toolchain" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" />
+                    </Component>
+                </Directory>
+            </Directory>
+        </Directory>
+        <Feature Id="BinutilsFeature" Title="GNU Toolchain" Level="1">
+            <ComponentGroupRef Id="BINUTILS" />
+        </Feature>
+        <Feature Id="PathFeature" Title="Add to PATH" Level="1" Absent="allow">
+            <ComponentRef Id="PATHENVIRON" />
+        </Feature>
+        <Feature Id="StartMenuFeature" Title="Start Menu Shortcuts" Level="1" Absent="allow">
+            <ComponentRef Id="StartMenuShortcuts" />
+        </Feature>
+        <UI>
+        </UI>
+        <UIRef Id="WixUI_Minimal" />
+        <WixVariable Id="WixUILicenseRtf" Value="license.rtf" />
+        <WixVariable Id="WixUIBannerBmp" Value="banner.bmp" />
+        <WixVariable Id="WixUIDialogBmp" Value="Dialog.bmp" />
+        <Property Id="ApplicationFolderName" Value="frc-toolchain" />
+        <Property Id="WixAppFolder" Value="WixPerMachineFolder" />
+    </Product>
+</Wix>

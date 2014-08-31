@@ -15,11 +15,15 @@ binutils:
 	V_BINUTILS=$(V_BINUTILS) makes/binutils
 
 gcc:
-	cp ../gcc-$(V_GCC).tar.bz2 gcc-armel_$(V_GCC).orig.tar.bz2 
-	tar xf gcc-armel_$(V_GCC).orig.tar.bz2
-	cp makes/gcc gcc-$(V_GCC)/debian -r
-	cd gcc-$(V_GCC) && debuild -us -uc
+	@# gcc does its own extraction
+	makes/gcc
+	
+tree:
+	V_GCC=$(V_GCC) makes/tree
+	
+msi:
+	makes/msi
 
 clean:
-	rm -rf binutils* roborio* sysroot* gcc*
+	rm -rf binutils* roborio* sysroot* gcc* tree-install msi-build
 
