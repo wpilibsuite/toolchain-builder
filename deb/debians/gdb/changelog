@@ -1,0 +1,5 @@
+gdb-armel-cross (7.8-1) jessie; urgency=low
+
+  * Initial release
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Sun, 31 Aug 2014 18:00:02 -0400

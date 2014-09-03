@@ -1,6 +1,7 @@
 V_BINUTILS=2.24
 V_GCC=4.9.1
 V_SYSROOT=1.0
+V_GDB=7.8
 
 all: 
 	@echo "please specify which you want. binutils must be installed before gcc"
@@ -23,6 +24,12 @@ gcc:
 	tar xf gcc-armel_$(V_GCC).orig.tar.bz2
 	cp debians/gcc gcc-$(V_GCC)/debian -r
 	cd gcc-$(V_GCC) && debuild -us -uc
+	
+gdb:
+	cp ../gdb-$(V_GDB).tar.gz gdb-armel-cross_$(V_GDB).orig.tar.gz
+	tar xf  gdb-armel-cross_$(V_GDB).orig.tar.gz
+	cp debians/gdb gdb-$(V_GDB)/debian -r
+	cd gdb-$(V_GDB) && debuild -us -uc
 
 clean:
 	rm -rf binutils* roborio* sysroot* gcc*
