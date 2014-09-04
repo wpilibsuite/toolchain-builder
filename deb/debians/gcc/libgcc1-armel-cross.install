@@ -1,2 +1,8 @@
 usr/arm-linux-gnueabi/lib/libgcc_s.so
 usr/arm-linux-gnueabi/lib/libgcc_s.so.1
+
+usr/arm-linux-gnueabi/lib/libasan.so.1.0.0
+usr/arm-linux-gnueabi/lib/libatomic.so.1.1.0
+usr/arm-linux-gnueabi/lib/libitm.so.1.0.0
+usr/arm-linux-gnueabi/lib/libssp.so.0.0.0
+usr/arm-linux-gnueabi/lib/libubsan.so.0.0.0

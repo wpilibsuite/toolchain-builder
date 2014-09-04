@@ -36,3 +36,14 @@ usr/lib/DEB_BUILD_GNU_TYPE/gcc/arm-linux-gnueabi/4.9.1/libgcc.a
 usr/lib/DEB_BUILD_GNU_TYPE/gcc/arm-linux-gnueabi/4.9.1/libgcc_eh.a
 usr/lib/DEB_BUILD_GNU_TYPE/gcc/arm-linux-gnueabi/4.9.1/libgcov.a
 
+usr/arm-linux-gnueabi/lib/libasan.a
+usr/arm-linux-gnueabi/lib/libatomic.a
+usr/arm-linux-gnueabi/lib/libasan_preinit.o
+usr/arm-linux-gnueabi/lib/libgomp.a
+usr/arm-linux-gnueabi/lib/libgomp.spec
+usr/arm-linux-gnueabi/lib/libitm.a
+usr/arm-linux-gnueabi/lib/libitm.spec
+usr/arm-linux-gnueabi/lib/libsanitizer.spec
+usr/arm-linux-gnueabi/lib/libssp.a
+usr/arm-linux-gnueabi/lib/libubsan.a
+usr/arm-linux-gnueabi/lib/libssp_nonshared.a
