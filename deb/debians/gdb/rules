@@ -11,7 +11,7 @@ export DH_OPTIONS
 	dh $@  --with autotools-dev
 	
 override_dh_auto_configure:
-	dh_auto_configure -- -target=arm-linux-gnueabi --prefix=/usr --with-pkgversion='GDB for FRC' --disable-nls --with-libexpat --with-python=no --with-system-gdbinit=/usr/share/arm-linux-gnueabi-gdbinit --with-gdb-datadir=/usr/share/gdb-arm-linux-gnueabi
+	dh_auto_configure -- --target=arm-linux-gnueabi --prefix=/usr --with-pkgversion='GDB for FRC' --disable-nls --with-libexpat --with-python=no --with-system-gdbinit=/usr/share/arm-linux-gnueabi-gdbinit --with-gdb-datadir=/usr/share/gdb-arm-linux-gnueabi --with-sysroot=/usr/arm-frc-linux-gnueabi/
 
 override_dh_installinfo:
 	rm -rf debian/gdb-arm-linux-gnueabi/usr/share/info

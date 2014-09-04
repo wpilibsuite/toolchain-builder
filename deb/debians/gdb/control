@@ -9,7 +9,7 @@ Homepage: https://www.gnu.org/software/gdb/
 Package: gdb-arm-linux-gnueabi
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, gdb
-Recommends: gcc-armel
+Recommends: gcc-arm-linux-gnueabi
 Description: GNU Debugger (Cross-debugger for arm-linux-gnueabi)
  GDB is a source-level debugger, capable of breaking programs at
  any specific line, displaying variable values, and determining
