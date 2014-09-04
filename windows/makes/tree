@@ -5,6 +5,7 @@ mkdir tree-install
 cp gcc-install tree-install/c -r
 cp binutils-install/c tree-install/ -r
 cp sysroot-install/c tree-install/ -r
+cp gdb-install/c tree-install/ -r
 cd tree-install/c/frc
 du -hs .
 pushd lib/gcc/arm-linux-gnueabi/${V_GCC}
