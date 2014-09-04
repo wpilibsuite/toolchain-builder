@@ -19,7 +19,7 @@ Package: libgcc1-armel-cross
 Architecture: all
 Section: devel
 Priority: extra
-Depends: gcc-4.9-arm-linux-gnueabi-base (= ${binary:Version}), libc6-armel-cross (>= 2.17) ${shlibs:Depends}, ${misc:Depends}
+Depends: gcc-4.9-arm-linux-gnueabi-base (= ${binary:Version}), libc6-armel-cross (>= 2.17), ${shlibs:Depends}, ${misc:Depends}
 Provides: libgcc1-armel-dcv1
 Description: GCC support library
  Shared version of the support library, a library of internal subroutines

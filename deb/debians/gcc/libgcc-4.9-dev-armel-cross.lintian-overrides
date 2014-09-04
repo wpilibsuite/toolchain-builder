@@ -1,1 +1,2 @@
 libgcc-4.9-dev-armel-cross: binary-from-other-architecture
+libgcc-4.9-dev-armel-cross: non-standard-dir-in-usr usr/arm-linux-gnueabi/
