@@ -1,0 +1,2 @@
+libstdc++6-dev-armel-cross: arch-independent-package-contains-binary-or-object
+libstdc++6-dev-armel-cross: non-standard-dir-in-usr usr/arm-linux-gnueabi/

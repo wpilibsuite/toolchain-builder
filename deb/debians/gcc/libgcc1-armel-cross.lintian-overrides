@@ -1,0 +1,2 @@
+libgcc1-armel-cross: non-standard-dir-in-usr usr/arm-linux-gnueabi/
+libgcc1-armel-cross: arch-independent-package-contains-binary-or-object usr/arm-linux-gnueabi/lib/libgcc_s.so.1

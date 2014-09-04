@@ -1,4 +1,0 @@
-gcc-armel: binary-from-other-architecture
-gcc-armel: non-standard-dir-in-usr usr/arm-linux-gnueabi/
-gcc-armel: binary-without-manpage
-gcc-armel: shlib-with-non-pic-code usr/arm-linux-gnueabi/lib/libitm.so.1.0.0
