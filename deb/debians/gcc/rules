@@ -64,7 +64,7 @@ override_dh_strip:
 	DEB_HOST_GNU_TYPE=arm-linux-gnueabi dh_strip -O-B${GCC_BUILD_DIR} -X liblto_plugin.so.0.0.0 -X cc1 -X lto -X collect2 -X arm-linux-gnueabi- -X fixincl -X gengtype
 	dh_strip -O-B${GCC_BUILD_DIR} -X usr/arm-linux-gnueabi/lib -X libgcov.a -X libgcc.a -X libgcc_eh.a
 	##??? Why is this not stripped by the above?
-	arm-linux-gnueabi-strip --remove-section=.comment --remove-section=.note --strip-unneeded debian/libgcc1-armel-cross/usr/arm-linux-gnueabi/lib/lib*.so*
+	arm-linux-gnueabi-strip --remove-section=.comment --remove-section=.note --strip-unneeded debian/libgcc1-armel-cross/usr/arm-linux-gnueabi/lib/lib*.so.*
 	rm -rf ${SRC_DIR}/debian/tmp/usr/share/man/man7
 	rm -rf ${SRC_DIR}/debian/tmp/usr/share/info
 	# this should probbably go into a better override
