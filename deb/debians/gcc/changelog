@@ -1,3 +1,21 @@
+gcc-armel (4.9.1-0frc3) trusty; urgency=low
+
+  * Adding minor version number in SONAME
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Fri, 05 Sep 2014 14:19:48 -0400
+
+gcc-armel (4.9.1-0frc2) trusty; urgency=low
+
+  * Fixing dependency ambiguity yet again...
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Thu, 04 Sep 2014 22:04:33 -0400
+ 
+gcc-armel (4.9.1-0frc1) trusty; urgency=low
+
+  * Fixing dependency ambiguity
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Thu, 04 Sep 2014 22:04:33 -0400
+
 gcc-armel (4.9.1-0) trusty; urgency=low
 
   * update for 4.9

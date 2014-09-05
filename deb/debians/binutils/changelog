@@ -1,3 +1,9 @@
+binutils-armel-cross-frc (2.24-2) trusty; urgency=low
+
+  * Bumping version for trusty
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Fri, 05 Sep 2014 09:19:27 -0400
+
 binutils-armel-cross-frc (2.24-1) unstable; urgency=low
 
   * Initial release
