@@ -8,6 +8,9 @@ Build-Depends: debhelper (>= 9)
 Package: roborio-sysroot
 Architecture: all
 Depends: ${misc:Depends}
+Provides: linux-libc-dev-armel-cross, libc6-dev-armel-cross, libc6-armel-cross
+Conflicts: linux-libc-dev-armel-cross, libc6-dev-armel-cross, libc6-armel-cross
+Replaces: linux-libc-dev-armel-cross, libc6-dev-armel-cross, libc6-armel-cross
 Description: System Root for RoboRIO targets
  This package contains the headers and library files necessary for
  building linux programs. These headers

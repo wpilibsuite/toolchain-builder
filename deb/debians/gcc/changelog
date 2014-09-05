@@ -1,4 +1,4 @@
-gcc-armel (4.9.1-1) precise; urgency=low
+gcc-armel (4.9.1-0) trusty; urgency=low
 
   * update for 4.9
 
