@@ -1,3 +1,9 @@
+gcc-armel (4.9.1-0frc4) trusty; urgency=low
+
+  * Fixing build issue with LD script
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Fri, 05 Sep 2014 19:29:05 -0400
+
 gcc-armel (4.9.1-0frc3) trusty; urgency=low
 
   * Adding minor version number in SONAME
