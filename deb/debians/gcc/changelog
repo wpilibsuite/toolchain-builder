@@ -2,13 +2,13 @@ gcc-armel (4.9.1-0) trusty; urgency=low
 
   * update for 4.9
 
- -- Patrick Plenefisch <phplenfisch@wpi.edu>  Fri, 29 Aug 2014 22:26:33 -0400
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Fri, 29 Aug 2014 22:26:33 -0400
 
 gcc-4.8 (4.8.2-1) precise; urgency=low
 
   * Forking for armel packages
 
- -- Patrick Plenefisch <phplenfisch@wpi.edu>  Mon, 26 May 2014 14:35:12 -0400
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Mon, 26 May 2014 14:35:12 -0400
 
 gcc-powerpc-wrs-vxworks (4.8.0+1-1) stable; urgency=low
 
