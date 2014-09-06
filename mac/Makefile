@@ -26,9 +26,10 @@ gcc:
 tree:
 	V_GCC=$(V_GCC) makes/tree
 	
-msi:
-	makes/msi
+pkg:
+	freeze makes/pkg/FRC\ ARM\ Toolchain.packproj
+	cp makes/pkg/build/FRC\ ARM\ Toolchain.pkg .
 
 clean:
-	rm -rf binutils* roborio* sysroot* gcc* tree-install msi-build
+	rm -rf binutils* roborio* sysroot* gcc* tree-install makes/pkg/build *.pkg
 
