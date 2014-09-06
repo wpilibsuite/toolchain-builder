@@ -4,3 +4,5 @@ deb/*-*
 *.tar.gz
 windows/*-*
 windows/wix/
+.DS_Store
+mac/*-*
