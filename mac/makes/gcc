@@ -1,0 +1,55 @@
+#!/bin/bash
+
+V_GCC=4.9.1
+V_BIN=2.24
+V_MPFR=3.1.2
+V_MPC=1.0.2
+V_GMP=6.0.0a
+V_GMPf=6.0.0
+V_CLOOG=0.18.1
+V_ISL=0.12.2
+
+
+export CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security"
+export CPPFLAGS="-D_FORTIFY_SOURCE=2"
+export CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security"
+export FFLAGS=-"g -O2"
+export LDFLAGS=""
+export CFLAGS_FOR_TARGET="-g -O2 --param=ssp-buffer-size=4 -Wformat -Wformat-security"
+# BUG: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=61164
+# so we just disable it
+export CPPFLAGS_FOR_TARGET=""
+export CXXFLAGS_FOR_TARGET="-g -O2 --param=ssp-buffer-size=4 -Wformat -Wformat-security"
+export FFLAGS_FOR_TARGET="-g -O2"
+export LDFLAGS_FOR_TARGET="-Wl,-Bsymbolic-functions -Wl,-z,relro"
+
+echo "Extracting GCC..."
+tar xf ../gcc-${V_GCC}.tar.bz2
+echo "Extracting MPFR..."
+tar xf ../mpfr-${V_MPFR}.tar.bz2
+echo "Extracting MPC..."
+tar xf ../mpc-${V_MPC}.tar.gz
+echo "Extracting GMP..."
+tar xf ../gmp-${V_GMP}.tar.bz2
+echo "Extracting CLOOG..."
+tar xf ../cloog-${V_CLOOG}.tar.gz
+echo "Extracting ISL..."
+tar xf ../isl-${V_ISL}.tar.bz2
+echo "Extracting GDB..."
+mv cloog-${V_CLOOG} gcc-${V_GCC}/cloog
+mv isl-${V_ISL} gcc-${V_GCC}/isl
+mv mpfr-${V_MPFR} gcc-${V_GCC}/mpfr
+mv mpc-${V_MPC} gcc-${V_GCC}/mpc
+mv gmp-${V_GMPf} gcc-${V_GCC}/gmp
+
+mkdir gcc-build
+mkdir gcc-install
+cd gcc-build
+../gcc-${V_GCC}/configure --enable-threads=posix --target=arm-linux-gnueabi --with-arch=armv7-a --with-cpu=cortex-a9 --with-float=softfp --with-fpu=vfp --with-specs='%{save-temps: -fverbose-asm} %{funwind-tables|fno-unwind-tables|mabi=*|ffreestanding|nostdlib:;:-funwind-tables}' --enable-languages=c,c++ --enable-shared --enable-lto --disable-nls --with-pkgversion='GCC for FRC' --with-cloog --disable-multilib --disable-multiarch --prefix=/usr --with-sysroot=/usr/arm-frc-linux-gnueabi --enable-poison-system-directories --disable-libmudflap --with-build-sysroot=/usr/arm-frc-linux-gnueabi --with-system-zlib
+make -j3
+export CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security"
+DESTDIR=$PWD/../gcc-install make install
+
+cd ../gcc-install
+
+
