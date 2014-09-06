@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+mkdir -p sysroot-install/usr/arm-frc-linux-gnueabi
+# remove symlinks
+rsync sysroot-${V_SYSROOT}/usr sysroot-install/usr/arm-frc-linux-gnueabi -a --copy-links
+rsync sysroot-${V_SYSROOT}/lib sysroot-install/usr/arm-frc-linux-gnueabi/ -a --copy-links
+
