@@ -6,3 +6,5 @@ windows/*-*
 windows/wix/
 .DS_Store
 mac/*-*
+.vagrant
+mac/makes/pkg/build/
