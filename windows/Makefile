@@ -3,8 +3,8 @@ V_GCC=4.9.1
 V_SYSROOT=1.0
 V_GDB=7.8
 
-all: 
-	@echo "please specify which you want. binutils must be installed before gcc"
+all: sysroot binutils gcc gdb tree msi
+	
 
 sysroot:
 	tar xf ../roborio-sysroot_$(V_SYSROOT).orig.tar.gz
