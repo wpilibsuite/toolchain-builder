@@ -5,7 +5,7 @@ V_MPC=1.0.2
 V_GMP=6.0.0a
 V_GMPf=6.0.0
 V_CLOOG=0.18.1
-V_ISL=0.13
+V_ISL=0.12.2
 V_GDB=7.8
 
 wget -nc https://ftp.gnu.org/gnu/gcc/gcc-${V_GCC}/gcc-${V_GCC}.tar.bz2
