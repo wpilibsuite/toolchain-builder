@@ -1,3 +1,10 @@
+gcc-armel (4.9.1-0frc6test1) trusty; urgency=low
+
+  * removing manual target strippers as they keep failing repeatedly
+  * fixing 32 bit builds
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Fri, 05 Sep 2014 20:04:05 -0400
+
 gcc-armel (4.9.1-0frc4) trusty; urgency=low
 
   * Fixing build issue with LD script
