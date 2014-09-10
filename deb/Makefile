@@ -1,17 +1,22 @@
-V_BINUTILS=2.24
-V_GCC=4.9.1
-V_SYSROOT=1.0
-V_GDB=7.8
+include ../versions.sh
+DEBUILD_FLAGS ?= -us -uc
 
-all: 
+all: flags
 	@echo "please specify which you want. binutils must be installed before gcc"
+	
+flags:
+	echo "Using DEBUILG_FLAGS=$(DEBUILD_FLAGS)"
 
-sysroot:
-	cp ../roborio-sysroot_$(V_SYSROOT).orig.tar.gz roborio-sysroot_$(V_SYSROOT).orig.tar.gz
-	tar xf roborio-sysroot_$(V_SYSROOT).orig.tar.gz
-	cp debians/sysroot sysroot/debian -r
-	mv sysroot sysroot-$(V_SYSROOT)
-	cd sysroot-$(V_SYSROOT) && debuild -us -uc
+sysroot: libc6 linux-libc
+
+libc6:
+
+linux-libc:
+	rm -rf linux-libc-*
+	cp ../linux-libc-dev-frc-armel-cross_$(Va_LINUX).orig.tar.bz2 ./
+	tar xf linux-libc-dev-frc-armel-cross_$(Va_LINUX).orig.tar.bz2
+	cp debians/linux-libc linux-libc-$(Va_LINUX)/debian -r
+	cd linux-libc-$(Va_LINUX) && debuild $(DEBUILD_FLAGS)
 
 binutils:
 	cp ../binutils-$(V_BINUTILS).tar.bz2 binutils-armel-cross-frc_$(V_BINUTILS).orig.tar.bz2 

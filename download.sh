@@ -1,16 +1,5 @@
 #!/bin/zsh
-
-V_GCC=4.9.1
-V_BIN=2.24
-V_MPFR=3.1.2
-V_MPC=1.0.2
-V_GMP=6.0.0a
-V_GMPf=6.0.0
-V_CLOOG=0.18.1
-V_ISL=0.12.2
-V_GDB=7.8
-Va_LIBC=2.17-r4
-Va_LINUX=3.8-r0
+source versions.sh
 THIS_DIR="$PWD"
 
 # clean up old files
@@ -54,21 +43,24 @@ for dir in libc6 libc6-dev linux-libc-headers-dev; do
 	popd
 done
 
+# ick... these are everywhere. remove them
+find repack \( -name .install -o -name ..install.cmd \) -delete
 # we don't need arm binaries...
 rm repack/libc6/out/usr/lib/eglibc/pt_chown
 rm repack/libc6/out/sbin/ldconfig
 rm repack/libc6/out/etc/ld.so.conf
+# remove all empty dirs (semi-recursive)
+rm -d repack/**/*(/^F)
+rm -d repack/**/*(/^F)
+rm -d repack/**/*(/^F)
 
-for dir in libc6 libc6-dev linux-libc-headers-dev; do
-	pushd repack/$dir/out
-	tar cjf ../${dir}_${Va_LIBC}.orig.tar.bz2 . --owner=0 --group=0
-	mv ../${dir}_${Va_LIBC}.orig.tar.bz2 "$THIS_DIR/"
-	popd
-done
+pushd repack/linux-libc-headers-dev/
+	mv out linux-libc-${Va_LINUX}
+	tar cjf "${THIS_DIR}/linux-libc-dev-frc-armel-cross_${Va_LINUX}.orig.tar.bz2" * --owner=0 --group=0
+popd
+pushd repack/libc6/
+	mv out libc6
+	mv ../libc6-dev/out libc6-dev
+	tar cjf "${THIS_DIR}/libc6-frc-armel-cross_${Va_LIBC}.orig.tar.bz2" * --owner=0 --group=0
+popd
 
-mv linux-libc-headers-dev_${Va_LIBC}.orig.tar.bz2 linux-libc-dev-frc-armel-cross_${Va_LINUX}.orig.tar.bz2
-mv libc6_${Va_LIBC}.orig.tar.bz2 libc6-frc-armel-cross_${Va_LIBC}.orig.tar.bz2
-mv libc6-dev_${Va_LIBC}.orig.tar.bz2 libc6-dev-frc-armel-cross_${Va_LIBC}.orig.tar.bz2
-
-
-# --owner=0 --group=0

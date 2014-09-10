@@ -9,3 +9,4 @@ mac/*-*
 .vagrant
 mac/makes/pkg/build/
 *.ipk
+repack/
