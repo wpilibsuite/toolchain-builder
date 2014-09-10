@@ -8,3 +8,4 @@ windows/wix/
 mac/*-*
 .vagrant
 mac/makes/pkg/build/
+*.ipk
