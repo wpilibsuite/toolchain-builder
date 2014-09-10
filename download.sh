@@ -59,8 +59,9 @@ pushd repack/linux-libc-headers-dev/
 	tar cjf "${THIS_DIR}/linux-libc-dev-frc-armel-cross_${Va_LINUX}.orig.tar.bz2" * --owner=0 --group=0
 popd
 pushd repack/libc6/
-	mv out libc6
-	mv ../libc6-dev/out libc6-dev
+	mkdir libc6-${Va_LIBC}
+	mv out libc6-${Va_LIBC}/libc6
+	mv ../libc6-dev/out libc6-${Va_LIBC}/libc6-dev
 	tar cjf "${THIS_DIR}/libc6-frc-armel-cross_${Va_LIBC}.orig.tar.bz2" * --owner=0 --group=0
 popd
 

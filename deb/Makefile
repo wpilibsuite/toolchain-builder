@@ -12,8 +12,7 @@ sysroot: libc6 linux-libc
 libc6:
 	rm -rf libc6-*
 	cp ../libc6-frc-armel-cross_$(Va_LIBC).orig.tar.bz2 ./
-	mkdir libc6-$(Va_LIBC)
-	cd libc6-$(Va_LIBC) && tar xf ../libc6-frc-armel-cross_$(Va_LIBC).orig.tar.bz2
+	tar xf libc6-frc-armel-cross_$(Va_LIBC).orig.tar.bz2
 	cp debians/libc libc6-$(Va_LIBC)/debian -r
 	cd libc6-$(Va_LIBC) && debuild $(DEBUILD_FLAGS)
 

@@ -1,6 +1,0 @@
-roborio-sysroot: arch-independent-package-contains-binary-or-object
-roborio-sysroot: non-standard-dir-in-usr usr/arm-frc-linux-gnueabi/
-roborio-sysroot: embedded-library
-roborio-sysroot: missing-depends-line
-roborio-sysroot: shared-lib-without-dependency-information usr/arm-frc-linux-gnueabi/lib/ld-2.17.so
-
