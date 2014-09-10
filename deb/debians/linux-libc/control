@@ -2,20 +2,20 @@ Source: linux-libc-dev-frc-armel-cross
 Maintainer: Patrick Plenefisch <phplenefisch@wpi.edu>
 Section: devel
 Priority: extra
-Standards-Version: 3.9.3
+Standards-Version: 3.9.4
 Build-Depends: debhelper (>= 9)
 
 Package: linux-libc-dev-frc-armel-cross
 Architecture: all
 Depends: ${misc:Depends}
-Conflicts: roborio-sysroot (< 1.1)
-Replaces: roborio-sysroot (< 1.1)
+Conflicts: roborio-sysroot (<< 1.1)
+Replaces: roborio-sysroot (<< 1.1)
 Description: Linux Kernel Headers for development (for cross-compiling)
  This package provides headers from the Linux kernel.  These headers
  are used by the installed headers for GNU glibc and other system
  libraries. They are NOT meant to be used to build third-party modules for
  your kernel.
  .
- This package contains files for frc-armel architecture, for use in cross-compile
- environments.
+ This package contains files for frc-armel architecture, for use in 
+ cross-compile environments.
 
