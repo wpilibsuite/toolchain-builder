@@ -7,8 +7,14 @@ all: flags
 flags:
 	echo "Using DEBUILG_FLAGS=$(DEBUILD_FLAGS)"
 
-sysroot: libc6 linux-libc
+sysroot: libc6 linux-libc roborio-sysroot
 
+roborio-sysroot:
+	rm -rf roborio-sysroot-*
+	mkdir roborio-sysroot-${V_ROBORIO_SYSROOT}
+	cp debians/sysroot roborio-sysroot-${V_ROBORIO_SYSROOT}/debian -r
+	cd roborio-sysroot-${V_ROBORIO_SYSROOT} && debuild $(DEBUILD_FLAGS)
+	
 libc6:
 	rm -rf libc6-*
 	cp ../libc6-frc-armel-cross_$(Va_LIBC).orig.tar.bz2 ./

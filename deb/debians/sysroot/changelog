@@ -1,5 +1,12 @@
+roborio-sysroot (1.1) stable; urgency=low
+
+  * Making into empty transitional package
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Wed, 10 Sept 2014 18:05:51 -0400
+
 roborio-sysroot (1.0-1) stable; urgency=low
 
   * Initial release with 2.17-r4 and 3.2.35-rt52
 
  -- Patrick Plenefisch <phplenefisch@wpi.edu>  Thu, 22 May 2014 13:52:08 -0400
+

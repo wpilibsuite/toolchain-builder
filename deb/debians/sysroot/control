@@ -2,21 +2,16 @@ Source: roborio-sysroot
 Maintainer: Patrick Plenefisch <phplenefisch@wpi.edu>
 Section: devel
 Priority: extra
-Standards-Version: 3.9.3
+Standards-Version: 3.9.4
 Build-Depends: debhelper (>= 9)
 
 Package: roborio-sysroot
 Architecture: all
-Depends: ${misc:Depends}
-Provides: linux-libc-dev-armel-cross, libc6-dev-armel-cross, libc6-armel-cross
-Conflicts: linux-libc-dev-armel-cross, libc6-dev-armel-cross, libc6-armel-cross
-Replaces: linux-libc-dev-armel-cross, libc6-dev-armel-cross, libc6-armel-cross
-Description: System Root for RoboRIO targets
+Depends: libc6-dev-frc-armel-cross (>= 2.17-r4), libc6-frc-armel-cross (>= 2.17-r4), linux-libc-dev-frc-armel-cross (>= 3.8-r0), ${misc:Depends}
+Conflicts: roborio-sysroot (<< 1.1)
+Replaces: roborio-sysroot (<< 1.1)
+Description: System Root for RoboRIO targets (metapackage) 
  This package contains the headers and library files necessary for
- building linux programs. These headers
- are used by the installed headers for GNU glibc and other system
- libraries.
- .
- This package contains files for armel architecture, for use in cross-compile
- environments.
+ building linux programs. This is a metapackage that will always depend
+ on the latest RoboRIO system root for FRC.
 
