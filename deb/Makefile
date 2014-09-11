@@ -50,11 +50,12 @@ gcc-defaults:
 	cd gcc-defaults-frc-armel-cross-${V_GCC_DEFAULTS} && debuild $(DEBUILD_FLAGS)
 	
 gdb:
-	cp ../gdb-$(V_GDB).tar.gz gdb-armel-cross_$(V_GDB).orig.tar.gz
-	tar xf  gdb-armel-cross_$(V_GDB).orig.tar.gz
+	rm -rf gdb*
+	cp ../gdb-$(V_GDB).tar.gz gdb-frc-armel-cross_$(V_GDB).orig.tar.gz
+	tar xf  gdb-frc-armel-cross_$(V_GDB).orig.tar.gz
 	cp debians/gdb gdb-$(V_GDB)/debian -r
-	cd gdb-$(V_GDB) && debuild -us -uc
+	cd gdb-$(V_GDB) && debuild $(DEBUILD_FLAGS)
 
 clean:
-	rm -rf binutils* roborio* sysroot* gcc*
+	find . ! -name Makefile ! -name debians -maxdepth 1 -type f -delete
 

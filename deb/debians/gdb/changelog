@@ -1,4 +1,4 @@
-gdb-armel-cross (7.8-1) jessie; urgency=low
+gdb-frc-armel-cross (7.8-1) trusty; urgency=low
 
   * Initial release
 
