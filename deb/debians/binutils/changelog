@@ -1,3 +1,9 @@
+binutils-frc-armel-cross (2.24-0) stable; urgency=low
+
+  * renaming triplet
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Wed, 10 Sep 2014 09:19:27 -0400
+
 binutils-armel-cross-frc (2.24-2) trusty; urgency=low
 
   * Bumping version for trusty

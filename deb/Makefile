@@ -10,7 +10,7 @@ flags:
 sysroot: libc6 linux-libc roborio-sysroot
 
 roborio-sysroot:
-	rm -rf roborio-sysroot-*
+	rm -rf roborio-sysroot*
 	mkdir roborio-sysroot-${V_ROBORIO_SYSROOT}
 	cp debians/sysroot roborio-sysroot-${V_ROBORIO_SYSROOT}/debian -r
 	cd roborio-sysroot-${V_ROBORIO_SYSROOT} && debuild $(DEBUILD_FLAGS)
@@ -30,10 +30,11 @@ linux-libc:
 	cd linux-libc-$(Va_LINUX) && debuild $(DEBUILD_FLAGS)
 
 binutils:
-	cp ../binutils-$(V_BINUTILS).tar.bz2 binutils-armel-cross-frc_$(V_BINUTILS).orig.tar.bz2 
-	tar xf binutils-armel-cross-frc_$(V_BINUTILS).orig.tar.bz2
+	rm -rf binutils-*
+	cp ../binutils-$(V_BINUTILS).tar.bz2 binutils-frc-armel-cross_$(V_BINUTILS).orig.tar.bz2 
+	tar xf binutils-frc-armel-cross_$(V_BINUTILS).orig.tar.bz2
 	cp debians/binutils binutils-$(V_BINUTILS)/debian -r
-	cd binutils-$(V_BINUTILS) && debuild -us -uc
+	cd binutils-$(V_BINUTILS) && debuild $(DEBUILD_FLAGS)
 
 gcc:
 	cp ../gcc-$(V_GCC).tar.bz2 gcc-armel_$(V_GCC).orig.tar.bz2 
