@@ -1,0 +1,6 @@
+gcc-defaults-frc-armel-cross (4.9) stable; urgency=low
+
+  * Adding links for frc tools
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Thu, 11 Sep 2014 13:45:14 -0400
+

@@ -1,0 +1,45 @@
+Source: gcc-defaults-frc-armel-cross
+Maintainer: Patrick Plenefisch <phplenefisch@wpi.edu>
+Section: devel
+Priority: extra
+Standards-Version: 3.9.4
+Build-Depends: debhelper (>= 9)
+
+Package: cpp-arm-frc-linux-gnueabi
+Priority: optional
+Architecture: all
+Section: interpreters
+Depends: cpp-4.9-arm-frc-linux-gnueabi, ${misc:Depends}
+Suggests: cpp-doc
+Description: The GNU C preprocessor (cpp) for frc-armel architecture
+ The GNU C preprocessor is a macro processor that is used automatically
+ by the GNU C compiler to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the cross-compiler for frc-armel 
+ architecture.
+ .
+ This is a dependency package providing the default GNU C preprocessor for
+ frc-armel architecture.
+
+Package: g++-arm-frc-linux-gnueabi
+Priority: optional
+Architecture: all
+Depends: cpp-arm-frc-linux-gnueabi (>= 4.9), gcc-arm-frc-linux-gnueabi (>= 4.9), g++-4.9-arm-frc-linux-gnueabi, gcc-4.9-arm-frc-linux-gnueabi, ${misc:Depends}
+Description: The GNU C++ compiler for frc-armel architecture
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This is a dependency package providing the default GNU C++ cross-compiler for
+ frc-armel architecture.
+
+Package: gcc-arm-frc-linux-gnueabi
+Priority: optional
+Architecture: all
+Depends: cpp-arm-frc-linux-gnueabi (>= 4.9), gcc-4.9-arm-frc-linux-gnueabi, ${misc:Depends}
+Recommends: libc6-dev-frc-armel-cross
+Suggests: make, manpages-dev, autoconf, automake1.9, libtool, flex, bison, gdb-arm-frc-linux-gnueabi, gcc-doc
+Description: The GNU C compiler for frc-armel architecture
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This is a dependency package providing the default GNU C cross-compiler for
+ frc-armel architecture.

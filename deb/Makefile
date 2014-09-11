@@ -43,6 +43,12 @@ gcc:
 	cp debians/gcc gcc-$(V_GCC)/debian -r
 	cd gcc-$(V_GCC) && debuild $(DEBUILD_FLAGS)
 	
+gcc-defaults:
+	rm -rf gcc-defaults-frc-armel-cross*
+	mkdir gcc-defaults-frc-armel-cross-${V_GCC_DEFAULTS}
+	cp debians/gcc-versions gcc-defaults-frc-armel-cross-${V_GCC_DEFAULTS}/debian -r
+	cd gcc-defaults-frc-armel-cross-${V_GCC_DEFAULTS} && debuild $(DEBUILD_FLAGS)
+	
 gdb:
 	cp ../gdb-$(V_GDB).tar.gz gdb-armel-cross_$(V_GDB).orig.tar.gz
 	tar xf  gdb-armel-cross_$(V_GDB).orig.tar.gz
