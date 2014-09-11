@@ -37,10 +37,11 @@ binutils:
 	cd binutils-$(V_BINUTILS) && debuild $(DEBUILD_FLAGS)
 
 gcc:
-	cp ../gcc-$(V_GCC).tar.bz2 gcc-armel_$(V_GCC).orig.tar.bz2 
-	tar xf gcc-armel_$(V_GCC).orig.tar.bz2
+	rm -rf gcc-*
+	cp ../gcc-$(V_GCC).tar.bz2 gcc-frc-armel-cross_$(V_GCC).orig.tar.bz2 
+	tar xf gcc-frc-armel-cross_$(V_GCC).orig.tar.bz2
 	cp debians/gcc gcc-$(V_GCC)/debian -r
-	cd gcc-$(V_GCC) && debuild -us -uc
+	cd gcc-$(V_GCC) && debuild $(DEBUILD_FLAGS)
 	
 gdb:
 	cp ../gdb-$(V_GDB).tar.gz gdb-armel-cross_$(V_GDB).orig.tar.gz

@@ -1,0 +1,2 @@
+libgcc1-frc-armel-cross: non-standard-dir-in-usr usr/arm-frc-linux-gnueabi/
+libgcc1-frc-armel-cross: arch-independent-package-contains-binary-or-object

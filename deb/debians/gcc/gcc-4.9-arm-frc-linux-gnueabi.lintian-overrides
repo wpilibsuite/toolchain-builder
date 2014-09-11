@@ -1,0 +1,3 @@
+gcc-4.9-arm-frc-linux-gnueabi: binary-without-manpage usr/bin/arm-frc-linux-gnueabi-gcc-ar-4.9
+gcc-4.9-arm-frc-linux-gnueabi: binary-without-manpage usr/bin/arm-frc-linux-gnueabi-gcc-nm-4.9
+gcc-4.9-arm-frc-linux-gnueabi: binary-without-manpage usr/bin/arm-frc-linux-gnueabi-gcc-ranlib-4.9

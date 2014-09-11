@@ -38,7 +38,7 @@ export LDFLAGS_FOR_TARGET=-Wl,-Bsymbolic-functions -Wl,-z,relro
 
 override_dh_auto_configure:
 
-	dh_auto_configure -B${GCC_BUILD_DIR}  --  --enable-threads=posix --target=arm-linux-gnueabi --with-arch=armv7-a --with-cpu=cortex-a9 --with-float=softfp --with-fpu=vfp --with-specs='%{save-temps: -fverbose-asm} %{funwind-tables|fno-unwind-tables|mabi=*|ffreestanding|nostdlib:;:-funwind-tables}' --enable-languages=c,c++ --enable-shared --enable-lto --disable-nls --with-pkgversion='GCC for FRC' --with-cloog --disable-multilib --disable-multiarch --prefix=/usr --with-sysroot=/usr/arm-frc-linux-gnueabi --enable-poison-system-directories --enable-plugin --with-system-zlib --disable-libmudflap --with-build-sysroot=/usr/arm-frc-linux-gnueabi --program-suffix=-4.9 --program-prefix=arm-linux-gnueabi-
+	dh_auto_configure -B${GCC_BUILD_DIR}  --  --enable-threads=posix --target=arm-frc-linux-gnueabi --with-arch=armv7-a --with-cpu=cortex-a9 --with-float=softfp --with-fpu=vfp --with-specs='%{save-temps: -fverbose-asm} %{funwind-tables|fno-unwind-tables|mabi=*|ffreestanding|nostdlib:;:-funwind-tables}' --enable-languages=c,c++ --enable-shared --enable-lto --disable-nls --with-pkgversion='GCC for FRC' --with-cloog --disable-multilib --disable-multiarch --prefix=/usr --with-sysroot=/usr/arm-frc-linux-gnueabi --enable-poison-system-directories --enable-plugin --with-system-zlib --disable-libmudflap --with-build-sysroot=/usr/arm-frc-linux-gnueabi --program-suffix=-4.9 --program-prefix=arm-frc-linux-gnueabi-
 
 override_dh_shlibdeps:
 	LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/arm-frc-linux-gnueabi/lib dh_shlibdeps --  --ignore-missing-info
@@ -46,31 +46,31 @@ override_dh_shlibdeps:
 	rm -rf debian/*post*
 	
 override_dh_auto_build:
-	mkdir -p ${GCC_BUILD_DIR}/arm-linux-gnueabi/libatomic/.deps
+	mkdir -p ${GCC_BUILD_DIR}/arm-frc-linux-gnueabi/libatomic/.deps
 	dh_auto_build -B${GCC_BUILD_DIR}  -- -j3
 
 override_dh_auto_install:
 	cd ${GCC_BUILD_DIR} && make -j1 install DESTDIR=${SRC_DIR}/debian/tmp AM_UPDATE_INFO_DIR=no
 	sed -i "/dependency_libs/ s/'.*'/''/" `find . -name '*.la'`
-	mkdir -p ${SRC_DIR}/debian/gcc-4.9-arm-linux-gnueabi-base/usr/lib/${DEB_BUILD_MULTIARCH}/gcc/arm-linux-gnueabi/4.9/
-	cd ${SRC_DIR}/debian/gcc-4.9-arm-linux-gnueabi-base/usr/lib/${DEB_BUILD_MULTIARCH}/gcc/arm-linux-gnueabi/ && ln -s 4.9/ 4.9.1
-	sed s/DEB_BUILD_GNU_TYPE/${DEB_BUILD_MULTIARCH}/ < debian/libgcc-4.9-dev-armel-cross.install.in > debian/libgcc-4.9-dev-armel-cross.install
-	sed s/DEB_BUILD_GNU_TYPE/${DEB_BUILD_MULTIARCH}/ < debian/gcc-4.9-arm-linux-gnueabi.install.in > debian/gcc-4.9-arm-linux-gnueabi.install
-	sed s/DEB_BUILD_GNU_TYPE/${DEB_BUILD_MULTIARCH}/ < debian/g++-4.9-arm-linux-gnueabi.install.in > debian/g++-4.9-arm-linux-gnueabi.install
-	sed s/DEB_BUILD_GNU_TYPE/${DEB_BUILD_MULTIARCH}/ < debian/cpp-4.9-arm-linux-gnueabi.install.in > debian/cpp-4.9-arm-linux-gnueabi.install
+	mkdir -p ${SRC_DIR}/debian/gcc-4.9-arm-frc-linux-gnueabi-base/usr/lib/${DEB_BUILD_MULTIARCH}/gcc/arm-frc-linux-gnueabi/4.9/
+	cd ${SRC_DIR}/debian/gcc-4.9-arm-frc-linux-gnueabi-base/usr/lib/${DEB_BUILD_MULTIARCH}/gcc/arm-frc-linux-gnueabi/ && ln -s 4.9/ 4.9.1
+	sed s/DEB_BUILD_GNU_TYPE/${DEB_BUILD_MULTIARCH}/ < debian/libgcc-4.9-dev-frc-armel-cross.install.in > debian/libgcc-4.9-dev-frc-armel-cross.install
+	sed s/DEB_BUILD_GNU_TYPE/${DEB_BUILD_MULTIARCH}/ < debian/gcc-4.9-arm-frc-linux-gnueabi.install.in > debian/gcc-4.9-arm-frc-linux-gnueabi.install
+	sed s/DEB_BUILD_GNU_TYPE/${DEB_BUILD_MULTIARCH}/ < debian/g++-4.9-arm-frc-linux-gnueabi.install.in > debian/g++-4.9-arm-frc-linux-gnueabi.install
+	sed s/DEB_BUILD_GNU_TYPE/${DEB_BUILD_MULTIARCH}/ < debian/cpp-4.9-arm-frc-linux-gnueabi.install.in > debian/cpp-4.9-arm-frc-linux-gnueabi.install
 
 	
 override_dh_strip:
-	DEB_HOST_GNU_TYPE=arm-linux-gnueabi dh_strip -O-B${GCC_BUILD_DIR} -X liblto_plugin.so.0.0.0 -X cc1 -X lto -X collect2 -X arm-linux-gnueabi- -X fixincl -X gengtype
-	dh_strip -O-B${GCC_BUILD_DIR} -X usr/arm-linux-gnueabi/lib -X libgcov.a -X libgcc.a -X libgcc_eh.a
-	[ -d debian/libgcc1-armel-cross ] && arm-linux-gnueabi-strip --remove-section=.comment --remove-section=.note --strip-unneeded debian/libgcc1-armel-cross/usr/arm-linux-gnueabi/lib/lib*.so.* || true
+	DEB_HOST_GNU_TYPE=arm-frc-linux-gnueabi dh_strip -O-B${GCC_BUILD_DIR} -X liblto_plugin.so.0.0.0 -X cc1 -X lto -X collect2 -X arm-frc-linux-gnueabi- -X fixincl -X gengtype
+	dh_strip -O-B${GCC_BUILD_DIR} -X usr/arm-frc-linux-gnueabi/lib -X libgcov.a -X libgcc.a -X libgcc_eh.a
+	[ -d debian/libgcc1-frc-armel-cross ] && arm-frc-linux-gnueabi-strip --remove-section=.comment --remove-section=.note --strip-unneeded debian/libgcc1-frc-armel-cross/usr/arm-frc-linux-gnueabi/lib/lib*.so.* || true
 	rm -rf ${SRC_DIR}/debian/*/usr/share/man/man7
 	rm -rf ${SRC_DIR}/debian/*/usr/share/info
 	# this should probbably go into a better override
-	echo 'binutils:Version=2.24' >> debian/gcc-4.9-arm-linux-gnueabi.substvars
-	echo 'gcc:SoftVersion=4.9' >> debian/gcc-4.9-arm-linux-gnueabi.substvars
-	echo 'gcc:SoftVersion=4.9' >> debian/g++-4.9-arm-linux-gnueabi.substvars
-	echo 'gcc:SoftVersion=4.9' >> debian/cpp-4.9-arm-linux-gnueabi.substvars
+	echo 'binutils:Version=2.24' >> debian/gcc-4.9-arm-frc-linux-gnueabi.substvars
+	echo 'gcc:SoftVersion=4.9' >> debian/gcc-4.9-arm-frc-linux-gnueabi.substvars
+	echo 'gcc:SoftVersion=4.9' >> debian/g++-4.9-arm-frc-linux-gnueabi.substvars
+	echo 'gcc:SoftVersion=4.9' >> debian/cpp-4.9-arm-frc-linux-gnueabi.substvars
 
 	
 override_dh_auto_test:

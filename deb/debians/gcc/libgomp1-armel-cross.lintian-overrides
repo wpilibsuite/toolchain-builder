@@ -1,3 +1,0 @@
-libgomp1-armel-cross: arch-independent-package-contains-binary-or-object usr/arm-linux-gnueabi/lib/libgomp.so.1.0.0
-libgomp1-armel-cross: missing-dependency-on-libc needed by usr/arm-linux-gnueabi/lib/libgomp.so.1.0.0
-libgomp1-armel-cross: non-standard-dir-in-usr usr/arm-linux-gnueabi/

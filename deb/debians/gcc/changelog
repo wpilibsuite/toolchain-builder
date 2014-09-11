@@ -1,3 +1,9 @@
+gcc-frc-armel-cross (4.9.1-0build0) trusty; urgency=low
+
+  * prefixing frc
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Thu, 11 Sep 2014 12:20:04 -0400
+
 gcc-armel (4.9.1-0frc6test1) trusty; urgency=low
 
   * removing manual target strippers as they keep failing repeatedly
