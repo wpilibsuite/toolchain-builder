@@ -35,6 +35,6 @@ ARGV.each do |ipk|
 	`cd #{ipk}_deb/debian/#{pkg}/usr/arm-frc-linux-gnueabi/ && ar x #{File.absolute_path(ipk)} && tar xf data.tar.gz`
 	`cd #{ipk}_deb/debian/#{pkg}/usr/arm-frc-linux-gnueabi/ && rm control.tar.gz data.tar.gz debian-binary`
 	`cd #{ipk}_deb/ && bash -c "DEBEMAIL='#{DEBEMAIL}' DEBFULLNAME='#{DEBFULLNAME}' dch -v '#{field(ipk, "Version").strip}' 'Creating Package via frc-convert-deb.rb. This is an automated import from NI ipkg files.' --create -D UNRELEASED --package '#{pkg}'"`
-	`cd #{ipk}_deb/ && fakeroot -- bash -c 'dh_compress && dh_fixperms && dh_gencontrol && dh_md5sums && dh_builddeb'`
+	`cd #{ipk}_deb/ && fakeroot -- bash -c 'dh_installchangelogs && dh_compress && dh_fixperms && dh_gencontrol && dh_md5sums && dh_builddeb'`
 
 end
