@@ -16,7 +16,7 @@ binutils:
 	
 expat-install: expat
 expat:
-	tar xf expat-$(Vw_EXPAT).tar.gz
+	tar xf ../expat-$(Vw_EXPAT).tar.gz
 	Vw_EXPAT=$(Vw_EXPAT) makes/expat
 	
 gdb: expat-install

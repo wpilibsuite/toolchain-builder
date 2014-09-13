@@ -3,7 +3,7 @@
 mkdir gdb-build
 mkdir gdb-install
 cd gdb-build
-../gdb-${V_GDB}/configure --host=i686-w64-mingw32 --prefix=/c/frc --target=arm-linux-gnueabi --with-sysroot=/c/frc --enable-plugins --disable-nls --with-pkgversion='GDB for FRC' --disable-nls --with-expat=../expat-install/usr/lib
+../gdb-${V_GDB}/configure --host=i686-w64-mingw32 --prefix=/c/frc --target=arm-frc-linux-gnueabi --with-sysroot=/c/frc --enable-plugins --disable-nls --with-pkgversion='GDB for FRC' --disable-nls --with-expat=../expat-install/usr/lib
 make -j4
 DESTDIR=$PWD/../gdb-install make install
 cd ../gdb-install
