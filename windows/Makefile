@@ -1,15 +1,14 @@
-V_BINUTILS=2.24
-V_GCC=4.9.1
-V_SYSROOT=1.0
-V_GDB=7.8
+include ../versions.sh
 
 all: sysroot binutils gcc gdb tree msi
 	
 
 sysroot:
-	tar xf ../roborio-sysroot_$(V_SYSROOT).orig.tar.gz
-	mv sysroot sysroot-$(V_SYSROOT)
-	V_SYSROOT=$(V_SYSROOT) makes/sysroot
+	rm -rf sysroot-*
+	mkdir sysroot-libc-linux
+	cd sysroot-libc-linux && tar xf ../../libc6-frc-armel-cross_$(Va_LIBC).orig.tar.bz2
+	cd sysroot-libc-linux && tar xf ../../linux-libc-dev-frc-armel-cross_$(Va_LINUX).orig.tar.bz2
+	makes/sysroot
 
 binutils:
 	tar xf ../binutils-$(V_BINUTILS).tar.bz2

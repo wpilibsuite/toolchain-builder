@@ -25,6 +25,7 @@ class Pkg
 	end
 	def download
 		list = download_name
+		p list
 		list.delete_if{|x|$base_img.include? x[0]}
 		list.each do |x|
 			## popen would be nice....
