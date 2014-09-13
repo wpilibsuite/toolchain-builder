@@ -139,8 +139,8 @@ diff -rupN ./c/frc/include/linux/netfilter/xt_TCPMSS.h ../rem/usr/include/linux/
 diff -rupN ./c/frc/include/linux/netfilter_ipv4/ipt_ecn.h ../rem/usr/include/linux/netfilter_ipv4/ipt_ecn.h
 --- ./c/frc/include/linux/netfilter_ipv4/ipt_ecn.h	2014-08-30 18:25:41.118580741 -0400
 +++ ../rem/usr/include/linux/netfilter_ipv4/ipt_ecn.h	2014-06-06 22:53:41.000000000 -0400
-@@ -32,4 +32,23 @@ struct ipt_ecn_info {
- 	} proto;
+@@ -12,4 +12,23 @@ enum {
+ 	IPT_ECN_OP_MATCH_MASK = XT_ECN_OP_MATCH_MASK,
  };
  
 +#define IPT_ECN_IP_MASK	(~XT_DSCP_MASK)
@@ -162,7 +162,7 @@ diff -rupN ./c/frc/include/linux/netfilter_ipv4/ipt_ecn.h ../rem/usr/include/lin
 +};
 +
 +
- #endif /* _IPT_ECN_H */
+ #endif /* IPT_ECN_H */
 diff -rupN ./c/frc/include/linux/netfilter_ipv4/ipt_ECN.h ../rem/usr/include/linux/netfilter_ipv4/ipt_ECN.h
 --- ./c/frc/include/linux/netfilter_ipv4/ipt_ECN.h	2014-08-30 18:25:41.118580741 -0400
 +++ ../rem/usr/include/linux/netfilter_ipv4/ipt_ECN.h	1969-12-31 19:00:00.000000000 -0500

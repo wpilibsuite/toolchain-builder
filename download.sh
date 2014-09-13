@@ -13,6 +13,9 @@ wget -nc https://ftp.gnu.org/gnu/gmp/gmp-${V_GMP}.tar.bz2
 wget -nc http://www.bastoul.net/cloog/pages/download/cloog-${V_CLOOG}.tar.gz
 wget -nc http://isl.gforge.inria.fr/isl-${V_ISL}.tar.bz2
 wget -nc https://ftp.gnu.org/gnu/gdb/gdb-${V_GDB}.tar.gz
+pushd windows
+wget -nc http://superb-dca3.dl.sourceforge.net/project/expat/expat/2.1.0/expat-2.1.0.tar.gz
+popd
 wget -nc http://download.ni.com/ni-linux-rt/feeds/2014/arm/armv7a-vfp-neon/libc6_${Va_LIBC}_armv7a-vfp-neon.ipk
 wget -nc http://download.ni.com/ni-linux-rt/feeds/2014/arm/armv7a-vfp-neon/libc6-dev_${Va_LIBC}_armv7a-vfp-neon.ipk
 wget -nc http://download.ni.com/ni-linux-rt/feeds/2014/arm/armv7a-vfp-neon/linux-libc-headers-dev_${Va_LINUX}_armv7a-vfp-neon.ipk
