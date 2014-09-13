@@ -5,7 +5,7 @@ mkdir expat-install
 cd expat-build
 ../expat-${Vw_EXPAT}/configure --host=i686-w64-mingw32
 make
-INSTALL_ROOT=$PWD/../gdb-install make install
-cd ../gdb-install
+INSTALL_ROOT=$PWD/../expat-install make install
+cd ../expat-install
 i686-w64-mingw32-strip --remove-section=.comment --remove-section=.note --strip-unneeded **/*.dll
 
