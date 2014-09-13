@@ -39,6 +39,11 @@ mv mpfr-${V_MPFR} gcc-${V_GCC}/mpfr
 mv mpc-${V_MPC} gcc-${V_GCC}/mpc
 mv gmp-${V_GMPf} gcc-${V_GCC}/gmp
 
+pushd gcc-${V_GCC}
+# apply the debian so patch
+patch -p1 < ../../deb/debians/gcc/patches/minorSOname
+popd
+
 mkdir gcc-build
 mkdir gcc-install
 cd gcc-build
@@ -47,5 +52,3 @@ make -j3 || exit $?
 DESTDIR=$PWD/../gcc-install make install
 
 cd ../gcc-install
-
-
