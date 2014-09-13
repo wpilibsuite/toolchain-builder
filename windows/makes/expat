@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+mkdir expat-build
+mkdir expat-install
+cd expat-build
+../expat-${Vw_EXPAT}/configure --host=i686-w64-mingw32
+make
+INSTALL_ROOT=$PWD/../gdb-install make install
+cd ../gdb-install
+sync
+du -hs .
+i686-w64-mingw32-strip --remove-section=.comment --remove-section=.note --strip-unneeded **/*.exe
+i686-w64-mingw32-strip --remove-section=.comment --remove-section=.note --strip-unneeded **/*.dll
+sync
+du -hs .

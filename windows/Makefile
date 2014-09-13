@@ -1,6 +1,6 @@
 include ../versions.sh
 
-all: sysroot binutils gcc gdb tree msi
+all: clean sysroot binutils gcc gdb tree msi
 	
 
 sysroot:
@@ -14,7 +14,12 @@ binutils:
 	tar xf ../binutils-$(V_BINUTILS).tar.bz2
 	V_BINUTILS=$(V_BINUTILS) makes/binutils
 	
-gdb:
+expat-install: expat
+expat:
+	tar xf expat-$(Vw_EXPAT).tar.gz
+	Vw_EXPAT=$(Vw_EXPAT) makes/expat
+	
+gdb: expat-install
 	tar xf ../gdb-$(V_GDB).tar.gz
 	V_GDB=$(V_GDB) makes/gdb
 
@@ -29,5 +34,5 @@ msi:
 	makes/msi
 
 clean:
-	rm -rf binutils* roborio* sysroot* gcc* tree-install msi-build
+	rm -rf binutils* roborio* sysroot* gcc* tree-install msi-build expat* gdb*
 
