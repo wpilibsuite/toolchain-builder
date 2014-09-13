@@ -11,7 +11,10 @@ export DH_OPTIONS
 	dh $@  --with autotools-dev
 	
 override_dh_auto_configure:
-	dh_auto_configure -- --target=arm-frc-linux-gnueabi --prefix=/usr --with-pkgversion='GDB for FRC' --disable-nls --with-libexpat --with-python=no --with-system-gdbinit=/usr/share/arm-frc-linux-gnueabi-gdbinit --with-gdb-datadir=/usr/share/gdb-arm-frc-linux-gnueabi --with-sysroot=/usr/arm-frc-linux-gnueabi/
+	dh_auto_configure -- --target=arm-frc-linux-gnueabi --prefix=/usr --with-pkgversion='GDB for FRC' --disable-nls --with-libexpat --datadir=/usr/share/frc --with-system-gdbinit=/usr/share/frc/gdb/gdbinit --with-sysroot=/usr/arm-frc-linux-gnueabi/ --enable-lto
+
+override_dh_auto_build:
+	dh_auto_build -- -j3
 
 override_dh_installinfo:
 	rm -rf debian/gdb-arm-frc-linux-gnueabi/usr/share/info
@@ -19,6 +22,8 @@ override_dh_installinfo:
 	rm -rf debian/gdb-arm-frc-linux-gnueabi/usr/include
 	# this is probbably not the right dh for this, but it works as its after install
 	chrpath -d debian/gdb-arm-frc-linux-gnueabi/usr/bin/arm-frc-linux-gnueabi-gdb
+	mkdir -p debian/gdb-arm-frc-linux-gnueabi/usr/share/frc/gdb/
+	cp debian/gdbinit debian/gdb-arm-frc-linux-gnueabi/usr/share/frc/gdb/gdbinit
 
 override_dh_auto_test:
 

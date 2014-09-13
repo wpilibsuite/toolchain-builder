@@ -1,3 +1,9 @@
+gdb-frc-armel-cross (7.8-1frc2) trusty; urgency=low
+
+  * Re-enabling python and fixing system paths
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Fri, 12 Sep 2014 21:53:19 -0400
+
 gdb-frc-armel-cross (7.8-1) trusty; urgency=low
 
   * Initial release
