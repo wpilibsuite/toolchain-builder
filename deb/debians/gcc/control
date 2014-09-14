@@ -2,7 +2,7 @@ Source: gcc-frc-armel-cross
 Section: contrib/devel
 Priority: extra
 Maintainer: Patrick Plenefisch <phplenefisch@wpi.edu>
-Build-Depends: debhelper (>= 9.0.0), autotools-dev, libmpfr-dev (>= 3.1.2), libgmp-dev (>= 2:5.1.2), libmpc-dev (>= 1.0.1), libcloog-isl-dev (>= 0.18.1), flex, texinfo, zlib1g-dev, bison, binutils-arm-frc-linux-gnueabi (>= 2.24), libc6-dev-frc-armel-cross (>= 2.17-r4-0)
+Build-Depends: debhelper (>= 9.0.0), autotools-dev, libmpfr-dev (>= 3.1.0), libgmp-dev (>= 2:5.0.5), libmpc-dev (>= 0.9), libcloog-isl-dev (>= 0.17.0), flex, texinfo, zlib1g-dev, bison, binutils-arm-frc-linux-gnueabi (>= 2.24), libc6-dev-frc-armel-cross (>= 2.17-r4-0)
 Standards-Version: 3.9.4
 Homepage: http://gcc.gnu.org/
 
