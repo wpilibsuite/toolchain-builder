@@ -2,6 +2,13 @@
 source versions.sh
 THIS_DIR="$PWD"
 
+if [[ `gcc -dumpmachine` == *apple* ]]
+then
+	echo "Aliasing ar and tar to use GNU variants gar and gtar..."
+	alias ar=gar
+	alias tar=gtar
+fi
+
 # clean up old files
 rm -rf repack
 

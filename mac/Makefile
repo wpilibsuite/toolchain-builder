@@ -1,5 +1,7 @@
 include ../versions.sh
 
+export PATH:="${PATH}:${PWD}/gcc-install/usr/bin:${PWD}/binutils-install/usr/bin"
+
 all: clean sysroot binutils gcc gdb tree pkg
 	
 
@@ -13,6 +15,7 @@ sysroot:
 binutils:
 	tar xf ../binutils-$(V_BINUTILS).tar.bz2
 	V_BINUTILS=$(V_BINUTILS) makes/binutils
+	echo 'export PATH=$$PATH:${PWD}/binutils-install/usr/bin'
 	
 gdb:
 	tar xf ../gdb-$(V_GDB).tar.gz
@@ -21,6 +24,7 @@ gdb:
 gcc:
 	@# gcc does its own extraction
 	makes/gcc
+	echo "export PATH=$$PATH:${PWD}/gcc-install/usr/bin"
 	
 tree:
 	V_GCC=$(V_GCC) makes/tree

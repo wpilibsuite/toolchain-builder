@@ -7,4 +7,5 @@ cd gdb-build
 make|| exit $?
 DESTDIR=$PWD/../gdb-install make install|| exit $?
 cd ../gdb-install
+cp ../../deb/debians/gdb/gdbinit usr/share/frc/gdb/gdbinit
 
