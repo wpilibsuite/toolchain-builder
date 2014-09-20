@@ -8,17 +8,9 @@ cp -r sysroot-install/ tree-install/
 cp -r gdb-install/ tree-install/
 cd tree-install/
 du -hs .
-exit
-exit
-exit
-exit
-exit
-#####################################
-## TODO: Figure out Mac Stripping ###
-#####################################
-exit
-exit
-exit
+echo "#####################################"
+echo "## TODO: Figure out Mac Stripping ###"
+echo "#####################################"
 exit
 pushd lib/gcc/arm-linux-gnueabi/${V_GCC}
 arm-linux-gnueabi-strip --strip-debug libgcc.a libgcc_eh.a libgcov.a 

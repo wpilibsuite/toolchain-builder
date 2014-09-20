@@ -1,7 +1,13 @@
 #!/bin/zsh
+source ../versions.sh
+
 
 mkdir -p sysroot-install/usr/arm-frc-linux-gnueabi
-# remove symlinks
-rsync sysroot-${V_SYSROOT}/usr sysroot-install/usr/arm-frc-linux-gnueabi -a --copy-links
-rsync sysroot-${V_SYSROOT}/lib sysroot-install/usr/arm-frc-linux-gnueabi/ -a --copy-links
+mkdir -p sysroot-libc-linux/{usr,lib}
+cp sysroot-libc-linux/linux-libc-${Va_LINUX}/usr/* sysroot-libc-linux/usr/ -r
+cp sysroot-libc-linux/libc6-${Va_LIBC}/libc6-dev/usr/* sysroot-libc-linux/usr/ -r
+cp sysroot-libc-linux/libc6-${Va_LIBC}/libc6-dev/lib/* sysroot-libc-linux/lib/ -r
+cp sysroot-libc-linux/libc6-${Va_LIBC}/libc6/lib/* sysroot-libc-linux/lib/ -r
+cp sysroot-libc-linux/usr sysroot-install/usr/arm-frc-linux-gnueabi/
+cp sysroot-libc-linux/lib sysroot-install/usr/arm-frc-linux-gnueabi/
 

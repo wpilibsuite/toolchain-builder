@@ -52,3 +52,4 @@ make -j3 || exit $?
 DESTDIR=$PWD/../gcc-install make install
 
 cd ../gcc-install
+
