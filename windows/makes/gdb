@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+mkdir gdb-build
+mkdir gdb-install
+cd gdb-build
+../gdb-${V_GDB}/configure --host=i686-w64-mingw32 --prefix=/c/frc --target=arm-frc-linux-gnueabi --with-sysroot=/c/frc --enable-plugins --disable-nls --with-pkgversion='GDB for FRC' --disable-nls --with-expat --with-libexpat-prefix=$PWD/../expat-install/usr/local/
+# --with-python=$PWD/../makes/python-config-gdb
+make -j4
+DESTDIR=$PWD/../gdb-install make install
+cd ../gdb-install
+i686-w64-mingw32-strip --remove-section=.comment --remove-section=.note --strip-unneeded **/*.exe

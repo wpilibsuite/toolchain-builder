@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+mkdir gdb-build
+mkdir gdb-install
+cd gdb-build
+../gdb-${V_GDB}/configure --target=arm-frc-linux-gnueabi --prefix=/usr --with-pkgversion='GDB for FRC' --disable-nls --with-libexpat --datadir=/usr/share/frc --with-system-gdbinit=/usr/share/frc/gdb/gdbinit --with-sysroot=/usr/arm-frc-linux-gnueabi/ --enable-lto|| exit $?
+make|| exit $?
+DESTDIR=$PWD/../gdb-install make install|| exit $?
+cd ../gdb-install
+cp ../../deb/debians/gdb/gdbinit usr/share/frc/gdb/gdbinit
+

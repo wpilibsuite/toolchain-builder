@@ -1,0 +1,14 @@
+#!/bin/zsh
+source ../versions.sh
+
+
+mkdir -p sysroot-install/c/frc
+mkdir -p sysroot-libc-linux/{usr,lib}
+# remove symlinks
+cp sysroot-libc-linux/linux-libc-${Va_LINUX}/usr/* sysroot-libc-linux/usr/ -r
+cp sysroot-libc-linux/libc6-${Va_LIBC}/libc6-dev/usr/* sysroot-libc-linux/usr/ -r
+cp sysroot-libc-linux/libc6-${Va_LIBC}/libc6-dev/lib/* sysroot-libc-linux/lib/ -r
+cp sysroot-libc-linux/libc6-${Va_LIBC}/libc6/lib/* sysroot-libc-linux/lib/ -r
+rsync sysroot-libc-linux/usr sysroot-install/c/frc -a --copy-links
+rsync sysroot-libc-linux/lib sysroot-install/c/frc -a --copy-links
+

@@ -1,0 +1,13 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+%:
+	dh $@ 
+	
+override_dh_auto_build:
+	xsltproc --nonet --param make.year.ranges 1 --param make.single.year.ranges 1 --param man.charmap.use.subset 0 -o debian/ /usr/share/xml/docbook/stylesheet/docbook-xsl/manpages/docbook.xsl debian/frcmake.1.xml debian/frc-cmake-toolchain.1.xml
+	dh_auto_build $@
+

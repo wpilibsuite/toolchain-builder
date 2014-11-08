@@ -1,0 +1,301 @@
+diff -rupN ./c/frc/include/linux/netfilter/xt_CONNMARK.h ../rem/usr/include/linux/netfilter/xt_CONNMARK.h
+--- ./c/frc/include/linux/netfilter/xt_CONNMARK.h	2014-08-30 18:25:41.038581610 -0400
++++ ../rem/usr/include/linux/netfilter/xt_CONNMARK.h	1969-12-31 19:00:00.000000000 -0500
+@@ -1,6 +0,0 @@
+-#ifndef _XT_CONNMARK_H_target
+-#define _XT_CONNMARK_H_target
+-
+-#include <linux/netfilter/xt_connmark.h>
+-
+-#endif /*_XT_CONNMARK_H_target*/
+diff -rupN ./c/frc/include/linux/netfilter/xt_dscp.h ../rem/usr/include/linux/netfilter/xt_dscp.h
+--- ./c/frc/include/linux/netfilter/xt_dscp.h	2014-08-30 18:25:41.058581393 -0400
++++ ../rem/usr/include/linux/netfilter/xt_dscp.h	2014-06-06 22:51:17.000000000 -0400
+@@ -28,4 +28,18 @@ struct xt_tos_match_info {
+ 	__u8 invert;
+ };
+ 
++#include <linux/netfilter/xt_dscp.h>
++#include <linux/types.h>
++
++/* target info */
++struct xt_DSCP_info {
++	__u8 dscp;
++};
++
++struct xt_tos_target_info {
++	__u8 tos_value;
++	__u8 tos_mask;
++};
++
++
+ #endif /* _XT_DSCP_H */
+diff -rupN ./c/frc/include/linux/netfilter/xt_DSCP.h ../rem/usr/include/linux/netfilter/xt_DSCP.h
+--- ./c/frc/include/linux/netfilter/xt_DSCP.h	2014-08-30 18:25:41.038581610 -0400
++++ ../rem/usr/include/linux/netfilter/xt_DSCP.h	1969-12-31 19:00:00.000000000 -0500
+@@ -1,26 +0,0 @@
+-/* x_tables module for setting the IPv4/IPv6 DSCP field
+- *
+- * (C) 2002 Harald Welte <laforge@gnumonks.org>
+- * based on ipt_FTOS.c (C) 2000 by Matthew G. Marsh <mgm@paktronix.com>
+- * This software is distributed under GNU GPL v2, 1991
+- *
+- * See RFC2474 for a description of the DSCP field within the IP Header.
+- *
+- * xt_DSCP.h,v 1.7 2002/03/14 12:03:13 laforge Exp
+-*/
+-#ifndef _XT_DSCP_TARGET_H
+-#define _XT_DSCP_TARGET_H
+-#include <linux/netfilter/xt_dscp.h>
+-#include <linux/types.h>
+-
+-/* target info */
+-struct xt_DSCP_info {
+-	__u8 dscp;
+-};
+-
+-struct xt_tos_target_info {
+-	__u8 tos_value;
+-	__u8 tos_mask;
+-};
+-
+-#endif /* _XT_DSCP_TARGET_H */
+diff -rupN ./c/frc/include/linux/netfilter/xt_MARK.h ../rem/usr/include/linux/netfilter/xt_MARK.h
+--- ./c/frc/include/linux/netfilter/xt_MARK.h	2014-08-30 18:25:41.038581610 -0400
++++ ../rem/usr/include/linux/netfilter/xt_MARK.h	1969-12-31 19:00:00.000000000 -0500
+@@ -1,6 +0,0 @@
+-#ifndef _XT_MARK_H_target
+-#define _XT_MARK_H_target
+-
+-#include <linux/netfilter/xt_mark.h>
+-
+-#endif /*_XT_MARK_H_target */
+diff -rupN ./c/frc/include/linux/netfilter/xt_rateest.h ../rem/usr/include/linux/netfilter/xt_rateest.h
+--- ./c/frc/include/linux/netfilter/xt_rateest.h	2014-08-30 18:25:41.094581002 -0400
++++ ../rem/usr/include/linux/netfilter/xt_rateest.h	2014-06-06 22:49:54.000000000 -0400
+@@ -34,4 +34,13 @@ struct xt_rateest_match_info {
+ 	struct xt_rateest	*est2 __attribute__((aligned(8)));
+ };
+ 
++struct xt_rateest_target_info {
++	char			name[IFNAMSIZ];
++	__s8			interval;
++	__u8		ewma_log;
++
++	/* Used internally by the kernel */
++	struct xt_rateest	*est __attribute__((aligned(8)));
++};
++
+ #endif /* _XT_RATEEST_MATCH_H */
+diff -rupN ./c/frc/include/linux/netfilter/xt_RATEEST.h ../rem/usr/include/linux/netfilter/xt_RATEEST.h
+--- ./c/frc/include/linux/netfilter/xt_RATEEST.h	2014-08-30 18:25:41.038581610 -0400
++++ ../rem/usr/include/linux/netfilter/xt_RATEEST.h	1969-12-31 19:00:00.000000000 -0500
+@@ -1,15 +0,0 @@
+-#ifndef _XT_RATEEST_TARGET_H
+-#define _XT_RATEEST_TARGET_H
+-
+-#include <linux/types.h>
+-
+-struct xt_rateest_target_info {
+-	char			name[IFNAMSIZ];
+-	__s8			interval;
+-	__u8		ewma_log;
+-
+-	/* Used internally by the kernel */
+-	struct xt_rateest	*est __attribute__((aligned(8)));
+-};
+-
+-#endif /* _XT_RATEEST_TARGET_H */
+diff -rupN ./c/frc/include/linux/netfilter/xt_tcpmss.h ../rem/usr/include/linux/netfilter/xt_tcpmss.h
+--- ./c/frc/include/linux/netfilter/xt_tcpmss.h	2014-08-30 21:22:08.782448315 -0400
++++ ../rem/usr/include/linux/netfilter/xt_tcpmss.h	2014-06-06 22:50:51.000000000 -0400
+@@ -8,4 +8,10 @@ struct xt_tcpmss_match_info {
+     __u8 invert;
+ };
+ 
++struct xt_tcpmss_info {
++	__u16 mss;
++};
++
++#define XT_TCPMSS_CLAMP_PMTU 0xffff
++
+ #endif /*_XT_TCPMSS_MATCH_H*/
+diff -rupN ./c/frc/include/linux/netfilter/xt_TCPMSS.h ../rem/usr/include/linux/netfilter/xt_TCPMSS.h
+--- ./c/frc/include/linux/netfilter/xt_TCPMSS.h	2014-08-30 18:25:41.038581610 -0400
++++ ../rem/usr/include/linux/netfilter/xt_TCPMSS.h	1969-12-31 19:00:00.000000000 -0500
+@@ -1,12 +0,0 @@
+-#ifndef _XT_TCPMSS_H
+-#define _XT_TCPMSS_H
+-
+-#include <linux/types.h>
+-
+-struct xt_tcpmss_info {
+-	__u16 mss;
+-};
+-
+-#define XT_TCPMSS_CLAMP_PMTU 0xffff
+-
+-#endif /* _XT_TCPMSS_H */
+diff -rupN ./c/frc/include/linux/netfilter_ipv4/ipt_ecn.h ../rem/usr/include/linux/netfilter_ipv4/ipt_ecn.h
+--- ./c/frc/include/linux/netfilter_ipv4/ipt_ecn.h	2014-08-30 18:25:41.118580741 -0400
++++ ../rem/usr/include/linux/netfilter_ipv4/ipt_ecn.h	2014-06-06 22:53:41.000000000 -0400
+@@ -12,4 +12,23 @@ enum {
+ 	IPT_ECN_OP_MATCH_MASK = XT_ECN_OP_MATCH_MASK,
+ };
+ 
++#define IPT_ECN_IP_MASK	(~XT_DSCP_MASK)
++
++#define IPT_ECN_OP_SET_IP	0x01	/* set ECN bits of IPv4 header */
++#define IPT_ECN_OP_SET_ECE	0x10	/* set ECE bit of TCP header */
++#define IPT_ECN_OP_SET_CWR	0x20	/* set CWR bit of TCP header */
++
++#define IPT_ECN_OP_MASK		0xce
++
++struct ipt_ECN_info {
++	__u8 operation;	/* bitset of operations */
++	__u8 ip_ect;	/* ECT codepoint of IPv4 header, pre-shifted */
++	union {
++		struct {
++			__u8 ece:1, cwr:1; /* TCP ECT bits */
++		} tcp;
++	} proto;
++};
++
++
+ #endif /* IPT_ECN_H */
+diff -rupN ./c/frc/include/linux/netfilter_ipv4/ipt_ECN.h ../rem/usr/include/linux/netfilter_ipv4/ipt_ECN.h
+--- ./c/frc/include/linux/netfilter_ipv4/ipt_ECN.h	2014-08-30 18:25:41.118580741 -0400
++++ ../rem/usr/include/linux/netfilter_ipv4/ipt_ECN.h	1969-12-31 19:00:00.000000000 -0500
+@@ -1,33 +0,0 @@
+-/* Header file for iptables ipt_ECN target
+- *
+- * (C) 2002 by Harald Welte <laforge@gnumonks.org>
+- *
+- * This software is distributed under GNU GPL v2, 1991
+- * 
+- * ipt_ECN.h,v 1.3 2002/05/29 12:17:40 laforge Exp
+-*/
+-#ifndef _IPT_ECN_TARGET_H
+-#define _IPT_ECN_TARGET_H
+-
+-#include <linux/types.h>
+-#include <linux/netfilter/xt_DSCP.h>
+-
+-#define IPT_ECN_IP_MASK	(~XT_DSCP_MASK)
+-
+-#define IPT_ECN_OP_SET_IP	0x01	/* set ECN bits of IPv4 header */
+-#define IPT_ECN_OP_SET_ECE	0x10	/* set ECE bit of TCP header */
+-#define IPT_ECN_OP_SET_CWR	0x20	/* set CWR bit of TCP header */
+-
+-#define IPT_ECN_OP_MASK		0xce
+-
+-struct ipt_ECN_info {
+-	__u8 operation;	/* bitset of operations */
+-	__u8 ip_ect;	/* ECT codepoint of IPv4 header, pre-shifted */
+-	union {
+-		struct {
+-			__u8 ece:1, cwr:1; /* TCP ECT bits */
+-		} tcp;
+-	} proto;
+-};
+-
+-#endif /* _IPT_ECN_TARGET_H */
+diff -rupN ./c/frc/include/linux/netfilter_ipv4/ipt_ttl.h ../rem/usr/include/linux/netfilter_ipv4/ipt_ttl.h
+--- ./c/frc/include/linux/netfilter_ipv4/ipt_ttl.h	2014-08-30 18:25:41.118580741 -0400
++++ ../rem/usr/include/linux/netfilter_ipv4/ipt_ttl.h	2014-06-06 22:53:09.000000000 -0400
+@@ -20,4 +20,19 @@ struct ipt_ttl_info {
+ };
+ 
+ 
++enum {
++	IPT_TTL_SET = 0,
++	IPT_TTL_INC,
++	IPT_TTL_DEC
++};
++
++#define IPT_TTL_MAXMODE	IPT_TTL_DEC
++
++struct ipt_TTL_info {
++	__u8	mode;
++	__u8	ttl;
++};
++
++
++
+ #endif
+diff -rupN ./c/frc/include/linux/netfilter_ipv4/ipt_TTL.h ../rem/usr/include/linux/netfilter_ipv4/ipt_TTL.h
+--- ./c/frc/include/linux/netfilter_ipv4/ipt_TTL.h	2014-08-30 18:25:41.118580741 -0400
++++ ../rem/usr/include/linux/netfilter_ipv4/ipt_TTL.h	1969-12-31 19:00:00.000000000 -0500
+@@ -1,23 +0,0 @@
+-/* TTL modification module for IP tables
+- * (C) 2000 by Harald Welte <laforge@netfilter.org> */
+-
+-#ifndef _IPT_TTL_H
+-#define _IPT_TTL_H
+-
+-#include <linux/types.h>
+-
+-enum {
+-	IPT_TTL_SET = 0,
+-	IPT_TTL_INC,
+-	IPT_TTL_DEC
+-};
+-
+-#define IPT_TTL_MAXMODE	IPT_TTL_DEC
+-
+-struct ipt_TTL_info {
+-	__u8	mode;
+-	__u8	ttl;
+-};
+-
+-
+-#endif
+diff -rupN ./c/frc/include/linux/netfilter_ipv6/ip6t_hl.h ../rem/usr/include/linux/netfilter_ipv6/ip6t_hl.h
+--- ./c/frc/include/linux/netfilter_ipv6/ip6t_hl.h	2014-08-30 18:25:41.146580437 -0400
++++ ../rem/usr/include/linux/netfilter_ipv6/ip6t_hl.h	2014-06-06 22:54:27.000000000 -0400
+@@ -21,4 +21,17 @@ struct ip6t_hl_info {
+ };
+ 
+ 
++enum {
++	IP6T_HL_SET = 0,
++	IP6T_HL_INC,
++	IP6T_HL_DEC
++};
++
++#define IP6T_HL_MAXMODE	IP6T_HL_DEC
++
++struct ip6t_HL_info {
++	__u8	mode;
++	__u8	hop_limit;
++};
++
+ #endif
+diff -rupN ./c/frc/include/linux/netfilter_ipv6/ip6t_HL.h ../rem/usr/include/linux/netfilter_ipv6/ip6t_HL.h
+--- ./c/frc/include/linux/netfilter_ipv6/ip6t_HL.h	2014-08-30 18:25:41.146580437 -0400
++++ ../rem/usr/include/linux/netfilter_ipv6/ip6t_HL.h	1969-12-31 19:00:00.000000000 -0500
+@@ -1,24 +0,0 @@
+-/* Hop Limit modification module for ip6tables
+- * Maciej Soltysiak <solt@dns.toxicfilms.tv>
+- * Based on HW's TTL module */
+-
+-#ifndef _IP6T_HL_H
+-#define _IP6T_HL_H
+-
+-#include <linux/types.h>
+-
+-enum {
+-	IP6T_HL_SET = 0,
+-	IP6T_HL_INC,
+-	IP6T_HL_DEC
+-};
+-
+-#define IP6T_HL_MAXMODE	IP6T_HL_DEC
+-
+-struct ip6t_HL_info {
+-	__u8	mode;
+-	__u8	hop_limit;
+-};
+-
+-
+-#endif
