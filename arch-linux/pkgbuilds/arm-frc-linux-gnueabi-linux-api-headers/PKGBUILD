@@ -1,10 +1,9 @@
-# Contributor: Alexander 'hatred' Drozdov <adrozdoff@gmail.com>
-# Maintainer: Erico Nunes <nunes dot erico at gmail>
+# Maintainer: Tyler Veness <calcmogul at gmail dot com>
 
 # toolchain build order: linux-api-headers->glibc->binutils->gcc->binutils->glibc
 
 _target_arch=arm
-_target=${_target_arch}-linux-gnueabi
+_target=${_target_arch}-frc-linux-gnueabi
 pkgname=${_target}-linux-api-headers
 pkgver=3.2.35
 _basever=3.2.35
@@ -31,6 +30,7 @@ package() {
   cd "${srcdir}/linux-stable-rt"
 
   make INSTALL_HDR_PATH="${pkgdir}/usr/${_target}/" ARCH=${_target_arch} V=0 \
+    CROSS_COMPILE=${_target}- \
     headers_install
 
   # clean-up unnecessary files generated during install

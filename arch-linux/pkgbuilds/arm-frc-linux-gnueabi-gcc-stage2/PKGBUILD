@@ -1,7 +1,6 @@
-# Contributor: Alexander 'hatred' Drozdov <adrozdoff@gmail.com>
-# Maintainer: Erico Nunes <nunes dot erico at gmail>
+# Maintainer: Tyler Veness <calcmogul at gmail dot com>
 
-_target="arm-linux-gnueabi"
+_target="arm-frc-linux-gnueabi"
 pkgname=${_target}-gcc-stage2
 pkgver=4.9.1
 pkgrel=1
@@ -21,41 +20,41 @@ md5sums=('fddf71348546af523353bd43d34919c1')
 build() {
   cd "${srcdir}/gcc-${pkgver}"
 
-  export CFLAGS="-O2 -pipe"
-  export CXXFLAGS="-O2 -pipe"
-
   echo ${pkgver} > gcc/BASE-VER
+  #./contrib/download_prerequisites
 
   [[ -d gcc-build ]] || mkdir gcc-build
   cd gcc-build
 
   [ $NOEXTRACT -eq 1 ] || ../configure \
     --prefix=/usr \
-    --program-prefix=${_target}- \
     --target=${_target} \
     --host=$CHOST \
     --build=$CHOST \
+    --disable-shared \
     --disable-nls \
     --enable-languages=c \
-    --enable-multilib \
-    --with-local-prefix=/usr/${_target} \
-    --with-sysroot=/usr/${_target} \
+    --disable-multilib \
     --with-as=/usr/bin/${_target}-as \
     --with-ld=/usr/bin/${_target}-ld \
-    --enable-softfloat \
-    --with-float=soft \
+    --with-sysroot=/usr/${_target} \
+    --with-local-prefix=/usr/${_target} \
+    --with-arch=armv7-a \
+    --with-cpu=cortex-a9 \
+    --with-float=softfp \
+    --with-fpu=vfp \
+    --with-specs='%{save-temps: -fverbose-asm} %{funwind-tables|fno-unwind-tables|mabi=*|ffreestanding|nostdlib:;:-funwind-tables}' \
+    --with-pkgversion='GCC for FRC' \
+    --disable-multiarch \
+    --disable-libssp \
     --disable-libgomp \
-    --enable-interwork \
-    --enable-addons
+    --disable-libmudflap
 
   make all-gcc all-target-libgcc
 }
 
 package() {
   cd "${srcdir}/gcc-${pkgver}"/gcc-build
-
-  export CFLAGS="-O2 -pipe"
-  export CXXFLAGS="-O2 -pipe"
 
   make DESTDIR="$pkgdir" install-gcc install-target-libgcc
 
