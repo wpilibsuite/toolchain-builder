@@ -1,12 +1,10 @@
-# $Id: PKGBUILD 116913 2014-08-06 02:57:12Z anatolik $
-# Maintainer: Anatol Pomozov <anatol.pomozov@gmail.com>
-# Contributor: Martin Schmölzer <mschmoelzer@gmail.com>
+# Maintainer: Tyler Veness <calcmogul at gmail dot com>
 
-_target=arm-none-eabi
+_target=arm-frc-linux-gnueabi
 pkgname=$_target-gdb
 pkgver=7.8
 pkgrel=1
-pkgdesc='The GNU Debugger for the ARM EABI (bare-metal) target'
+pkgdesc='The GNU Debugger (${_target})'
 arch=(i686 x86_64)
 url='http://www.gnu.org/software/gdb/'
 license=(GPL3)
@@ -23,14 +21,15 @@ build() {
 
   sed -i "/ac_cpp=/s/\$CPPFLAGS/\$CPPFLAGS -O2/" libiberty/configure
 
-  ./configure --target=$_target \
+  ./configure --target=${_target} \
               --prefix=/usr \
-              --enable-multilib \
-              --enable-interwork \
-              --with-system-readline \
-              --disable-nls \
-              --with-python=/usr/bin/python2 \
-              --with-system-gdbinit=/etc/gdb/gdbinit
+	      --with-pkgversion='GDB for FRC' \
+	      --disable-nls \
+	      --with-libexpat \
+	      --datadir=/usr/share/frc \
+	      --with-system-gdbinit=/usr/share/frc/gdb/gdbinit \
+	      --with-sysroot=/usr/${_target} \
+	      --enable-lto
   make
 }
 
@@ -43,7 +42,6 @@ package() {
   rm -r "$pkgdir"/usr/share/info
   # TOTHINK: we remove python module used for debugging. It means arm-*-gdb alone will not be able to debug and 'gdb' package
   # should be installed. File a bug upstream - ask a separate python module folder for cross tools.
-  rm -r "$pkgdir"/usr/share/gdb
   rm -r "$pkgdir"/usr/include/gdb
   rm "$pkgdir"/usr/share/man/man1/gdb*
   rm -r "$pkgdir"/usr/share/man/man5
