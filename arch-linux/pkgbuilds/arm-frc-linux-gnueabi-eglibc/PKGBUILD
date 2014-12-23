@@ -10,6 +10,7 @@ arch=(any)
 url="http://www.eglibc.org"
 curl="http://www.eglibc.org"
 license=('GPL')
+groups=('frc-2015')
 depends=("${_target}-linux-api-headers")
 options=(!strip 'staticlibs' '!emptydirs')
 source=("http://download.ni.com/ni-linux-rt/feeds/2014/arm/armv7a-vfp-neon/libc6_${_basever}_armv7a-vfp-neon.ipk"

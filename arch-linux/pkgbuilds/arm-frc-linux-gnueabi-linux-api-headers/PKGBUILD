@@ -10,6 +10,7 @@ pkgdesc="Kernel headers sanitized for use in userspace (${_target})"
 arch=(any)
 url="http://www.gnu.org/software/libc"
 license=('GPL2')
+groups=('frc-2015')
 provides=("${_target}-linux-api-headers=${pkgver}"
   "${_target}-linux-api-headers30")
 conflicts=("${_target}-linux-api-headers26")
