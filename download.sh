@@ -78,7 +78,7 @@ mkdir frcmake-${V_FRCMAKE}
 pushd frcmake-${V_FRCMAKE} 
 cp ../tools/frcmake frcmake
 cp ../tools/frc-cmake-toolchain frc-cmake-toolchain
-cp ../tools/frc-gcc-toolchain.cmake toolchain.cmake
+cp ../tools/toolchain.cmake toolchain.cmake
 cp ../tools/frcmake-nix-makefile Makefile
 popd
 tar cjf frcmake-${V_FRCMAKE}.tar.bz2 frcmake-${V_FRCMAKE}
