@@ -61,6 +61,12 @@ gdb:
 	tar xf  gdb-frc-armel-cross_$(V_GDB).orig.tar.gz
 	cp debians/gdb gdb-$(V_GDB)/debian -r
 	cd gdb-$(V_GDB) && debuild $(DEBUILD_FLAGS)
+	
+frc-toolchain:
+	rm -rf frc-toolchain*
+	mkdir frc-toolchain
+	cp debians/frc-toolchain frc-toolchain/debian -r
+	cd frc-toolchain && debuild $(DEBUILD_FLAGS)
 
 clean:
 	find . ! -name Makefile ! -name debians -maxdepth 1 -type f -delete
