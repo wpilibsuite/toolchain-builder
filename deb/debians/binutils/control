@@ -1,0 +1,18 @@
+Source: binutils-frc-armel-cross
+Section: devel
+Priority: optional
+Maintainer: Patrick Plenefisch <phplenefisch@wpi.edu>
+Build-Depends: debhelper (>= 9.0.0), autotools-dev, bison, flex, gettext, texinfo, dejagnu, quilt, file, xz-utils, lsb-release
+Standards-Version: 3.9.4
+Homepage: http://www.gnu.org/software/binutils/
+
+Package: binutils-arm-frc-linux-gnueabi
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: GNU binary utilities, for arm-frc-linux-gnueabi target
+ This package provides GNU assembler, linker and binary utilities
+ for arm-frc-linux-gnueabi target, for use in a cross-compilation environment.
+ .
+ You don't need this package unless you plan to cross-compile programs
+ for arm-frc-linux-gnueabi.
+

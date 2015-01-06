@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+rm -rf msi-build
+cp -r makes/msi-files msi-build
+MSI_PATH=$(winepath -w msi-build | sed 's/\\/\\\\\\\\/g')
+FRC_PATH=$(winepath -w $PWD/tree-install/c/frc | sed 's/\\/\\\\\\\\/g')
+
+wine wix/heat.exe dir "$FRC_PATH" -sreg -gg -dr APPLICATIONFOLDER -cg BINUTILS -out "$MSI_PATH\\gen.wxs" -var var.binutilsdir -srd
+wine wix/candle.exe -nologo "-dbinutilsdir=$FRC_PATH" "$MSI_PATH\\gen.wxs" -out "$MSI_PATH\\gen.wixobj"
+wine wix/candle.exe -nologo "$MSI_PATH\\frctoolchain.wxs" -out "$MSI_PATH\\frctoolchain.wixobj"  -ext WixUIExtension
+wine wix/light.exe -nologo "$MSI_PATH\\frctoolchain.wixobj" "$MSI_PATH\\gen.wixobj" -out "$MSI_PATH\\FRC Toolchain.msi"  -ext WixUIExtension -sval
+chmod 755 msi-build/FRC\ Toolchain.msi

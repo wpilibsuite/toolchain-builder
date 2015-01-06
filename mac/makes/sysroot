@@ -1,0 +1,12 @@
+#!/bin/zsh
+source ../versions.sh
+
+
+mkdir -p sysroot-install/usr/arm-frc-linux-gnueabi
+mkdir -p sysroot-libc-linux/{usr,lib}
+cp -a sysroot-libc-linux/linux-libc-${Va_LINUX}/usr/* sysroot-libc-linux/usr/
+cp -a sysroot-libc-linux/libc6-${Va_LIBC}/libc6-dev/usr/* sysroot-libc-linux/usr/
+cp -a sysroot-libc-linux/libc6-${Va_LIBC}/libc6-dev/lib/* sysroot-libc-linux/lib/
+cp -a sysroot-libc-linux/libc6-${Va_LIBC}/libc6/lib/* sysroot-libc-linux/lib/
+cp -a sysroot-libc-linux/{usr,lib} sysroot-install/usr/arm-frc-linux-gnueabi/
+

@@ -1,0 +1,102 @@
+#!/bin/sh
+
+echo "INIT $@" >> /tmp/pyc
+shift
+exit_with_usage ()
+{
+    echo "Usage: $0 --prefix|--exec-prefix|--includes|--libs|--cflags|--ldflags|--extension-suffix|--help|--configdir"
+    exit $1
+}
+
+if [ "$1" = "" ] ; then
+    exit_with_usage 1
+fi
+
+# Returns the actual prefix where this script was installed to.
+installed_prefix ()
+{
+	echo $HOME/.wine/drive_c/Python27/
+}
+
+prefix_build="/usr"
+prefix_real=$(installed_prefix "$0")
+
+prefix=$(installed_prefix "$0")
+exec_prefix_build="${prefix}"
+exec_prefix=$(installed_prefix "$0")
+includedir="${prefix}/include"
+libdir="${exec_prefix}/libs"
+CFLAGS="-D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security "
+VERSION="2.7"
+LIBM="-lm"
+LIBC=""
+SYSLIBS="$LIBM $LIBC"
+ABIFLAGS=""
+MULTIARCH="x86_64-linux-gnu"
+LIBS="-lpthread -ldl  -lutil $SYSLIBS -lpython${VERSION}${ABIFLAGS}"
+BASECFLAGS=" -fno-strict-aliasing"
+LDLIBRARY="libpython${VERSION}${DEBUG_EXT}.a"
+LINKFORSHARED="-Xlinker -export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions"
+OPT="-DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes"
+PY_ENABLE_SHARED="0"
+LIBDEST=${prefix}/lib/python${VERSION}
+LIBPL=${LIBDEST}/config-${MULTIARCH}${ABIFLAGS}
+SO="${ABIFLAGS}.so"
+PYTHONFRAMEWORK=""
+INCDIR="-I$includedir/python${VERSION}${ABIFLAGS}"
+PLATINCDIR="-I$includedir/$MULTIARCH/python${VERSION}${ABIFLAGS}"
+
+# Scan for --help or unknown argument.
+for ARG in $*
+do
+    case $ARG in
+        --help)
+            exit_with_usage 0
+        ;;
+        --prefix|--exec-prefix|--includes|--libs|--cflags|--ldflags|--extension-suffix|--configdir)
+        ;;
+        *)
+            exit_with_usage 1
+        ;;
+    esac
+done
+
+for ARG in $*
+do
+    case $ARG in
+        --prefix)
+            echo "$prefix"
+        	echo "prefix=$prefix" >> /tmp/pyc
+        ;;
+        --exec-prefix)
+            echo "$exec_prefix"
+        	echo "execprefix=$exec_prefix" >> /tmp/pyc
+        ;;
+        --includes)
+            echo "-I$includedir"
+        	echo "includes" "-I$includedir" >> /tmp/pyc
+        ;;
+        --cflags)
+            echo "$INCDIR $PLATINCDIR $BASECFLAGS $CFLAGS $OPT"
+        	echo "cflags=" "$INCDIR $PLATINCDIR $BASECFLAGS $CFLAGS $OPT" >> /tmp/pyc
+        ;;
+        --libs)
+            echo "$LIBS"
+        	echo "libs=$LIBS" >> /tmp/pyc
+        ;;
+        --ldflags)
+            echo "-L$libdir -lpthread -lm  -lpython27 "
+        	echo "ldflags=-L$libdir -lpthread -lm  -lpython27 " >> /tmp/pyc
+        ;;
+        --extension-suffix)
+        	echo "exsuffix" >> /tmp/pyc
+        	exit 1
+            echo "$SO"
+        ;;
+        --configdir)
+        	echo "cfg" >> /tmp/pyc
+        	exit 1
+            echo "$LIBPL"
+        ;;
+esac
+done

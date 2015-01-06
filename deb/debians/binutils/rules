@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# This has to be exported to make some magic below work.
+export DH_OPTIONS
+
+%:
+	dh $@  --with autotools-dev
+	
+override_dh_auto_configure:
+	dh_auto_configure -- --prefix=/usr --target=arm-frc-linux-gnueabi '--with-pkgversion=GNU Binutils for FRC' --enable-poison-system-directories --with-sysroot=/usr/arm-frc-linux-gnueabi --enable-plugins --disable-nls --enable-lto --disable-werror
+
+override_dh_installinfo:
+	rm -rf debian/binutils-arm-frc-linux-gnueabi/usr/share/info
+
+override_dh_auto_test:
+
+

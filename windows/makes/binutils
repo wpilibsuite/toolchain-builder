@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+mkdir binutils-build
+mkdir binutils-install
+cd binutils-build
+../binutils-${V_BINUTILS}/configure --host=i686-w64-mingw32 --prefix=/c/frc --target=arm-frc-linux-gnueabi '--with-pkgversion=GNU Binutils for FRC' --enable-poison-system-directories --with-sysroot=/c/frc --enable-plugins --disable-nls --enable-lto --with-build-sysroot=/usr/arm-frc-linux-gnueabi
+make
+DESTDIR=$PWD/../binutils-install make install
+cd ../binutils-install
+i686-w64-mingw32-strip --remove-section=.comment --remove-section=.note --strip-unneeded **/*.exe
+

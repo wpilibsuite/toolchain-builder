@@ -1,0 +1,17 @@
+binutils-frc-armel-cross (2.24-0) stable; urgency=low
+
+  * renaming triplet
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Wed, 10 Sep 2014 09:19:27 -0400
+
+binutils-armel-cross-frc (2.24-2) trusty; urgency=low
+
+  * Bumping version for trusty
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Fri, 05 Sep 2014 09:19:27 -0400
+
+binutils-armel-cross-frc (2.24-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Fri, 29 Aug 2014 19:26:26 -0400
