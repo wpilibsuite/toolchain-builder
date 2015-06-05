@@ -1,0 +1,4 @@
+python
+import os
+gdb.execute('set solib-search-path ' + os.environ['HOME'] + '/wpilib/cpp/current/lib/')
+end

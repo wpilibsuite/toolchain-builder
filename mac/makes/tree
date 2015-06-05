@@ -1,0 +1,30 @@
+#!/bin/zsh
+
+rm -rf tree-install
+mkdir tree-install
+cp -r gcc-install/ tree-install/
+cp -r binutils-install/ tree-install/
+cp -r sysroot-install/ tree-install/
+cp -r gdb-install/ tree-install/
+cd tree-install/
+du -hs .
+echo "#####################################"
+echo "## TODO: Figure out Mac Stripping ###"
+echo "#####################################"
+exit
+pushd lib/gcc/arm-linux-gnueabi/${V_GCC}
+arm-linux-gnueabi-strip --strip-debug libgcc.a libgcc_eh.a libgcov.a 
+arm-linux-gnueabi-strip --strip-debug crtbegin.o crtbeginS.o crtbeginT.o crtend.o crtendS.o
+popd
+i686-w64-mingw32-strip --remove-section=.comment --remove-section=.note --strip-unneeded **/*.exe
+rm -rf share/info share/man
+arm-linux-gnueabi-strip --strip-debug arm-linux-gnueabi/**/*.a
+arm-linux-gnueabi-strip --remove-section=.comment --remove-section=.note --strip-unneeded arm-linux-gnueabi/**/*.so
+arm-linux-gnueabi-strip --remove-section=.comment --remove-section=.note --strip-unneeded arm-linux-gnueabi/lib/libgcc_s.so.1
+
+find -name '*.install*' | xargs rm
+pushd usr/include
+patch -p4 < ../../../../../makes/case-sensitive-includes.diff
+popd
+rm -rf lib/xtables
+du -hs .

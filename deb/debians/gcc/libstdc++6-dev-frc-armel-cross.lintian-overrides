@@ -1,0 +1,2 @@
+libstdc++6-dev-frc-armel-cross: arch-independent-package-contains-binary-or-object
+libstdc++6-dev-frc-armel-cross: non-standard-dir-in-usr usr/arm-frc-linux-gnueabi/

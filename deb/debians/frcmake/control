@@ -1,0 +1,12 @@
+Source: frcmake
+Section: devel
+Priority: optional
+Maintainer: Patrick Plenefisch <phplenefisch@wpi.edu>
+Build-Depends: debhelper (>= 9.0.0), docbook-xsl, docbook-xml, xsltproc
+Standards-Version: 3.9.4
+
+Package: frcmake
+Architecture: all
+Depends: cmake, g++-arm-frc-linux-gnueabi, ${misc:Depends}
+Description: CMake wrapper for FRC
+ Small wrapper program to run CMake with the proper toolchain for FRC

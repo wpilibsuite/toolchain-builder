@@ -1,0 +1,11 @@
+linux-libc-dev-frc-armel-cross (3.8-r0-0build0) stable; urgency=low
+
+  * Splitting out linux headers 3.8-r0 into multiple packages
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Wed, 10 Sept 2014 16:59:21 -0400
+ 
+roborio-sysroot (1.0-1) stable; urgency=low
+
+  * Initial release with 2.17-r4 and 3.2.35-rt52
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Thu, 22 May 2014 13:52:08 -0400

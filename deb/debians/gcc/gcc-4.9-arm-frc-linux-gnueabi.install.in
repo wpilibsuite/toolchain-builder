@@ -1,0 +1,10 @@
+usr/bin/arm-frc-linux-gnueabi-gcc-4.9
+usr/bin/arm-frc-linux-gnueabi-gcc-ar-4.9
+usr/bin/arm-frc-linux-gnueabi-gcc-nm-4.9
+usr/bin/arm-frc-linux-gnueabi-gcc-ranlib-4.9
+usr/bin/arm-frc-linux-gnueabi-gcov-4.9
+usr/lib/DEB_BUILD_GNU_TYPE/gcc/arm-frc-linux-gnueabi/4.9.1/collect2
+usr/lib/DEB_BUILD_GNU_TYPE/gcc/arm-frc-linux-gnueabi/4.9.1/lto1
+usr/lib/DEB_BUILD_GNU_TYPE/gcc/arm-frc-linux-gnueabi/4.9.1/lto-wrapper
+usr/share/man/man1/arm-frc-linux-gnueabi-gcc-4.9.1
+usr/share/man/man1/arm-frc-linux-gnueabi-gcov-4.9.1
