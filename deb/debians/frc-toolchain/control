@@ -1,0 +1,13 @@
+Source: frc-toolchain
+Section: devel
+Priority: optional
+Maintainer: Patrick Plenefisch <phplenefisch@wpi.edu>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.9.5
+
+Package: frc-toolchain
+Architecture: all
+Depends: g++-arm-frc-linux-gnueabi (= 4.9), gdb-arm-frc-linux-gnueabi (>= 7.8), libc6-frc-armel-cross, libc6-dev-frc-armel-cross, linux-libc-dev-frc-armel-cross, ${misc:Depends}
+Recommends: frcmake
+Description: FRC Toolchain
+ This metapackage depends on all the components of the FRC toolchain.
