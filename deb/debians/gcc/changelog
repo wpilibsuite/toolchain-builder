@@ -1,3 +1,9 @@
+gcc-frc-armel-cross (4.9.3-1) UNRELEASED; urgency=medium
+
+  * Update to latest 4.9.3 in 4.9.x branch
+
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Mon, 31 Aug 2015 13:39:56 -0400
+
 gcc-frc-armel-cross (4.9.1-0build0) trusty; urgency=low
 
   * prefixing frc
