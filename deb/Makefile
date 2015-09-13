@@ -69,5 +69,5 @@ frc-toolchain:
 	cd frc-toolchain && debuild $(DEBUILD_FLAGS)
 
 clean:
-	find . ! -name Makefile ! -name debians -maxdepth 1 -type f -delete
+	find . -maxdepth 1 ! -name Makefile ! -name debians -type f -delete
 
