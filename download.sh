@@ -58,8 +58,8 @@ rm repack/libc6/out/sbin/ldconfig
 rm repack/libc6/out/etc/ld.so.conf
 # remove all empty dirs (semi-recursive)
 rm -d repack/**/*(/^F)
-rm -d repack/**/*(/^F)
-rm -d repack/**/*(/^F)
+#rm -d repack/**/*(/^F)
+#rm -d repack/**/*(/^F)
 
 pushd repack/linux-libc-headers-dev/
 	mv out linux-libc-${Va_LINUX}
