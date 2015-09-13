@@ -2,7 +2,7 @@ Source: libc6-frc-armel-cross
 Maintainer: WPILib Developers <wpilib@wpi.edu>
 Section: devel
 Priority: extra
-Standards-Version: 3.9.4
+Standards-Version: 3.9.6
 Build-Depends: debhelper (>= 9)
 
 Package: libc6-frc-armel-cross
@@ -25,7 +25,7 @@ Depends: libc6-frc-armel-cross (= ${binary:Version}), linux-libc-dev-frc-armel-c
 Recommends: roborio-sysroot (>= 1.1)
 Conflicts: roborio-sysroot (<< 1.1)
 Replaces: roborio-sysroot (<< 1.1)
-Description: Embedded GNU C Library: Development Libraries and Header Files (for cross-compiling)
+Description: Embedded GNU C Library: Dev Libs and Header Files (for FRC)
  Contains the symlinks, headers, and object files needed to compile
  and link programs which use the standard C library.
  .

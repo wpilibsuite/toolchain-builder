@@ -3,7 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: WPILib Developers <wpilib@wpi.edu>
 Build-Depends: debhelper (>= 9.0.0), docbook-xsl, docbook-xml, xsltproc
-Standards-Version: 3.9.4
+Standards-Version: 3.9.6
 
 Package: frcmake
 Architecture: all

@@ -2,7 +2,7 @@ Source: gcc-defaults-frc-armel-cross
 Maintainer: WPILib Developers <wpilib@wpi.edu>
 Section: devel
 Priority: extra
-Standards-Version: 3.9.4
+Standards-Version: 3.9.6
 Build-Depends: debhelper (>= 9)
 
 Package: cpp-arm-frc-linux-gnueabi
@@ -37,7 +37,7 @@ Priority: optional
 Architecture: all
 Depends: cpp-arm-frc-linux-gnueabi (>= 4.9), gcc-4.9-arm-frc-linux-gnueabi, ${misc:Depends}
 Recommends: libc6-dev-frc-armel-cross
-Suggests: make, manpages-dev, autoconf, automake1.9, libtool, flex, bison, gdb-arm-frc-linux-gnueabi, gcc-doc
+Suggests: make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb-arm-frc-linux-gnueabi, gcc-doc
 Description: The GNU C compiler for frc-armel architecture
  This is the GNU C compiler, a fairly portable optimizing compiler for C.
  .

@@ -11,3 +11,4 @@ mac/makes/pkg/build/
 *.ipk
 repack/
 frcmake-*/
+deb/frcmake_*

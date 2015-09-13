@@ -1,8 +1,8 @@
 include ../versions.sh
 DEBUILD_FLAGS ?= -us -uc
 
-all: flags
-	@echo "please specify which you want. binutils must be installed before gcc"
+all: flags sysroot binutils gcc gdb gcc-defaults frcmake frc-toolchain
+	
 	
 flags:
 	echo "Using DEBUILG_FLAGS=$(DEBUILD_FLAGS)"
@@ -64,9 +64,9 @@ gdb:
 	
 frc-toolchain:
 	rm -rf frc-toolchain*
-	mkdir frc-toolchain
-	cp debians/frc-toolchain frc-toolchain/debian -r
-	cd frc-toolchain && debuild $(DEBUILD_FLAGS)
+	mkdir frc-toolchain-1
+	cp debians/frc-toolchain frc-toolchain-1/debian -r
+	cd frc-toolchain-1 && debuild $(DEBUILD_FLAGS)
 
 clean:
 	find . -maxdepth 1 ! -name Makefile ! -name debians -type f -delete

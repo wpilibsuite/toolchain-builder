@@ -3,7 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: WPILib Developers <wpilib@wpi.edu>
 Build-Depends: debhelper (>= 9.0.0), autotools-dev, bison, flex, gettext, texinfo, dejagnu, quilt, file, xz-utils, lsb-release
-Standards-Version: 3.9.4
+Standards-Version: 3.9.6
 Homepage: http://www.gnu.org/software/binutils/
 
 Package: binutils-arm-frc-linux-gnueabi
