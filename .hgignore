@@ -10,3 +10,4 @@ mac/*-*
 mac/makes/pkg/build/
 *.ipk
 repack/
+frcmake-*/
