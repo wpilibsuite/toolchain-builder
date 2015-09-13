@@ -1,3 +1,9 @@
+roborio-sysroot (1.2) stable; urgency=medium
+
+  * Update to 2016 image dependencies
+
+ -- WPILib Developers <wpilib@wpi.edu>  Sun, 13 Sep 2015 14:03:45 -0400
+
 roborio-sysroot (1.1) stable; urgency=low
 
   * Making into empty transitional package

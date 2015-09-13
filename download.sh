@@ -21,16 +21,16 @@ wget -nc http://www.bastoul.net/cloog/pages/download/cloog-${V_CLOOG}.tar.gz
 wget -nc http://isl.gforge.inria.fr/isl-${V_ISL}.tar.bz2
 wget -nc https://ftp.gnu.org/gnu/gdb/gdb-${V_GDB}.tar.gz
 wget -nc http://superb-dca3.dl.sourceforge.net/project/expat/expat/${Vw_EXPAT}/expat-${Vw_EXPAT}.tar.gz
-wget -nc http://download.ni.com/ni-linux-rt/feeds/2014/arm/armv7a-vfp-neon/libc6_${Va_LIBC}_armv7a-vfp-neon.ipk
-wget -nc http://download.ni.com/ni-linux-rt/feeds/2014/arm/armv7a-vfp-neon/libc6-dev_${Va_LIBC}_armv7a-vfp-neon.ipk
-wget -nc http://download.ni.com/ni-linux-rt/feeds/2014/arm/armv7a-vfp-neon/linux-libc-headers-dev_${Va_LINUX}_armv7a-vfp-neon.ipk
-wget -nc http://download.ni.com/ni-linux-rt/feeds/2014/arm/armv7a-vfp-neon/libcidn1_${Va_LIBC}_armv7a-vfp-neon.ipk
-wget -nc http://download.ni.com/ni-linux-rt/feeds/2014/arm/armv7a-vfp-neon/libthread-db1_${Va_LIBC}_armv7a-vfp-neon.ipk
-wget -nc http://download.ni.com/ni-linux-rt/feeds/2014/arm/armv7a-vfp-neon/eglibc-extra-nss_${Va_LIBC}_armv7a-vfp-neon.ipk
+wget -nc http://download.ni.com/ni-linux-rt/feeds/2015/arm/ipk/cortexa9-vfpv3/libc6_${Va_LIBC}_cortexa9-vfpv3.ipk
+wget -nc http://download.ni.com/ni-linux-rt/feeds/2015/arm/ipk/cortexa9-vfpv3/libc6-dev_${Va_LIBC}_cortexa9-vfpv3.ipk
+wget -nc http://download.ni.com/ni-linux-rt/feeds/2015/arm/ipk/cortexa9-vfpv3/linux-libc-headers-dev_${Va_LINUX}_cortexa9-vfpv3.ipk
+wget -nc http://download.ni.com/ni-linux-rt/feeds/2015/arm/ipk/cortexa9-vfpv3/libcidn1_${Va_LIBC}_cortexa9-vfpv3.ipk
+wget -nc http://download.ni.com/ni-linux-rt/feeds/2015/arm/ipk/cortexa9-vfpv3/libc6-thread-db_${Va_LIBC}_cortexa9-vfpv3.ipk
+wget -nc http://download.ni.com/ni-linux-rt/feeds/2015/arm/ipk/cortexa9-vfpv3/libc6-extra-nss_${Va_LIBC}_cortexa9-vfpv3.ipk
 
 mkdir -p repack/{libc6,libc6-dev,linux-libc-headers-dev}/out
-mv linux-libc-headers-dev_${Va_LINUX}_armv7a-vfp-neon.ipk repack/linux-libc-headers-dev/
-mv libc6_${Va_LIBC}_armv7a-vfp-neon.ipk repack/libc6/
+mv linux-libc-headers-dev_${Va_LINUX}_cortexa9-vfpv3.ipk repack/linux-libc-headers-dev/
+mv libc6_${Va_LIBC}_cortexa9-vfpv3.ipk repack/libc6/
 # the rest are in dev
 mv *.ipk repack/libc6-dev/
 
@@ -54,7 +54,6 @@ done
 # ick... these are everywhere. remove them
 find repack \( -name .install -o -name ..install.cmd \) -delete
 # we don't need arm binaries...
-rm repack/libc6/out/usr/lib/eglibc/pt_chown
 rm repack/libc6/out/sbin/ldconfig
 rm repack/libc6/out/etc/ld.so.conf
 # remove all empty dirs (semi-recursive)

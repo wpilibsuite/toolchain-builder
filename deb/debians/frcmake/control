@@ -1,7 +1,7 @@
 Source: frcmake
 Section: devel
 Priority: optional
-Maintainer: Patrick Plenefisch <phplenefisch@wpi.edu>
+Maintainer: WPILib Developers <wpilib@wpi.edu>
 Build-Depends: debhelper (>= 9.0.0), docbook-xsl, docbook-xml, xsltproc
 Standards-Version: 3.9.4
 

@@ -1,5 +1,5 @@
 Source: gcc-defaults-frc-armel-cross
-Maintainer: Patrick Plenefisch <phplenefisch@wpi.edu>
+Maintainer: WPILib Developers <wpilib@wpi.edu>
 Section: devel
 Priority: extra
 Standards-Version: 3.9.4

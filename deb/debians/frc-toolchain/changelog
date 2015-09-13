@@ -1,3 +1,9 @@
+frc-toolchain (2016.0) stable; urgency=low
+
+  * Allow installation of latest gcc
+
+ -- WPILib Developers <wpilib@wpi.edu>  Sun, 13 Sep 2015 14:28:52 -0400
+
 frc-toolchain (2015.0) stable; urgency=low
 
   * First version

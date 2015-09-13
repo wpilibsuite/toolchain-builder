@@ -1,3 +1,9 @@
+gcc-defaults-frc-armel-cross (4.9.3) stable; urgency=low
+
+  * Update maintainer and copyright
+
+ -- WPILib Developers <wpilib@wpi.edu>  Sun, 13 Sep 2015 14:19:36 -0400
+
 gcc-defaults-frc-armel-cross (4.9) stable; urgency=low
 
   * Adding links for frc tools

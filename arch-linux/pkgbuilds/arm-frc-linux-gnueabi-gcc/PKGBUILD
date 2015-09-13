@@ -45,7 +45,7 @@ build() {
     --with-ld=/usr/bin/${_target}-ld \
     --with-cpu=cortex-a9 \
     --with-float=softfp \
-    --with-fpu=vfp \
+    --with-fpu=vfpv3 \
     --with-specs='%{save-temps: -fverbose-asm} %{funwind-tables|fno-unwind-tables|mabi=*|ffreestanding|nostdlib:;:-funwind-tables}' \
     --enable-lto \
     --with-pkgversion='GCC for FRC' \

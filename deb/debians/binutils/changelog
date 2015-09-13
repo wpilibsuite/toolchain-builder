@@ -1,3 +1,9 @@
+binutils-frc-armel-cross (2.25.1-1) stable; urgency=low
+
+  * Update to latest binutils version
+
+ -- WPILib Developers <wpilib@wpi.edu>  Sun, 13 Sep 2015 14:38:08 -0400
+
 binutils-frc-armel-cross (2.24-0) stable; urgency=low
 
   * renaming triplet

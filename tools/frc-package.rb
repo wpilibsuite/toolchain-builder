@@ -2,7 +2,7 @@
 # usage: no args: list all packags
 # one arg: download package
 
-$repos = 'http://download.ni.com/ni-linux-rt/feeds/2014/arm/armv7a-vfp-neon/'
+$repos = 'http://download.ni.com/ni-linux-rt/feeds/2015/arm/ipk/cortexa9-vfpv3/'
 $base_img = %w{libc6 libgcc1 libstdc++6}
 
 class Pkg

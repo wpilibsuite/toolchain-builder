@@ -1,5 +1,5 @@
 Source: linux-libc-dev-frc-armel-cross
-Maintainer: Patrick Plenefisch <phplenefisch@wpi.edu>
+Maintainer: WPILib Developers <wpilib@wpi.edu>
 Section: devel
 Priority: extra
 Standards-Version: 3.9.4
@@ -8,6 +8,8 @@ Build-Depends: debhelper (>= 9)
 Package: linux-libc-dev-frc-armel-cross
 Architecture: all
 Depends: ${misc:Depends}
+Recommends: roborio-sysroot (>= 1.1)
+Suggests: g++-arm-frc-linux-gnueabi
 Conflicts: roborio-sysroot (<< 1.1)
 Replaces: roborio-sysroot (<< 1.1)
 Description: Linux Kernel Headers for development (for cross-compiling)

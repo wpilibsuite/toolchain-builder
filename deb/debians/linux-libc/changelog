@@ -1,3 +1,9 @@
+linux-libc-dev-frc-armel-cross (3.16-r0.46-1) stable; urgency=low
+
+  * Updating to linux headers 3.16-r0.46 for 2016 image
+
+ -- WPILib Developers <wpilib@wpi.edu>  Fri, 11 Sept 2015 15:49:12 -0400
+
 linux-libc-dev-frc-armel-cross (3.8-r0-0build0) stable; urgency=low
 
   * Splitting out linux headers 3.8-r0 into multiple packages

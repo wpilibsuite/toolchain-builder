@@ -38,7 +38,7 @@ export LDFLAGS_FOR_TARGET=-Wl,-Bsymbolic-functions -Wl,-z,relro
 
 override_dh_auto_configure:
 
-	dh_auto_configure -B${GCC_BUILD_DIR}  --  --enable-threads=posix --target=arm-frc-linux-gnueabi --with-arch=armv7-a --with-cpu=cortex-a9 --with-float=softfp --with-fpu=vfp --with-specs='%{save-temps: -fverbose-asm} %{funwind-tables|fno-unwind-tables|mabi=*|ffreestanding|nostdlib:;:-funwind-tables}' --enable-languages=c,c++ --enable-shared --enable-lto --disable-nls --with-pkgversion='GCC for FRC' --with-cloog --disable-multilib --disable-multiarch --prefix=/usr --with-sysroot=/usr/arm-frc-linux-gnueabi --enable-poison-system-directories --enable-plugin --with-system-zlib --disable-libmudflap --with-build-sysroot=/usr/arm-frc-linux-gnueabi --program-suffix=-4.9 --program-prefix=arm-frc-linux-gnueabi-
+	dh_auto_configure -B${GCC_BUILD_DIR}  --  --enable-threads=posix --target=arm-frc-linux-gnueabi --with-arch=armv7-a --with-cpu=cortex-a9 --with-float=softfp --with-fpu=vfpv3 --with-specs='%{save-temps: -fverbose-asm} %{funwind-tables|fno-unwind-tables|mabi=*|ffreestanding|nostdlib:;:-funwind-tables}' --enable-languages=c,c++ --enable-shared --enable-lto --disable-nls --with-pkgversion='GCC for FRC' --with-cloog --disable-multilib --disable-multiarch --prefix=/usr --with-sysroot=/usr/arm-frc-linux-gnueabi --enable-poison-system-directories --enable-plugin --with-system-zlib --disable-libmudflap --with-build-sysroot=/usr/arm-frc-linux-gnueabi --program-suffix=-4.9 --program-prefix=arm-frc-linux-gnueabi-
 
 override_dh_shlibdeps:
 	LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/arm-frc-linux-gnueabi/lib dh_shlibdeps --  --ignore-missing-info
@@ -67,7 +67,7 @@ override_dh_strip:
 	rm -rf ${SRC_DIR}/debian/*/usr/share/man/man7
 	rm -rf ${SRC_DIR}/debian/*/usr/share/info
 	# this should probbably go into a better override
-	echo 'binutils:Version=2.24' >> debian/gcc-4.9-arm-frc-linux-gnueabi.substvars
+	echo 'binutils:Version=2.25.1' >> debian/gcc-4.9-arm-frc-linux-gnueabi.substvars
 	echo 'gcc:SoftVersion=4.9' >> debian/gcc-4.9-arm-frc-linux-gnueabi.substvars
 	echo 'gcc:SoftVersion=4.9' >> debian/g++-4.9-arm-frc-linux-gnueabi.substvars
 	echo 'gcc:SoftVersion=4.9' >> debian/cpp-4.9-arm-frc-linux-gnueabi.substvars

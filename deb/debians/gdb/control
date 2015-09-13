@@ -1,7 +1,7 @@
 Source: gdb-frc-armel-cross
 Section: devel
 Priority: optional
-Maintainer: Patrick Plenefisch <phplenefisch@wpi.edu>
+Maintainer: WPILib Developers <wpilib@wpi.edu>
 Build-Depends: debhelper (>= 9.0.0), autotools-dev, bison, flex, gettext, texinfo, dejagnu, quilt, file, xz-utils, lsb-release, libexpat1-dev, libncurses5-dev, libreadline-dev, zlib1g-dev, libbz2-dev, liblzma-dev, chrpath, libcloog-isl-dev (>= 0.17.0)
 Standards-Version: 3.9.4
 Homepage: https://www.gnu.org/software/gdb/
