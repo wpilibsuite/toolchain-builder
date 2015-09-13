@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-    <Product Id="9684b7eb-eb4f-46fa-ac3b-59989c204510" Name="FRC Toolchain" Language="1033" Version="1.0.14080" Manufacturer="WPI" UpgradeCode="17FA5361-A849-4BC0-8229-9624693117EA">
+<!-- To Upgrade: generate a new GUID for product id only, then bump the version (currently in format 1.yy.mmr) -->
+    <Product Id="c217724f-3753-4c66-bef8-76b7c6a29d51" Name="FRC Toolchain" Language="1033" Version="1.15.090" Manufacturer="WPI" UpgradeCode="17FA5361-A849-4BC0-8229-9624693117EA">
         <Package Description="GNU Toolchain for FRC" Comments="FRC Toolchain including Binutils, GCC, and RoboRIO headers" InstallerVersion="405" Compressed="yes" />
         <Media Id="1" Cabinet="simple.cab" EmbedCab="yes" />
         <Directory Id="TARGETDIR" Name="SourceDir">
@@ -28,7 +29,7 @@
         <Feature Id="StartMenuFeature" Title="Start Menu Shortcuts" Level="1" Absent="allow">
             <ComponentRef Id="StartMenuShortcuts" />
         </Feature>
-        <MajorUpgrade DowngradeErrorMessage="A later version of the GNU Toolchain for FRC is already installed. Setup will now exit."/>
+        <MajorUpgrade AllowSameVersionUpgrades="yes" DowngradeErrorMessage="A later version of the GNU Toolchain for FRC is already installed. Setup will now exit."/>
         <UI>
         </UI>
         <UIRef Id="WixUI_Minimal" />
