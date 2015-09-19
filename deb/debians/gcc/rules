@@ -58,6 +58,8 @@ override_dh_auto_install:
 	sed s/DEB_BUILD_GNU_TYPE/${DEB_BUILD_MULTIARCH}/ < debian/gcc-4.9-arm-frc-linux-gnueabi.install.in > debian/gcc-4.9-arm-frc-linux-gnueabi.install
 	sed s/DEB_BUILD_GNU_TYPE/${DEB_BUILD_MULTIARCH}/ < debian/g++-4.9-arm-frc-linux-gnueabi.install.in > debian/g++-4.9-arm-frc-linux-gnueabi.install
 	sed s/DEB_BUILD_GNU_TYPE/${DEB_BUILD_MULTIARCH}/ < debian/cpp-4.9-arm-frc-linux-gnueabi.install.in > debian/cpp-4.9-arm-frc-linux-gnueabi.install
+	cd ${SRC_DIR}/debian/tmp && find usr/lib/${DEB_BUILD_MULTIARCH}/gcc/arm-frc-linux-gnueabi/4.9.3/include >> ${SRC_DIR}/debian/libgcc-4.9-dev-frc-armel-cross.install
+	cd ${SRC_DIR}/debian/tmp && find usr/lib/${DEB_BUILD_MULTIARCH}/gcc/arm-frc-linux-gnueabi/4.9.3/include-fixed >> ${SRC_DIR}/debian/libgcc-4.9-dev-frc-armel-cross.install
 
 	
 override_dh_strip:

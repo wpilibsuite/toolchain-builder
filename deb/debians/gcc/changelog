@@ -1,3 +1,9 @@
+gcc-frc-armel-cross (4.9.3-1frc1) stable; urgency=medium
+
+  * Fix launchpad build failure
+
+ -- WPILib Developers <wpilib@wpi.edu>  Sat, 19 Sep 2015 16:58:58 -0400
+ 
 gcc-frc-armel-cross (4.9.3-1) stable; urgency=medium
 
   * Update to latest 4.9.3 in 4.9.x branch
