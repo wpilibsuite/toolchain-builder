@@ -1,6 +1,17 @@
 include ../versions.sh
 
-export PATH:="${PATH}:${PWD}/gcc-install/usr/bin:${PWD}/binutils-install/usr/bin"
+export PATH:="${PWD}/gcc-install/usr/bin:${PWD}/binutils-install/usr/bin:${PATH}"
+export CC=/usr/local/bin/gcc-4.9
+export CXX=/usr/local/bin/g++-4.9
+export CPP=/usr/local/bin/cpp-4.9
+export LD=/usr/local/bin/gcc-4.9
+alias c++=/usr/local/bin/c++-4.9
+alias g++=/usr/local/bin/g++-4.9
+alias gcc=/usr/local/bin/gcc-4.9
+alias cpp=/usr/local/bin/cpp-4.9
+alias ld=/usr/local/bin/gcc-4.9
+alias cc=/usr/local/bin/gcc-4.9
+
 
 all: clean sysroot binutils gcc gdb tree pkg
 	
