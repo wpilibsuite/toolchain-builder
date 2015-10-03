@@ -8,3 +8,11 @@ echo alias ar=gar
 echo alias tar=gtar
 # for packaging you need this:
 curl -O http://s.sudre.free.fr/Software/files/Iceberg.dmg
+
+# then:
+make sysroot
+sudo gcp sysroot-install/usr/local/* /usr/local/ -r 
+make binutils
+sudo gcp binutils-install/usr/local/* /usr/local/ -r
+
+make gcc gdb tree pkg
