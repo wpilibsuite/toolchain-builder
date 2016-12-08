@@ -7,7 +7,7 @@ Build-Depends: debhelper (>= 9)
 
 Package: roborio-sysroot
 Architecture: all
-Depends: libc6-dev-frc-armel-cross (>= 2.20-r0.62), libc6-frc-armel-cross (>= 2.20-r0.62), linux-libc-dev-frc-armel-cross (>= 3.16-r0.46), ${misc:Depends}
+Depends: libc6-dev-frc-armel-cross (>= 2.21-r0.83), libc6-frc-armel-cross (>= 2.21-r0.83), linux-libc-dev-frc-armel-cross (>= 3.19-r0.36), ${misc:Depends}
 Conflicts: roborio-sysroot (<< 1.1)
 Replaces: roborio-sysroot (<< 1.1)
 Description: System Root for RoboRIO targets (metapackage) 

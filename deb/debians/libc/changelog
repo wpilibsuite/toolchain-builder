@@ -1,3 +1,9 @@
+libc6-frc-armel-cross (2.21-r0.83-1) stable; urgency=low
+
+  * Updating to libc 2.21-r0.83 for 2017 image
+
+ -- WPILib Developers <wpilib@wpi.edu>  Fri, 6 Dec 2016 15:49:12 -0400
+
 libc6-frc-armel-cross (2.20-r0.62-1) stable; urgency=low
 
   * Updating to libc 2.20-r0.62 for 2016 image

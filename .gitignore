@@ -1,0 +1,13 @@
+*.tar.bz2
+deb/*-*
+*.tar.gz
+windows/*-*
+windows/wix/
+.DS_Store
+mac/*-*
+.vagrant
+mac/makes/pkg/build/
+*.ipk
+repack/
+frcmake-*/
+deb/frcmake_*

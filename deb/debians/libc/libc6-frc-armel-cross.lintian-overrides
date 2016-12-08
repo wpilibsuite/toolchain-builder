@@ -1,5 +1,5 @@
 libc6-frc-armel-cross: arch-independent-package-contains-binary-or-object
-libc6-frc-armel-cross: shared-lib-without-dependency-information usr/arm-frc-linux-gnueabi/lib/ld-2.20.so
-libc6-frc-armel-cross: embedded-library usr/arm-frc-linux-gnueabi/lib/libm-2.20.so: libm
+libc6-frc-armel-cross: shared-lib-without-dependency-information usr/arm-frc-linux-gnueabi/lib/ld-2.21.so
+libc6-frc-armel-cross: embedded-library usr/arm-frc-linux-gnueabi/lib/libm-2.21.so: libm
 libc6-frc-armel-cross: missing-depends-line
 libc6-frc-armel-cross: non-standard-dir-in-usr usr/arm-frc-linux-gnueabi/

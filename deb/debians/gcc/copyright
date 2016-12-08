@@ -21,7 +21,7 @@ License: GPL-3.0+
    MA 02110-1301, USA.  
 
 Files: debian/*
-Copyright: 2015 WPILib Developers <wpilib@wpi.edu>
+Copyright: 2016 WPILib Developers <wpilib@wpi.edu>
 License: GPL-3.0+
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
