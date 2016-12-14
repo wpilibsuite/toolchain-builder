@@ -20,7 +20,7 @@ wget -nc https://ftp.gnu.org/gnu/gmp/gmp-${V_GMP}.tar.bz2
 wget -nc http://www.bastoul.net/cloog/pages/download/cloog-${V_CLOOG}.tar.gz
 wget -nc http://isl.gforge.inria.fr/isl-${V_ISL}.tar.bz2
 wget -nc https://ftp.gnu.org/gnu/gdb/gdb-${V_GDB}.tar.gz
-wget -nc http://sourceforge.net/project/expat/expat/${Vw_EXPAT}/expat-${Vw_EXPAT}.tar.gz
+wget -nc https://sourceforge.net/projects/expat/files/expat/${Vw_EXPAT}/expat-${Vw_EXPAT}.tar.gz
 wget -nc http://download.ni.com/ni-linux-rt/feeds/2016/arm/ipk/cortexa9-vfpv3/libc6_${Va_LIBC}_cortexa9-vfpv3.ipk
 wget -nc http://download.ni.com/ni-linux-rt/feeds/2016/arm/ipk/cortexa9-vfpv3/libc6-dev_${Va_LIBC}_cortexa9-vfpv3.ipk
 wget -nc http://download.ni.com/ni-linux-rt/feeds/2016/arm/ipk/cortexa9-vfpv3/linux-libc-headers-dev_${Va_LINUX}_cortexa9-vfpv3.ipk
