@@ -2,7 +2,7 @@ linux-libc-dev-frc-armel-cross (3.19-r0.36-1) stable; urgency=low
 
   * Updating to linux headers 3.19-r0.36 for 2017 image
 
--- WPILib Developers <wpilib@wpi.edu>  Fri, 6 Dec 2016 15:49:12 -0400
+ -- WPILib Developers <wpilib@wpi.edu>  Fri, 6 Dec 2016 15:49:12 -0400
 
 linux-libc-dev-frc-armel-cross (3.16-r0.46-1) stable; urgency=low
 
