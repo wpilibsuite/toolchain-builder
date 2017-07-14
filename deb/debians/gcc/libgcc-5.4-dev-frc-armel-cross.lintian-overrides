@@ -1,0 +1,2 @@
+libgcc-5.4-dev-frc-armel-cross: binary-from-other-architecture
+libgcc-5.4-dev-frc-armel-cross: non-standard-dir-in-usr usr/arm-frc-linux-gnueabi/

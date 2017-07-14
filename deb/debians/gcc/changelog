@@ -1,3 +1,9 @@
+gcc-frc-armel-cross (5.4.0-1) stable; urgency=medium
+
+  * Update to 5.4.0 for 2018.
+
+ -- WPILib Developers <wpilib@wpi.edu>  Fri, 14 Jul 2017 13:23:12 -0400
+
 gcc-frc-armel-cross (4.9.3-2) stable; urgency=medium
 
   * Fix launchpad build failure
