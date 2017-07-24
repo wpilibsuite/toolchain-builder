@@ -1,20 +1,20 @@
-linux-libc-dev-frc-armel-cross (3.19-r0.36-1) stable; urgency=low
+linux-libc-dev-frc-armel-cross (3.19-r0.36-1~yakkety2) stable; urgency=low
 
   * Updating to linux headers 3.19-r0.36 for 2017 image
 
--- WPILib Developers <wpilib@wpi.edu>  Fri, 6 Dec 2016 15:49:12 -0400
+ -- WPILib Developers <wpilib@wpi.edu>  Fri, 6 Dec 2016 15:49:12 -0500
 
 linux-libc-dev-frc-armel-cross (3.16-r0.46-1) stable; urgency=low
 
   * Updating to linux headers 3.16-r0.46 for 2016 image
 
- -- WPILib Developers <wpilib@wpi.edu>  Fri, 11 Sept 2015 15:49:12 -0400
+ -- WPILib Developers <wpilib@wpi.edu>  Fri, 11 Sep 2015 15:49:12 -0400
 
 linux-libc-dev-frc-armel-cross (3.8-r0-0build0) stable; urgency=low
 
   * Splitting out linux headers 3.8-r0 into multiple packages
 
- -- Patrick Plenefisch <phplenefisch@wpi.edu>  Wed, 10 Sept 2014 16:59:21 -0400
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Wed, 10 Sep 2014 16:59:21 -0400
  
 roborio-sysroot (1.0-1) stable; urgency=low
 

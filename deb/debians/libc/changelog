@@ -1,20 +1,20 @@
-libc6-frc-armel-cross (2.21-r0.83-1) stable; urgency=low
+libc6-frc-armel-cross (2.21-r0.83-1~yakkety2) stable; urgency=low
 
   * Updating to libc 2.21-r0.83 for 2017 image
 
- -- WPILib Developers <wpilib@wpi.edu>  Fri, 6 Dec 2016 15:49:12 -0400
+ -- WPILib Developers <wpilib@wpi.edu>  Fri, 6 Dec 2016 15:49:12 -0500
 
 libc6-frc-armel-cross (2.20-r0.62-1) stable; urgency=low
 
   * Updating to libc 2.20-r0.62 for 2016 image
 
- -- WPILib Developers <wpilib@wpi.edu>  Fri, 11 Sept 2015 15:49:12 -0400
+ -- WPILib Developers <wpilib@wpi.edu>  Fri, 11 Sep 2015 15:49:12 -0400
 
 libc6-frc-armel-cross (2.17-r4-0build0) stable; urgency=low
 
   * Splitting out libc 2.17-r4 into multiple packages
 
- -- Patrick Plenefisch <phplenefisch@wpi.edu>  Wed, 10 Sept 2014 15:49:12 -0400
+ -- Patrick Plenefisch <phplenefisch@wpi.edu>  Wed, 10 Sep 2014 15:49:12 -0400
 
 roborio-sysroot (1.0-1) stable; urgency=low
 
