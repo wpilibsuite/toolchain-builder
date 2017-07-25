@@ -1,3 +1,9 @@
+gcc-defaults-frc-armel-cross (5.4) stable; urgency=low
+
+  * Update to 5.4.
+
+ -- WPILib Developers <wpilib@wpi.edu>  Fri, 14 Jul 2017 13:24:36 -0400
+
 gcc-defaults-frc-armel-cross (4.9.3) stable; urgency=low
 
   * Update maintainer and copyright

@@ -9,7 +9,7 @@ Homepage: http://www.gnu.org/software/binutils/
 Package: binutils-arm-frc-linux-gnueabi
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: roborio-sysroot (>= 1.1)
+Recommends: roborio-sysroot (>= 1.4)
 Suggests: g++-arm-frc-linux-gnueabi
 Description: GNU binary utilities, for arm-frc-linux-gnueabi target
  This package provides GNU assembler, linker and binary utilities

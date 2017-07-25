@@ -1,10 +1,16 @@
-frc-toolchain (2017.0~yakkety1) stable; urgency=medium
+frc-toolchain (2018.0) stable; urgency=low
+
+  * 2018 GCC version
+
+ -- WPILib Developers <wpilib@wpi.edu>  Fri, 14 Jul 2017 13:16:52 -0400
+
+frc-toolchain (2017.0) stable; urgency=medium
 
   * 2017 versions
 
  -- WPILib Developers <wpilib@wpi.edu>  Wed, 04 Jan 2017 21:30:08 -0500
 
-frc-toolchain (2016.0) stable; urgency=lowfrc-toolchain (2016.0) stable; urgency=low
+frc-toolchain (2016.0) stable; urgency=low
 
   * Allow installation of latest gcc
 
