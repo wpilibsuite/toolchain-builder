@@ -47,19 +47,19 @@ override_dh_shlibdeps:
 	
 override_dh_auto_build:
 	mkdir -p ${GCC_BUILD_DIR}/arm-frc-linux-gnueabi/libatomic/.deps
-	dh_auto_build -B${GCC_BUILD_DIR}  -- -j3
+	dh_auto_build -B${GCC_BUILD_DIR}  -- -j7
 
 override_dh_auto_install:
 	cd ${GCC_BUILD_DIR} && make -j1 install DESTDIR=${SRC_DIR}/debian/tmp AM_UPDATE_INFO_DIR=no
 	sed -i "/dependency_libs/ s/'.*'/''/" `find . -name '*.la'`
 	mkdir -p ${SRC_DIR}/debian/gcc-5.4-arm-frc-linux-gnueabi-base/usr/lib/${DEB_BUILD_MULTIARCH}/gcc/arm-frc-linux-gnueabi/5.4/
 	cd ${SRC_DIR}/debian/gcc-5.4-arm-frc-linux-gnueabi-base/usr/lib/${DEB_BUILD_MULTIARCH}/gcc/arm-frc-linux-gnueabi/ && ln -s 5.4/ 5.4.0
-	sed s/DEB_BUILD_GNU_TYPE/${DEB_BUILD_MULTIARCH}/ < debian/libgcc-5.4-dev-frc-armel-cross.install.in > debian/libgcc-5.4-dev-frc-armel-cross.install
+	sed s/DEB_BUILD_GNU_TYPE/${DEB_BUILD_MULTIARCH}/ < debian/libgcc-dev-frc-armel-cross.install.in > debian/libgcc-dev-frc-armel-cross.install
 	sed s/DEB_BUILD_GNU_TYPE/${DEB_BUILD_MULTIARCH}/ < debian/gcc-5.4-arm-frc-linux-gnueabi.install.in > debian/gcc-5.4-arm-frc-linux-gnueabi.install
 	sed s/DEB_BUILD_GNU_TYPE/${DEB_BUILD_MULTIARCH}/ < debian/g++-5.4-arm-frc-linux-gnueabi.install.in > debian/g++-5.4-arm-frc-linux-gnueabi.install
 	sed s/DEB_BUILD_GNU_TYPE/${DEB_BUILD_MULTIARCH}/ < debian/cpp-5.4-arm-frc-linux-gnueabi.install.in > debian/cpp-5.4-arm-frc-linux-gnueabi.install
-	cd ${SRC_DIR}/debian/tmp && find usr/lib/${DEB_BUILD_MULTIARCH}/gcc/arm-frc-linux-gnueabi/5.4.0/include >> ${SRC_DIR}/debian/libgcc-5.4-dev-frc-armel-cross.install
-	cd ${SRC_DIR}/debian/tmp && find usr/lib/${DEB_BUILD_MULTIARCH}/gcc/arm-frc-linux-gnueabi/5.4.0/include-fixed >> ${SRC_DIR}/debian/libgcc-5.4-dev-frc-armel-cross.install
+	cd ${SRC_DIR}/debian/tmp && find usr/lib/${DEB_BUILD_MULTIARCH}/gcc/arm-frc-linux-gnueabi/5.4.0/include >> ${SRC_DIR}/debian/libgcc-dev-frc-armel-cross.install
+	cd ${SRC_DIR}/debian/tmp && find usr/lib/${DEB_BUILD_MULTIARCH}/gcc/arm-frc-linux-gnueabi/5.4.0/include-fixed >> ${SRC_DIR}/debian/libgcc-dev-frc-armel-cross.install
 
 	
 override_dh_strip:
