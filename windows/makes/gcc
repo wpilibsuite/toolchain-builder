@@ -33,6 +33,10 @@ tar xf ../cloog-${V_CLOOG}.tar.gz
 echo "Extracting ISL..."
 tar xf ../isl-${V_ISL}.tar.bz2
 echo "Extracting GDB..."
+
+echo "Patching GCC..."
+patch -p0 < ../deb/debians/gcc/patches/config
+
 mv cloog-${V_CLOOG} gcc-${V_GCC}/cloog
 mv isl-${V_ISL} gcc-${V_GCC}/isl
 mv mpfr-${V_MPFR} gcc-${V_GCC}/mpfr

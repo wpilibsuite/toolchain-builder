@@ -1,3 +1,9 @@
+gcc-frc-armel-cross (5.4.0-2) stable; urgency=medium
+
+  * Add compiler predefine for __FRC_ROBORIO__
+
+ -- WPILib Developers <wpilib@wpi.edu>  Thu, 30 Nov 2017 21:25:12 -0400
+
 gcc-frc-armel-cross (5.4.0-1) stable; urgency=medium
 
   * Update to 5.4.0 for 2018.
