@@ -3,8 +3,8 @@ Author: WPILib Developers <wpilib@wpi.edu>
 
 ---
 
---- gcc-5.4.0/gcc/config/linux.h
-+++ gcc-5.4.0/gcc/config/linux.h
+--- gcc-5.5.0/gcc/config/linux.h
++++ gcc-5.5.0/gcc/config/linux.h
 @@ -42,6 +42,7 @@
      do {							\
  	if (OPTION_GLIBC)					\

@@ -21,7 +21,7 @@ echo "//typedef __caddr_t caddr_t;"
 
 
 echo "Extracting GCC..."
-tar xf ../gcc-${V_GCC}.tar.bz2
+tar xf ../gcc-${V_GCC}.tar.xz
 echo "Extracting MPFR..."
 tar xf ../mpfr-${V_MPFR}.tar.bz2
 echo "Extracting MPC..."
