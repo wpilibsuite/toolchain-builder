@@ -12,7 +12,7 @@ fi
 # clean up old files
 rm -rf repack
 
-wget -nc https://ftp.gnu.org/gnu/gcc/gcc-${V_GCC}/gcc-${V_GCC}.tar.bz2
+wget -nc https://ftp.gnu.org/gnu/gcc/gcc-${V_GCC}/gcc-${V_GCC}.tar.xz
 wget -nc https://ftp.gnu.org/gnu/binutils/binutils-${V_BIN}.tar.bz2
 wget -nc https://ftp.gnu.org/gnu/mpfr/mpfr-${V_MPFR}.tar.bz2
 wget -nc https://ftp.gnu.org/gnu/mpc/mpc-${V_MPC}.tar.gz
