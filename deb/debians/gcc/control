@@ -2,11 +2,11 @@ Source: gcc-frc-armel-cross
 Section: contrib/devel
 Priority: extra
 Maintainer: WPILib Developers <wpilib@wpi.edu>
-Build-Depends: debhelper (>= 9.0.0), autotools-dev, libmpfr-dev (>= 3.1.0), libgmp-dev (>= 2:5.0.2), libmpc-dev (>= 0.9), libcloog-isl-dev (>= 0.17.0), flex, texinfo, zlib1g-dev, bison, binutils-arm-frc-linux-gnueabi (>= 2.24), libc6-dev-frc-armel-cross (>= 2.17)
+Build-Depends: debhelper (>= 9.0.0), autotools-dev, libmpfr-dev (>= 3.1.0), libgmp-dev (>= 2:6.1.0), libmpc-dev (>= 1.0), libcloog-isl-dev (>= 0.17.0), flex, texinfo, zlib1g-dev, bison, binutils-arm-frc-linux-gnueabi (>= 2.28), libc6-dev-frc-armel-cross (>= 2.23)
 Standards-Version: 3.9.6
 Homepage: http://gcc.gnu.org/
 
-Package: gcc-4.9-arm-frc-linux-gnueabi-base
+Package: gcc-5.5-arm-frc-linux-gnueabi-base
 Architecture: any
 Section: devel
 Priority: extra
@@ -19,7 +19,7 @@ Package: libgcc1-frc-armel-cross
 Architecture: all
 Section: devel
 Priority: extra
-Depends: gcc-4.9-arm-frc-linux-gnueabi-base (= ${binary:Version}), libc6-frc-armel-cross (>= 2.17), ${shlibs:Depends}, ${misc:Depends}
+Depends: gcc-5.5-arm-frc-linux-gnueabi-base (= ${binary:Version}), libc6-frc-armel-cross (>= 2.23), ${shlibs:Depends}, ${misc:Depends}
 Provides: libgcc1-armel-dcv1
 Description: GCC support library
  Shared version of the support library, a library of internal subroutines
@@ -30,35 +30,47 @@ Description: GCC support library
  environment.
 
 #Note: This is set to any because of paths that I have not yet figured out
-Package: libgcc-4.9-dev-frc-armel-cross
+#Second note: This should be libgcc-5.4 but removed the versions because the contents aren't all in paths that contain the version
+Package: libgcc-dev-frc-armel-cross
 Architecture: any
 Section: libdevel
 Priority: optional
-Recommends: libc6-dev-frc-armel-cross (>= 2.17)
-Depends: gcc-4.9-arm-frc-linux-gnueabi-base (= ${binary:Version}), libgcc1-frc-armel-cross (>= ${binary:Version}), libgomp1-frc-armel-cross (>= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Recommends: libc6-dev-frc-armel-cross (>= 2.23)
+Depends: gcc-5.5-arm-frc-linux-gnueabi-base (= ${binary:Version}), libgcc1-frc-armel-cross (>= ${binary:Version}), libgomp1-frc-armel-cross (>= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Breaks: libgcc-4.9-dev-frc-armel-cross (<< 5.4.0)
+Replaces: libgcc-4.9-dev-frc-armel-cross (<< 5.4.0)
 Description: GCC support library (development files)
  This package contains the headers and static library files necessary for
  building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
+ 
+#See above...
+Package: libgcc-4.9-dev-frc-armel-cross
+Depends: libgcc-dev-frc-armel-cross, ${misc:Depends}
+Architecture: all
+Priority: optional
+Section: oldlibs
+Description: transitional package
+ This is a transitional package. It can safely be removed.
 
-Package: gcc-4.9-arm-frc-linux-gnueabi
+Package: gcc-5.5-arm-frc-linux-gnueabi
 Architecture: any
 Section: devel
 Priority: extra
-Depends: gcc-4.9-arm-frc-linux-gnueabi-base (= ${binary:Version}), cpp-4.9-arm-frc-linux-gnueabi (= ${binary:Version}), binutils-arm-frc-linux-gnueabi (>= ${binutils:Version}), libgcc-4.9-dev-frc-armel-cross (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
-Recommends: libc6-dev-frc-armel-cross (>= 2.17)
-Suggests: gcc-4.9-doc (>= ${gcc:SoftVersion}), gcc-4.9-locales (>= ${gcc:SoftVersion})
+Depends: gcc-5.5-arm-frc-linux-gnueabi-base (= ${binary:Version}), cpp-5.5-arm-frc-linux-gnueabi (= ${binary:Version}), binutils-arm-frc-linux-gnueabi (>= ${binutils:Version}), libgcc-dev-frc-armel-cross (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Recommends: libc6-dev-frc-armel-cross (>= 2.23)
+Suggests: gcc-5.5-doc (>= ${gcc:SoftVersion}), gcc-5.4-locales (>= ${gcc:SoftVersion})
 Provides: c-compiler-arm-frc-linux-gnueabi
 Description: GNU C compiler
  This is the GNU C compiler, a fairly portable optimizing compiler for C.
  .
  This package contains C cross-compiler for armel architecture.
 
-Package: cpp-4.9-arm-frc-linux-gnueabi
+Package: cpp-5.5-arm-frc-linux-gnueabi
 Architecture: any
 Section: devel
 Priority: extra
-Depends: gcc-4.9-arm-frc-linux-gnueabi-base (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
-Suggests: gcc-4.9-locales (>= ${gcc:SoftVersion})
+Depends: gcc-5.5-arm-frc-linux-gnueabi-base (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Suggests: gcc-5.5-locales (>= ${gcc:SoftVersion})
 Description: GNU C preprocessor
  A macro processor that is used automatically by the GNU C compiler
  to transform programs before actual compilation.
@@ -68,13 +80,13 @@ Description: GNU C preprocessor
  .
  This package contains preprocessor configured for armel architecture.
 
-Package: g++-4.9-arm-frc-linux-gnueabi
+Package: g++-5.5-arm-frc-linux-gnueabi
 Architecture: any
 Section: devel
 Priority: extra
-Depends: gcc-4.9-arm-frc-linux-gnueabi-base (= ${binary:Version}), gcc-4.9-arm-frc-linux-gnueabi (= ${binary:Version}), libstdc++6-dev-frc-armel-cross (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Depends: gcc-5.5-arm-frc-linux-gnueabi-base (= ${binary:Version}), gcc-5.5-arm-frc-linux-gnueabi (= ${binary:Version}), libstdc++6-dev-frc-armel-cross (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
 Provides: c++-compiler-arm-frc-linux-gnueabi, c++abi2-dev
-Suggests: gcc-4.9-doc (>= ${gcc:SoftVersion})
+Suggests: gcc-5.5-doc (>= ${gcc:SoftVersion})
 Description: GNU C++ compiler
  This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
  .
@@ -84,7 +96,7 @@ Package: libgomp1-frc-armel-cross
 Section: devel
 Architecture: all
 Priority: extra
-Depends: gcc-4.9-arm-frc-linux-gnueabi-base (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Depends: gcc-5.5-arm-frc-linux-gnueabi-base (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
 Description: GCC OpenMP (GOMP) support library
  GOMP is an implementation of OpenMP for the C, C++, and Fortran compilers
  in the GNU Compiler Collection.
@@ -93,7 +105,7 @@ Package: libstdc++6-frc-armel-cross
 Architecture: all
 Section: devel
 Priority: extra
-Depends: gcc-4.9-arm-frc-linux-gnueabi-base (= ${binary:Version}), libc6-frc-armel-cross (>= 2.17), ${shlibs:Depends}, ${misc:Depends}
+Depends: gcc-5.5-arm-frc-linux-gnueabi-base (= ${binary:Version}), libc6-frc-armel-cross (>= 2.23), ${shlibs:Depends}, ${misc:Depends}
 Provides: libstdc++6-armel-dcv1
 Conflicts: scim (<< 1.4.2-1)
 Description: GNU Standard C++ Library v3
@@ -111,9 +123,9 @@ Package: libstdc++6-dev-frc-armel-cross
 Architecture: all
 Section: devel
 Priority: extra
-Depends: gcc-4.9-arm-frc-linux-gnueabi-base (= ${binary:Version}), libgcc-4.9-dev-frc-armel-cross (= ${binary:Version}), libstdc++6-frc-armel-cross (>= ${binary:Version}), libc6-dev-frc-armel-cross (>= 2.17), ${misc:Depends}
-Provides: libstdc++-dev-frc-armel-cross, libstdc++-dev-armel-dcv1, libstdc++6-dev-armel-dcv1, libstdc++6-4.9-dev-frc-armel-cross
-Conflicts: libstdc++6-4.9-dev-frc-armel-cross
+Depends: gcc-5.5-arm-frc-linux-gnueabi-base (= ${binary:Version}), libgcc-dev-frc-armel-cross (= ${binary:Version}), libstdc++6-frc-armel-cross (>= ${binary:Version}), libc6-dev-frc-armel-cross (>= 2.23), ${misc:Depends}
+Provides: libstdc++-dev-frc-armel-cross, libstdc++-dev-armel-dcv1, libstdc++6-dev-armel-dcv1, libstdc++6-5-dev-frc-armel-cross
+Conflicts: libstdc++6-5-dev-frc-armel-cross, libstdc++6-4.9-dev-frc-armel-cross
 Description: GNU Standard C++ Library v3 (development files)
  This package contains the headers and static library files necessary for
  building C++ programs which use libstdc++.

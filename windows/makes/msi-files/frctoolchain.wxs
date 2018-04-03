@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
 <!-- To Upgrade: generate a new GUID for product id only, then bump the version (currently in format 1.yy.mmr) -->
-    <Product Id="16fd869e-a5fb-4368-8a40-bbb3f6891054" Name="FRC Toolchain" Language="1033" Version="1.16.120" Manufacturer="WPI" UpgradeCode="17FA5361-A849-4BC0-8229-9624693117EA">
+    <Product Id="478633a4-d6bd-11e7-8870-8f5a72a95e21" Name="FRC Toolchain" Language="1033" Version="1.17.110" Manufacturer="WPI" UpgradeCode="17FA5361-A849-4BC0-8229-9624693117EA">
         <Package Description="GNU Toolchain for FRC" Comments="FRC Toolchain including Binutils, GCC, and RoboRIO headers" InstallerVersion="405" Compressed="yes" />
         <Media Id="1" Cabinet="simple.cab" EmbedCab="yes" />
         <Directory Id="TARGETDIR" Name="SourceDir">

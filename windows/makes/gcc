@@ -21,7 +21,7 @@ echo "//typedef __caddr_t caddr_t;"
 
 
 echo "Extracting GCC..."
-tar xf ../gcc-${V_GCC}.tar.bz2
+tar xf ../gcc-${V_GCC}.tar.xz
 echo "Extracting MPFR..."
 tar xf ../mpfr-${V_MPFR}.tar.bz2
 echo "Extracting MPC..."
@@ -33,6 +33,10 @@ tar xf ../cloog-${V_CLOOG}.tar.gz
 echo "Extracting ISL..."
 tar xf ../isl-${V_ISL}.tar.bz2
 echo "Extracting GDB..."
+
+echo "Patching GCC..."
+patch -p0 < ../deb/debians/gcc/patches/config
+
 mv cloog-${V_CLOOG} gcc-${V_GCC}/cloog
 mv isl-${V_ISL} gcc-${V_GCC}/isl
 mv mpfr-${V_MPFR} gcc-${V_GCC}/mpfr
@@ -42,7 +46,7 @@ mv gmp-${V_GMPf} gcc-${V_GCC}/gmp
 mkdir gcc-build
 mkdir gcc-install
 cd gcc-build
-../gcc-${V_GCC}/configure --host=i686-w64-mingw32 --enable-threads=posix --target=arm-frc-linux-gnueabi --with-arch=armv7-a --with-cpu=cortex-a9 --with-float=softfp --with-fpu=vfpv3 --with-specs='%{save-temps: -fverbose-asm} %{funwind-tables|fno-unwind-tables|mabi=*|ffreestanding|nostdlib:;:-funwind-tables}' --enable-languages=c,c++ --enable-shared --enable-lto --disable-nls --with-pkgversion='GCC for FRC' --with-cloog --disable-multilib --disable-multiarch --prefix=/frc --with-sysroot=/frc --enable-poison-system-directories --disable-libmudflap --with-build-sysroot=/usr/arm-frc-linux-gnueabi || exit $?
+../gcc-${V_GCC}/configure --host=i686-w64-mingw32 --enable-threads=posix --target=arm-frc-linux-gnueabi --with-cpu=cortex-a9 --with-float=softfp --with-fpu=vfpv3 --with-specs='%{save-temps: -fverbose-asm} %{funwind-tables|fno-unwind-tables|mabi=*|ffreestanding|nostdlib:;:-funwind-tables}' --enable-languages=c,c++ --enable-shared --enable-lto --disable-nls --with-pkgversion='GCC for FRC' --with-cloog --disable-multilib --disable-multiarch --prefix=/frc --with-sysroot=/frc --enable-poison-system-directories --disable-libmudflap --with-build-sysroot=/usr/arm-frc-linux-gnueabi || exit $?
 make -j3 || exit $?
 DESTDIR=$PWD/../gcc-install make install
 

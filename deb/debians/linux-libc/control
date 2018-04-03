@@ -8,10 +8,10 @@ Build-Depends: debhelper (>= 9)
 Package: linux-libc-dev-frc-armel-cross
 Architecture: all
 Depends: ${misc:Depends}
-Recommends: roborio-sysroot (>= 1.1)
+Recommends: roborio-sysroot (>= 1.4)
 Suggests: g++-arm-frc-linux-gnueabi
-Conflicts: roborio-sysroot (<< 1.1)
-Replaces: roborio-sysroot (<< 1.1)
+Conflicts: roborio-sysroot (<< 1.4)
+Replaces: roborio-sysroot (<< 1.4)
 Description: Linux Kernel Headers for development (for cross-compiling)
  This package provides headers from the Linux kernel.  These headers
  are used by the installed headers for GNU glibc and other system

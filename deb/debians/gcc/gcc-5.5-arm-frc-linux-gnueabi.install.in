@@ -1,0 +1,12 @@
+usr/bin/arm-frc-linux-gnueabi-gcc-5.5
+usr/bin/arm-frc-linux-gnueabi-gcc-ar-5.5
+usr/bin/arm-frc-linux-gnueabi-gcc-nm-5.5
+usr/bin/arm-frc-linux-gnueabi-gcc-ranlib-5.5
+usr/bin/arm-frc-linux-gnueabi-gcov-5.5
+usr/lib/DEB_BUILD_GNU_TYPE/gcc/arm-frc-linux-gnueabi/5.5.0/collect2
+usr/lib/DEB_BUILD_GNU_TYPE/gcc/arm-frc-linux-gnueabi/5.5.0/lto1
+usr/lib/DEB_BUILD_GNU_TYPE/gcc/arm-frc-linux-gnueabi/5.5.0/lto-wrapper
+usr/share/man/man1/arm-frc-linux-gnueabi-gcc-5.5.1
+usr/share/man/man1/arm-frc-linux-gnueabi-gcov-5.5.1
+usr/share/man/man1/arm-frc-linux-gnueabi-gcov-dump-5.5.1
+usr/share/man/man1/arm-frc-linux-gnueabi-gcov-tool-5.5.1

@@ -1,3 +1,9 @@
+binutils-frc-armel-cross (2.28-1) stable; urgency=low
+
+  * Update to latest binutils version
+
+ -- WPILib Developers <wpilib@wpi.edu>  Fri, 14 Jul 2017 13:14:08 -0400
+
 binutils-frc-armel-cross (2.25.1-1) stable; urgency=low
 
   * Update to latest binutils version

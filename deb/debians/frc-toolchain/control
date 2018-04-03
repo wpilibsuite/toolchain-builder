@@ -7,8 +7,7 @@ Standards-Version: 3.9.6
 
 Package: frc-toolchain
 Architecture: all
-Depends: g++-arm-frc-linux-gnueabi (>= 4.9), gdb-arm-frc-linux-gnueabi (>= 7.10), libc6-frc-armel-cross, libc6-dev-frc-armel-cross, linux-libc-dev-frc-armel-cross, ${misc:Depends}
-Conflicts: g++-arm-frc-linux-gnueabi (>= 5.0)
+Depends: g++-arm-frc-linux-gnueabi (>= 5.5), gdb-arm-frc-linux-gnueabi (>= 7.10), libc6-frc-armel-cross, libc6-dev-frc-armel-cross, linux-libc-dev-frc-armel-cross, ${misc:Depends}
 Recommends: frcmake
-Description: FRC Toolchain for 2016+ (Metapackage)
+Description: FRC Toolchain for 2018+ (Metapackage)
  This metapackage depends on all the components of the FRC toolchain.
