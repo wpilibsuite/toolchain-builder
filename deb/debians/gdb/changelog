@@ -1,23 +1,5 @@
-gdb-frc-armel-cross (7.10.1-1) stable; urgency=medium
+gdb-frc2018-armel-cross (7.10.1-1) stable; urgency=medium
 
-  * Update to 7.10.1
+  * Initial release.
 
- -- WPILib Developers <wpilib@wpi.edu>  Fri, 14 Jul 2017 13:25:57 -0400
- 
-gdb-frc-armel-cross (7.10-1) stable; urgency=medium
-
-  * Update to 7.10 from upstream
-
- -- WPILib Developers <wpilib@wpi.edu>  Sun, 13 Sep 2015 14:16:57 -0400
- 
-gdb-frc-armel-cross (7.8-1frc2) trusty; urgency=low
-
-  * Re-enabling python and fixing system paths
-
- -- Patrick Plenefisch <phplenefisch@wpi.edu>  Fri, 12 Sep 2014 21:53:19 -0400
-
-gdb-frc-armel-cross (7.8-1) trusty; urgency=low
-
-  * Initial release
-
- -- Patrick Plenefisch <phplenefisch@wpi.edu>  Sun, 31 Aug 2014 18:00:02 -0400
+ -- WPILib Developers <wpilib@wpi.edu>  Tue, 03 Apr 2018 13:25:57 -0400

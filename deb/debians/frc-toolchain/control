@@ -1,13 +1,13 @@
-Source: frc-toolchain
+Source: frc2018-toolchain
 Section: devel
 Priority: optional
 Maintainer: WPILib Developers <wpilib@wpi.edu>
 Build-Depends: debhelper (>= 7)
 Standards-Version: 3.9.6
 
-Package: frc-toolchain
+Package: frc2018-toolchain
 Architecture: all
-Depends: g++-arm-frc-linux-gnueabi (>= 5.5), gdb-arm-frc-linux-gnueabi (>= 7.10), libc6-frc-armel-cross, libc6-dev-frc-armel-cross, linux-libc-dev-frc-armel-cross, ${misc:Depends}
-Recommends: frcmake
+Depends: g++-arm-frc2018-linux-gnueabi (>= 5.5), gdb-arm-frc2018-linux-gnueabi (>= 7.10), libc6-frc2018-armel-cross, libc6-dev-frc2018-armel-cross, linux-libc-dev-frc2018-armel-cross, ${misc:Depends}
+Recommends: frc2018make
 Description: FRC Toolchain for 2018+ (Metapackage)
  This metapackage depends on all the components of the FRC toolchain.

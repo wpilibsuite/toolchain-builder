@@ -51,9 +51,9 @@ man(1), man(7), http://www.tldp.org/HOWTO/Man-Page/
   <!ENTITY dhsection   "1">
   <!-- TITLE should be something like "User commands" or similar (see
        http://www.tldp.org/HOWTO/Man-Page/q2.html). -->
-  <!ENTITY dhtitle     "frcmake User Manual">
-  <!ENTITY dhucpackage "frc-cmake-toolchain">
-  <!ENTITY dhpackage   "frc-cmake-toolchain">
+  <!ENTITY dhtitle     "frcmake2018 User Manual">
+  <!ENTITY dhucpackage "frc2018-cmake-toolchain">
+  <!ENTITY dhpackage   "frc2018-cmake-toolchain">
 ]>
 
 <refentry>
@@ -115,7 +115,7 @@ man(1), man(7), http://www.tldp.org/HOWTO/Man-Page/
         <refentrytitle>cmake</refentrytitle>
         <manvolnum>1</manvolnum>
       </citerefentry>, <citerefentry>
-        <refentrytitle>frcmake</refentrytitle>
+        <refentrytitle>frcmake2018</refentrytitle>
         <manvolnum>1</manvolnum>
       </citerefentry></para>
   </refsect1>

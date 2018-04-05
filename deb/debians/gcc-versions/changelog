@@ -1,24 +1,5 @@
-gcc-defaults-frc-armel-cross (5.5) stable; urgency=low
+gcc-defaults-frc2018-armel-cross (5.5) stable; urgency=low
 
-  * Update to 5.5.
+  * Initial release.
 
- -- WPILib Developers <wpilib@wpi.edu>  Thu, 30 Nov 2017 23:14:36 -0400
-
-gcc-defaults-frc-armel-cross (5.4) stable; urgency=low
-
-  * Update to 5.4.
-
- -- WPILib Developers <wpilib@wpi.edu>  Fri, 14 Jul 2017 13:24:36 -0400
-
-gcc-defaults-frc-armel-cross (4.9.3) stable; urgency=low
-
-  * Update maintainer and copyright
-
- -- WPILib Developers <wpilib@wpi.edu>  Sun, 13 Sep 2015 14:19:36 -0400
-
-gcc-defaults-frc-armel-cross (4.9) stable; urgency=low
-
-  * Adding links for frc tools
-
- -- Patrick Plenefisch <phplenefisch@wpi.edu>  Thu, 11 Sep 2014 13:45:14 -0400
-
+ -- WPILib Developers <wpilib@wpi.edu>  Tue, 03 Apr 2018 23:14:36 -0400

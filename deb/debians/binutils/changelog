@@ -1,29 +1,5 @@
-binutils-frc-armel-cross (2.28-1) stable; urgency=low
-
-  * Update to latest binutils version
-
- -- WPILib Developers <wpilib@wpi.edu>  Fri, 14 Jul 2017 13:14:08 -0400
-
-binutils-frc-armel-cross (2.25.1-1) stable; urgency=low
-
-  * Update to latest binutils version
-
- -- WPILib Developers <wpilib@wpi.edu>  Sun, 13 Sep 2015 14:38:08 -0400
-
-binutils-frc-armel-cross (2.24-0) stable; urgency=low
-
-  * renaming triplet
-
- -- Patrick Plenefisch <phplenefisch@wpi.edu>  Wed, 10 Sep 2014 09:19:27 -0400
-
-binutils-armel-cross-frc (2.24-2) trusty; urgency=low
-
-  * Bumping version for trusty
-
- -- Patrick Plenefisch <phplenefisch@wpi.edu>  Fri, 05 Sep 2014 09:19:27 -0400
-
-binutils-armel-cross-frc (2.24-1) unstable; urgency=low
+binutils-frc2018-armel-cross (2.28-1) stable; urgency=low
 
   * Initial release
 
- -- Patrick Plenefisch <phplenefisch@wpi.edu>  Fri, 29 Aug 2014 19:26:26 -0400
+ -- WPILib Developers <wpilib@wpi.edu>  Tue, 03 Apr 2018 13:14:08 -0400

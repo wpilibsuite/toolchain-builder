@@ -48,21 +48,23 @@ rm -d repack/**/*(/^F)
 
 pushd repack/linux-libc-headers-dev/
 	mv out linux-libc-${Va_LINUX}
-	tar cjf "${THIS_DIR}/linux-libc-dev-frc-armel-cross_${Va_LINUX}.orig.tar.bz2" * --owner=0 --group=0
+	tar cjf "${THIS_DIR}/linux-libc-dev-frc${V_YEAR}-armel-cross_${Va_LINUX}.orig.tar.bz2" * --owner=0 --group=0
 popd
 pushd repack/libc6/
 	mkdir libc6-${Va_LIBC}
 	mv out libc6-${Va_LIBC}/libc6
 	mv ../libc6-dev/out libc6-${Va_LIBC}/libc6-dev
-	tar cjf "${THIS_DIR}/libc6-frc-armel-cross_${Va_LIBC}.orig.tar.bz2" * --owner=0 --group=0
+	tar cjf "${THIS_DIR}/libc6-frc${V_YEAR}-armel-cross_${Va_LIBC}.orig.tar.bz2" * --owner=0 --group=0
 popd
 
 # Make frcmake tarball
-mkdir frcmake-${V_FRCMAKE}
-pushd frcmake-${V_FRCMAKE} 
-cp ../tools/frcmake frcmake
-cp ../tools/frc-cmake-toolchain frc-cmake-toolchain
-cp ../tools/toolchain.cmake toolchain.cmake
-cp ../tools/frcmake-nix-makefile Makefile
+mkdir frcmake${V_YEAR}-${V_FRCMAKE}
+pushd frcmake${V_YEAR}-${V_FRCMAKE} 
+sed -e "s/frc/frc${V_YEAR}/g" ../tools/frcmake > frcmake${V_YEAR}
+chmod a+x frcmake${V_YEAR}
+sed -e "s/frc/frc${V_YEAR}/g" ../tools/frc-cmake-toolchain > frc${V_YEAR}-cmake-toolchain
+chmod a+x frc${V_YEAR}-cmake-toolchain
+sed -e "s/frc/frc${V_YEAR}/g" ../tools/toolchain.cmake > toolchain.cmake
+sed -e "s/frc/frc${V_YEAR}/g" -e "s/frc2018make/frcmake2018/g" ../tools/frcmake-nix-makefile > Makefile
 popd
-tar cjf frcmake-${V_FRCMAKE}.tar.bz2 frcmake-${V_FRCMAKE}
+tar cjf frcmake${V_YEAR}-${V_FRCMAKE}.tar.bz2 frcmake${V_YEAR}-${V_FRCMAKE}

@@ -96,6 +96,7 @@ FROM suchja/wine:latest AS build-msi
 
 # Update winetricks
 USER root
+
 RUN curl -SL https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks -o winetricks \
   && chmod +x winetricks \
   && mv -v winetricks /usr/local/bin
@@ -117,9 +118,11 @@ RUN mkdir -p build/windows/wix \
   && unzip wix310-binaries.zip \
   && rm wix310-binaries.zip
 
+ENV V_YEAR=2018
+
 # Set up symlink for shorter paths
 RUN cd ~/.wine/dosdevices \
-  && ln -s /home/xclient/build/windows/tree-install/c/frc/ s:
+  && ln -s /home/xclient/build/windows/tree-install/c/frc${V_YEAR} s:
 
 # Copy tree and msi build script
 
@@ -128,6 +131,12 @@ WORKDIR /home/xclient/build/windows
 COPY --from=build-linux /build/windows/tree-install tree-install
 COPY --from=build-linux /build/windows/makes makes
 
+# Remove pb_ds as paths are too long there
+USER root
+RUN rm -rf /home/xclient/build/windows/tree-install/c/frc${V_YEAR}/arm-frc${V_YEAR}-linux-gnueabi/include/c++/*/ext/pb_ds
+
+# Build msi
+USER xclient
 RUN bash makes/msi
 
 #

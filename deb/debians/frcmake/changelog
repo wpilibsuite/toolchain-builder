@@ -1,11 +1,5 @@
-frcmake (1.1) stable; urgency=low
+frcmake2018 (1.1) stable; urgency=low
 
-  * Update maintainer and copyrights
+  * Initial release.
 
- -- WPILib Developers <wpilib@wpi.edu>  Sun, 13 Sep 2015 14:34:50 -0400
-
-frcmake (1.0) unstable; urgency=low
-
-  * Initial Release.
-
- -- Patrick Plenefisch <phplenefisch@wpi.edu>  Sat, 08 Nov 2014 00:51:07 -0500
+ -- WPILib Developers <wpilib@wpi.edu>  Tue, 03 Apr 2018 14:34:50 -0400

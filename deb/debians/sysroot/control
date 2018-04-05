@@ -1,15 +1,13 @@
-Source: roborio-sysroot
+Source: roborio2018-sysroot
 Maintainer: WPILib Developers <wpilib@wpi.edu>
 Section: devel
 Priority: extra
 Standards-Version: 3.9.6
 Build-Depends: debhelper (>= 9)
 
-Package: roborio-sysroot
+Package: roborio2018-sysroot
 Architecture: all
-Depends: libc6-dev-frc-armel-cross (>= 2.23-r0.47), libc6-frc-armel-cross (>= 2.23-r0.47), linux-libc-dev-frc-armel-cross (>= 4.4-r0.22), ${misc:Depends}
-Conflicts: roborio-sysroot (<< 1.4)
-Replaces: roborio-sysroot (<< 1.4)
+Depends: libc6-dev-frc2018-armel-cross (>= 2.23-r0.47), libc6-frc2018-armel-cross (>= 2.23-r0.47), linux-libc-dev-frc2018-armel-cross (>= 4.4-r0.22), ${misc:Depends}
 Description: System Root for RoboRIO targets (metapackage) 
  This package contains the headers and library files necessary for
  building linux programs. This is a metapackage that will always depend

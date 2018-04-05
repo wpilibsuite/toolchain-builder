@@ -6,17 +6,17 @@ cp gcc-install tree-install/c -r
 cp binutils-install/c tree-install/ -r
 cp sysroot-install/c tree-install/ -r
 cp gdb-install/c tree-install/ -r
-cd tree-install/c/frc
+cd tree-install/c/frc${V_YEAR}
 du -hs .
-pushd lib/gcc/arm-frc-linux-gnueabi/${V_GCC}
-arm-frc-linux-gnueabi-strip --strip-debug libgcc.a libgcc_eh.a libgcov.a 
-arm-frc-linux-gnueabi-strip --strip-debug crtbegin.o crtbeginS.o crtbeginT.o crtend.o crtendS.o
+pushd lib/gcc/arm-frc${V_YEAR}-linux-gnueabi/${V_GCC}
+arm-frc${V_YEAR}-linux-gnueabi-strip --strip-debug libgcc.a libgcc_eh.a libgcov.a 
+arm-frc${V_YEAR}-linux-gnueabi-strip --strip-debug crtbegin.o crtbeginS.o crtbeginT.o crtend.o crtendS.o
 popd
 i686-w64-mingw32-strip --remove-section=.comment --remove-section=.note --strip-unneeded **/*.exe
 rm -rf share/info share/man
-arm-frc-linux-gnueabi-strip --strip-debug arm-frc-linux-gnueabi/**/*.a
-arm-frc-linux-gnueabi-strip --remove-section=.comment --remove-section=.note --strip-unneeded arm-frc-linux-gnueabi/**/*.so
-arm-frc-linux-gnueabi-strip --remove-section=.comment --remove-section=.note --strip-unneeded arm-frc-linux-gnueabi/lib/libgcc_s.so.1
+arm-frc${V_YEAR}-linux-gnueabi-strip --strip-debug arm-frc${V_YEAR}-linux-gnueabi/**/*.a
+arm-frc${V_YEAR}-linux-gnueabi-strip --remove-section=.comment --remove-section=.note --strip-unneeded arm-frc${V_YEAR}-linux-gnueabi/**/*.so
+arm-frc${V_YEAR}-linux-gnueabi-strip --remove-section=.comment --remove-section=.note --strip-unneeded arm-frc${V_YEAR}-linux-gnueabi/lib/libgcc_s.so.1
 
 pushd usr/include
 patch -p4 < ../../../../../makes/case-sensitive-includes.diff

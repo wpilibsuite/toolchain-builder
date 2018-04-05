@@ -11,9 +11,9 @@ sysroot: libc6 linux-libc roborio-sysroot
 
 frcmake:
 	rm -rf frcmake*
-	tar xf ../frcmake-${V_FRCMAKE}.tar.bz2
-	cp debians/frcmake frcmake-${V_FRCMAKE}/debian -r
-	cd frcmake-${V_FRCMAKE} && debuild $(DEBUILD_FLAGS)
+	tar xf ../frcmake$(V_YEAR)-${V_FRCMAKE}.tar.bz2
+	cp debians/frcmake frcmake$(V_YEAR)-${V_FRCMAKE}/debian -r
+	cd frcmake$(V_YEAR)-${V_FRCMAKE} && debuild $(DEBUILD_FLAGS)
 
 roborio-sysroot:
 	rm -rf roborio-sysroot*
@@ -23,50 +23,50 @@ roborio-sysroot:
 	
 libc6:
 	rm -rf libc6-*
-	cp ../libc6-frc-armel-cross_$(Va_LIBC).orig.tar.bz2 ./
-	tar xf libc6-frc-armel-cross_$(Va_LIBC).orig.tar.bz2
+	cp ../libc6-frc$(V_YEAR)-armel-cross_$(Va_LIBC).orig.tar.bz2 ./
+	tar xf libc6-frc$(V_YEAR)-armel-cross_$(Va_LIBC).orig.tar.bz2
 	cp debians/libc libc6-$(Va_LIBC)/debian -r
 	cd libc6-$(Va_LIBC) && debuild $(DEBUILD_FLAGS)
 
 linux-libc:
 	rm -rf linux-libc-*
-	cp ../linux-libc-dev-frc-armel-cross_$(Va_LINUX).orig.tar.bz2 ./
-	tar xf linux-libc-dev-frc-armel-cross_$(Va_LINUX).orig.tar.bz2
+	cp ../linux-libc-dev-frc$(V_YEAR)-armel-cross_$(Va_LINUX).orig.tar.bz2 ./
+	tar xf linux-libc-dev-frc$(V_YEAR)-armel-cross_$(Va_LINUX).orig.tar.bz2
 	cp debians/linux-libc linux-libc-$(Va_LINUX)/debian -r
 	cd linux-libc-$(Va_LINUX) && debuild $(DEBUILD_FLAGS)
 
 binutils:
 	rm -rf binutils-*
-	cp ../binutils-$(V_BINUTILS).tar.bz2 binutils-frc-armel-cross_$(V_BINUTILS).orig.tar.bz2 
-	tar xf binutils-frc-armel-cross_$(V_BINUTILS).orig.tar.bz2
+	cp ../binutils-$(V_BINUTILS).tar.bz2 binutils-frc$(V_YEAR)-armel-cross_$(V_BINUTILS).orig.tar.bz2 
+	tar xf binutils-frc$(V_YEAR)-armel-cross_$(V_BINUTILS).orig.tar.bz2
 	cp debians/binutils binutils-$(V_BINUTILS)/debian -r
 	cd binutils-$(V_BINUTILS) && debuild $(DEBUILD_FLAGS)
 
 gcc:
 	rm -rf gcc-*
-	cp ../gcc-$(V_GCC).tar.xz gcc-frc-armel-cross_$(V_GCC).orig.tar.xz
-	tar xJf gcc-frc-armel-cross_$(V_GCC).orig.tar.xz
+	cp ../gcc-$(V_GCC).tar.xz gcc-frc$(V_YEAR)-armel-cross_$(V_GCC).orig.tar.xz
+	tar xJf gcc-frc$(V_YEAR)-armel-cross_$(V_GCC).orig.tar.xz
 	cp debians/gcc gcc-$(V_GCC)/debian -r
 	cd gcc-$(V_GCC) && debuild $(DEBUILD_FLAGS)
 	
 gcc-defaults:
-	rm -rf gcc-defaults-frc-armel-cross*
-	mkdir gcc-defaults-frc-armel-cross-${V_GCC_DEFAULTS}
-	cp debians/gcc-versions gcc-defaults-frc-armel-cross-${V_GCC_DEFAULTS}/debian -r
-	cd gcc-defaults-frc-armel-cross-${V_GCC_DEFAULTS} && debuild $(DEBUILD_FLAGS)
+	rm -rf gcc-defaults-frc$(V_YEAR)-armel-cross*
+	mkdir gcc-defaults-frc$(V_YEAR)-armel-cross-${V_GCC_DEFAULTS}
+	cp debians/gcc-versions gcc-defaults-frc$(V_YEAR)-armel-cross-${V_GCC_DEFAULTS}/debian -r
+	cd gcc-defaults-frc$(V_YEAR)-armel-cross-${V_GCC_DEFAULTS} && debuild $(DEBUILD_FLAGS)
 	
 gdb:
 	rm -rf gdb*
-	cp ../gdb-$(V_GDB).tar.gz gdb-frc-armel-cross_$(V_GDB).orig.tar.gz
-	tar xf  gdb-frc-armel-cross_$(V_GDB).orig.tar.gz
+	cp ../gdb-$(V_GDB).tar.gz gdb-frc$(V_YEAR)-armel-cross_$(V_GDB).orig.tar.gz
+	tar xf  gdb-frc$(V_YEAR)-armel-cross_$(V_GDB).orig.tar.gz
 	cp debians/gdb gdb-$(V_GDB)/debian -r
 	cd gdb-$(V_GDB) && debuild $(DEBUILD_FLAGS)
 	
 frc-toolchain:
-	rm -rf frc-toolchain*
-	mkdir frc-toolchain-1
-	cp debians/frc-toolchain frc-toolchain-1/debian -r
-	cd frc-toolchain-1 && debuild $(DEBUILD_FLAGS)
+	rm -rf frc$(V_YEAR)-toolchain*
+	mkdir frc$(V_YEAR)-toolchain-1
+	cp debians/frc-toolchain frc$(V_YEAR)-toolchain-1/debian -r
+	cd frc$(V_YEAR)-toolchain-1 && debuild $(DEBUILD_FLAGS)
 
 clean:
 	find . -maxdepth 1 ! -name Makefile ! -name debians -type f -delete
