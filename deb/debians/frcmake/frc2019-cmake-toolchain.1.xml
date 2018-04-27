@@ -51,9 +51,9 @@ man(1), man(7), http://www.tldp.org/HOWTO/Man-Page/
   <!ENTITY dhsection   "1">
   <!-- TITLE should be something like "User commands" or similar (see
        http://www.tldp.org/HOWTO/Man-Page/q2.html). -->
-  <!ENTITY dhtitle     "frcmake2018 User Manual">
-  <!ENTITY dhucpackage "FRCMAKE2018">
-  <!ENTITY dhpackage   "frcmake2018">
+  <!ENTITY dhtitle     "frcmake2019 User Manual">
+  <!ENTITY dhucpackage "frc2019-cmake-toolchain">
+  <!ENTITY dhpackage   "frc2019-cmake-toolchain">
 ]>
 
 <refentry>
@@ -92,39 +92,21 @@ man(1), man(7), http://www.tldp.org/HOWTO/Man-Page/
   </refmeta>
   <refnamediv>
     <refname>&dhpackage;</refname>
-    <refpurpose>CMake wrapper for FRC</refpurpose>
+    <refpurpose>CMake toolchain path for FRC</refpurpose>
   </refnamediv>
   <refsynopsisdiv>
     <cmdsynopsis>
       <command>&dhpackage;</command>
-      <!-- These are several examples, how syntaxes could look -->
-      <arg choice="opt"><option>cmake-options</option></arg>
-      <arg choice="req"><option>path-to-source</option>
-      </arg>
     </cmdsynopsis>
     <cmdsynopsis>
       <command>&dhpackage;</command>
-      <!-- These are several examples, how syntaxes could look -->
-      <arg choice="opt"><option>cmake-options</option></arg>
-      <arg choice="req"><option>path-to-existing-build</option>
-      </arg>
     </cmdsynopsis>
   </refsynopsisdiv>
   <refsect1 id="description">
     <title>DESCRIPTION</title>
     <para>
-      <command>&dhpackage;</command> is a wrapper around CMake to automatically
-      use the correct toolchain file and is identical to the command:
-      cmake -DCMAKE_TOOLCHAIN_FILE=`frc2018-cmake-toolchain` ...</para>
+      <command>&dhpackage;</command> returns the path to the toolchain for FRC cross compiling in cmake</para>
     
-  </refsect1>
-  <refsect1 id="options">
-    <title>OPTIONS</title>
-    <para>The options are mirrors of 
-      <citerefentry>
-        <refentrytitle>cmake</refentrytitle>
-        <manvolnum>1</manvolnum>
-      </citerefentry> options.</para>
   </refsect1>
   <refsect1 id="see_also">
     <title>SEE ALSO</title>
@@ -133,7 +115,7 @@ man(1), man(7), http://www.tldp.org/HOWTO/Man-Page/
         <refentrytitle>cmake</refentrytitle>
         <manvolnum>1</manvolnum>
       </citerefentry>, <citerefentry>
-        <refentrytitle>frc2018-cmake-toolchain</refentrytitle>
+        <refentrytitle>frcmake2019</refentrytitle>
         <manvolnum>1</manvolnum>
       </citerefentry></para>
   </refsect1>

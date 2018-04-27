@@ -1,4 +1,4 @@
-gcc-defaults-frc2018-armel-cross (5.5) stable; urgency=low
+gcc-defaults-frc2019-armel-cross (6.3) stable; urgency=low
 
   * Initial release.
 

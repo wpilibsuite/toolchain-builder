@@ -1,30 +1,30 @@
-Source: libc6-frc2018-armel-cross
+Source: libc6-frc2019-armel-cross
 Maintainer: WPILib Developers <wpilib@wpi.edu>
 Section: devel
 Priority: extra
 Standards-Version: 3.9.6
 Build-Depends: debhelper (>= 9)
 
-Package: libc6-frc2018-armel-cross
+Package: libc6-frc2019-armel-cross
 Architecture: all
 Depends: ${misc:Depends}
-Recommends: roborio2018-sysroot (>= 1.4)
+Recommends: roborio2019-sysroot (>= 1.4)
 Description: Embedded GNU C Library: Shared libraries (for cross-compiling)
  Contains the standard libraries that are used by nearly all programs on
  the system. This package includes shared versions of the standard C library
  and the standard math library, as well as many others.
  .
- This package contains files for frc2018-armel architecture, for use in
+ This package contains files for frc2019-armel architecture, for use in
  cross-compile environments.
 
-Package: libc6-dev-frc2018-armel-cross
+Package: libc6-dev-frc2019-armel-cross
 Architecture: all
-Depends: libc6-frc2018-armel-cross (= ${binary:Version}), linux-libc-dev-frc2018-armel-cross, ${misc:Depends}
-Recommends: roborio2018-sysroot (>= 1.4)
+Depends: libc6-frc2019-armel-cross (= ${binary:Version}), linux-libc-dev-frc2019-armel-cross, ${misc:Depends}
+Recommends: roborio2019-sysroot (>= 1.4)
 Description: Embedded GNU C Library: Dev Libs and Header Files (for FRC)
  Contains the symlinks, headers, and object files needed to compile
  and link programs which use the standard C library.
  .
- This package contains files for frc2018-armel architecture, for use in
+ This package contains files for frc2019-armel architecture, for use in
  cross-compile environments.
 

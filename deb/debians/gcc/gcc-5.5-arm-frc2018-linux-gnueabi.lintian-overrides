@@ -1,3 +1,0 @@
-gcc-5.5-arm-frc2018-linux-gnueabi: binary-without-manpage usr/bin/arm-frc2018-linux-gnueabi-gcc-ar-5.5
-gcc-5.5-arm-frc2018-linux-gnueabi: binary-without-manpage usr/bin/arm-frc2018-linux-gnueabi-gcc-nm-5.5
-gcc-5.5-arm-frc2018-linux-gnueabi: binary-without-manpage usr/bin/arm-frc2018-linux-gnueabi-gcc-ranlib-5.5

@@ -1,4 +1,4 @@
-Source: gdb-frc2018-armel-cross
+Source: gdb-frc2019-armel-cross
 Section: devel
 Priority: optional
 Maintainer: WPILib Developers <wpilib@wpi.edu>
@@ -6,14 +6,14 @@ Build-Depends: debhelper (>= 9.0.0), autotools-dev, bison, flex, gettext, texinf
 Standards-Version: 3.9.6
 Homepage: https://www.gnu.org/software/gdb/
 
-Package: gdb-arm-frc2018-linux-gnueabi
+Package: gdb-arm-frc2019-linux-gnueabi
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, gdb
-Recommends: gcc-arm-frc2018-linux-gnueabi
-Description: GNU Debugger (Cross-debugger for arm-frc2018-linux-gnueabi)
+Recommends: gcc-arm-frc2019-linux-gnueabi
+Description: GNU Debugger (Cross-debugger for arm-frc2019-linux-gnueabi)
  GDB is a source-level debugger, capable of breaking programs at
  any specific line, displaying variable values, and determining
  where errors occurred. Currently, gdb supports C, C++, D,
  Objective-C, Fortran, Java, OpenCL C, Pascal, assembly, Modula-2,
  Go, and Ada. A must-have for any serious programmer. This is a 
- cross debugger for arm-frc2018-linux-gnueabi targets.
+ cross debugger for arm-frc2019-linux-gnueabi targets.

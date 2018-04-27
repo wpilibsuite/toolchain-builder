@@ -1,12 +1,12 @@
-Source: frcmake2018
+Source: frcmake2019
 Section: devel
 Priority: optional
 Maintainer: WPILib Developers <wpilib@wpi.edu>
 Build-Depends: debhelper (>= 9.0.0), docbook-xsl, docbook-xml, xsltproc
 Standards-Version: 3.9.6
 
-Package: frcmake2018
+Package: frcmake2019
 Architecture: all
-Depends: cmake, g++-arm-frc2018-linux-gnueabi, ${misc:Depends}
+Depends: cmake, g++-arm-frc2019-linux-gnueabi, ${misc:Depends}
 Description: CMake wrapper for FRC
  Small wrapper program to run CMake with the proper toolchain for FRC

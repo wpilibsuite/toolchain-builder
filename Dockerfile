@@ -1,8 +1,8 @@
 # Requires docker 17.05 or newer.
 # For installation, see https://docs.docker.com/install/linux/docker-ce/ubuntu/
-FROM ubuntu:17.10 AS build-linux
+FROM ubuntu:18.04 AS build-linux
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y tzdata && apt-get install -y \
     autoconf \
     automake \
     autotools-dev \
@@ -118,7 +118,7 @@ RUN mkdir -p build/windows/wix \
   && unzip wix310-binaries.zip \
   && rm wix310-binaries.zip
 
-ENV V_YEAR=2018
+ENV V_YEAR=2019
 
 # Set up symlink for shorter paths
 RUN cd ~/.wine/dosdevices \

@@ -1,21 +1,21 @@
-Source: linux-libc-dev-frc2018-armel-cross
+Source: linux-libc-dev-frc2019-armel-cross
 Maintainer: WPILib Developers <wpilib@wpi.edu>
 Section: devel
 Priority: extra
 Standards-Version: 3.9.6
 Build-Depends: debhelper (>= 9)
 
-Package: linux-libc-dev-frc2018-armel-cross
+Package: linux-libc-dev-frc2019-armel-cross
 Architecture: all
 Depends: ${misc:Depends}
-Recommends: roborio2018-sysroot (>= 1.4)
-Suggests: g++-arm-frc2018-linux-gnueabi
+Recommends: roborio2019-sysroot (>= 1.4)
+Suggests: g++-arm-frc2019-linux-gnueabi
 Description: Linux Kernel Headers for development (for cross-compiling)
  This package provides headers from the Linux kernel.  These headers
  are used by the installed headers for GNU glibc and other system
  libraries. They are NOT meant to be used to build third-party modules for
  your kernel.
  .
- This package contains files for frc2018-armel architecture, for use in 
+ This package contains files for frc2019-armel architecture, for use in 
  cross-compile environments.
 

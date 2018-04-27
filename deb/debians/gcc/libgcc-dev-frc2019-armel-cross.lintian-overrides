@@ -1,0 +1,2 @@
+libgcc-dev-frc2019-armel-cross: binary-from-other-architecture
+libgcc-dev-frc2019-armel-cross: non-standard-dir-in-usr usr/arm-frc2019-linux-gnueabi/

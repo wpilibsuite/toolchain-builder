@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
 <!-- To Upgrade: generate a new GUID for product id only, then bump the version (currently in format 1.yy.mmr) -->
-    <Product Id="556ae4e2-37c0-11e8-9766-8b8285d2cba6" Name="FRC 2018 Toolchain" Language="1033" Version="1.18.040" Manufacturer="WPI" UpgradeCode="17FA5361-A849-4BC0-8229-9624693117EA">
-        <Package Description="GNU Toolchain for FRC" Comments="FRC 2018 Toolchain including Binutils, GCC, and RoboRIO headers" InstallerVersion="405" Compressed="yes" />
+    <Product Id="985b1930-912b-4ee7-a161-c5dff1994b46" Name="FRC 2019 Toolchain" Language="1033" Version="1.18.040" Manufacturer="WPI" UpgradeCode="3c467f8c-c55c-492e-8c80-e10cb8f24a6f">
+        <Package Description="GNU Toolchain for FRC" Comments="FRC 2019 Toolchain including Binutils, GCC, and RoboRIO headers" InstallerVersion="405" Compressed="yes" />
         <Media Id="1" Cabinet="simple.cab" EmbedCab="yes" />
         <Directory Id="TARGETDIR" Name="SourceDir">
             <Directory Id="WINDOWSVOLUME" >
-                <Directory Id="APPLICATIONFOLDER" Name="frc2018">
+                <Directory Id="APPLICATIONFOLDER" Name="frc2019">
                     <Component Id="PATHENVIRON" Guid="39AD8D16-4319-42F3-891E-CAD370C019CF" KeyPath="yes">
                         <Environment Id="PATH" Name="PATH" Value="[APPLICATIONFOLDER]bin" System="yes" Action="set" Part="last" Permanent="no" />
                     </Component>
@@ -16,7 +16,7 @@
                         <Component Id="StartMenuShortcuts" Guid="7FFF9A36-0D91-4FC2-9FF4-684E8FADB669">
                             <RemoveFolder Id="ProgramMenuDir" On="uninstall" />
                             <RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" Value="" />
-                            <Shortcut Id="UninstallProduct" Name="Uninstall Toolchain" Description="Uninstalls FRC 2018 Toolchain" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" />
+                            <Shortcut Id="UninstallProduct" Name="Uninstall Toolchain" Description="Uninstalls FRC 2019 Toolchain" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" />
                         </Component>
                     </Directory>
                 </Directory>
@@ -32,7 +32,7 @@
         <Feature Id="StartMenuFeature" Title="Start Menu Shortcuts" Level="1" Absent="allow">
             <ComponentRef Id="StartMenuShortcuts" />
         </Feature>
-        <MajorUpgrade AllowSameVersionUpgrades="yes" DowngradeErrorMessage="A later version of the GNU Toolchain for FRC 2018 is already installed. Setup will now exit."/>
+        <MajorUpgrade AllowSameVersionUpgrades="yes" DowngradeErrorMessage="A later version of the GNU Toolchain for FRC 2019 is already installed. Setup will now exit."/>
         <UI>
         </UI>
         <UIRef Id="WixUI_Minimal" />
