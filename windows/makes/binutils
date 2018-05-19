@@ -3,7 +3,7 @@
 mkdir binutils-build
 mkdir binutils-install
 cd binutils-build
-../binutils-${V_BINUTILS}/configure --host=i686-w64-mingw32 --prefix=/c/frc${V_YEAR} --target=arm-frc${V_YEAR}-linux-gnueabi "--with-pkgversion=GNU Binutils for FRC ${V_YEAR}" --enable-poison-system-directories --with-sysroot=/c/frc${V_YEAR} --enable-plugins --disable-nls --enable-lto --with-build-sysroot=/usr/arm-frc${V_YEAR}-linux-gnueabi
+../binutils-${V_BINUTILS}/configure --host=i686-w64-mingw32 --prefix=/c/Users/Public/frc${V_YEAR}/roborio --target=arm-frc${V_YEAR}-linux-gnueabi "--with-pkgversion=GNU Binutils for FRC ${V_YEAR}" --enable-poison-system-directories --with-sysroot=/c/Users/Public/frc${V_YEAR}/roborio --enable-plugins --disable-nls --enable-lto --with-build-sysroot=/usr/arm-frc${V_YEAR}-linux-gnueabi
 make
 DESTDIR=$PWD/../binutils-install make install
 cd ../binutils-install

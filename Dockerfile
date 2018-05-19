@@ -79,70 +79,22 @@ RUN make flags sysroot binutils \
   && make clean
 
 # Build windows binaries
+FROM build-linux AS build-windows
 
 COPY windows/ /build/windows/
 
 WORKDIR /build/windows
 
 RUN dpkg -i /packages/*.deb \
-  && make sysroot binutils gcc gdb tree \
+  && make sysroot binutils gcc gdb tree zip \
   && rm -rf binutils* roborio* sysroot* gcc* expat* gdb*
-
-#
-# Windows toolchain installer build
-#
-
-FROM suchja/wine:latest AS build-msi
-
-# Update winetricks
-USER root
-
-RUN curl -SL https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks -o winetricks \
-  && chmod +x winetricks \
-  && mv -v winetricks /usr/local/bin
-
-ENV WINEDEBUG -all,err+all
-
-# Install .NET Framework 4.0
-USER xclient
-RUN wine wineboot --init \
-  && bash -c 'while pgrep -u xclient wineserver > /dev/null; do sleep 1; done' \
-  && winetricks --unattended dotnet40 dotnet_verifier \
-  && bash -c 'while pgrep -u xclient wineserver > /dev/null; do sleep 1; done'
-
-# Install wix3.10 binaries
-
-RUN mkdir -p build/windows/wix \
-  && cd build/windows/wix \
-  && curl -SL https://github.com/wixtoolset/wix3/releases/download/wix3104rtm/wix310-binaries.zip -o wix310-binaries.zip \
-  && unzip wix310-binaries.zip \
-  && rm wix310-binaries.zip
-
-ENV V_YEAR=2019
-
-# Set up symlink for shorter paths
-RUN cd ~/.wine/dosdevices \
-  && ln -s /home/xclient/build/windows/tree-install/c/frc${V_YEAR} s:
-
-# Copy tree and msi build script
-
-WORKDIR /home/xclient/build/windows
-
-COPY --from=build-linux /build/windows/tree-install tree-install
-COPY --from=build-linux /build/windows/makes makes
-
-# Remove pb_ds as paths are too long there
-USER root
-RUN rm -rf /home/xclient/build/windows/tree-install/c/frc${V_YEAR}/arm-frc${V_YEAR}-linux-gnueabi/include/c++/*/ext/pb_ds
-
-# Build msi
-USER xclient
-RUN bash makes/msi
 
 #
 # Build standalone packages image
 #
 
-FROM scratch
+FROM scratch AS linux-packages
 COPY --from=build-linux /packages /packages
-COPY --from=build-msi /home/xclient/build/windows/msi-build/*.msi /packages/
+
+FROM scratch AS windows-packages
+COPY --from=build-windows /build/windows/*.zip /packages/

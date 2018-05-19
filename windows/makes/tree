@@ -2,11 +2,11 @@
 
 rm -rf tree-install
 mkdir tree-install
-cp gcc-install tree-install/c -r
-cp binutils-install/c tree-install/ -r
-cp sysroot-install/c tree-install/ -r
-cp gdb-install/c tree-install/ -r
-cd tree-install/c/frc${V_YEAR}
+sh -c 'cd gcc-install/ && tar cf - c' | sh -c 'cd tree-install/ && tar xf -'
+sh -c 'cd binutils-install/ && tar cf - c' | sh -c 'cd tree-install/ && tar xf -'
+sh -c 'cd sysroot-install/ && tar cf - c' | sh -c 'cd tree-install/ && tar xf -'
+sh -c 'cd gdb-install/ && tar cf - c' | sh -c 'cd tree-install/ && tar xf -'
+cd tree-install/c/Users/Public/frc${V_YEAR}/roborio
 du -hs .
 pushd lib/gcc/arm-frc${V_YEAR}-linux-gnueabi/${V_GCC}
 arm-frc${V_YEAR}-linux-gnueabi-strip --strip-debug libgcc.a libgcc_eh.a libgcov.a 
@@ -19,7 +19,7 @@ arm-frc${V_YEAR}-linux-gnueabi-strip --remove-section=.comment --remove-section=
 arm-frc${V_YEAR}-linux-gnueabi-strip --remove-section=.comment --remove-section=.note --strip-unneeded arm-frc${V_YEAR}-linux-gnueabi/lib/libgcc_s.so.1
 
 pushd usr/include
-patch -p4 < ../../../../../makes/case-sensitive-includes.diff
+patch -p4 < ../../../../../../../../makes/case-sensitive-includes.diff
 popd
 rm -rf lib/xtables
 

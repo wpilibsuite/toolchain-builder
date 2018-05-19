@@ -1,6 +1,6 @@
 include ../versions.sh
 
-all: clean sysroot binutils gcc gdb tree msi
+all: clean sysroot binutils gcc gdb tree zip
 	
 
 sysroot:
@@ -30,8 +30,8 @@ gcc:
 tree:
 	V_YEAR=$(V_YEAR) V_GCC=$(V_GCC) makes/tree
 	
-msi:
-	V_YEAR=$(V_YEAR) makes/msi
+zip:
+	cd tree-install/c/Users/Public && zip -r ../../../../windows-toolchain.zip .
 
 clean:
 	rm -rf binutils* roborio* sysroot* gcc* tree-install msi-build expat* gdb*
