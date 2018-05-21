@@ -1,6 +1,6 @@
 # Requires docker 17.05 or newer.
 # For installation, see https://docs.docker.com/install/linux/docker-ce/ubuntu/
-FROM ubuntu:18.04 AS build-linux
+FROM ubuntu:18.04
 
 RUN apt-get update && apt-get install -y tzdata && apt-get install -y \
     autoconf \
@@ -55,46 +55,9 @@ RUN apt-get update && apt-get install -y tzdata && apt-get install -y \
     wget \
     xsltproc \
     xz-utils \
+    zip \
     zlib1g-dev \
     zsh \
   && rm -rf /var/lib/apt/lists/*
 
-COPY download.sh repack.sh versions.sh /build/
-COPY tools/ /build/tools/
-
 WORKDIR /build
-
-RUN zsh download.sh \
-  && zsh repack.sh
-
-COPY deb/ /build/deb/
-
-WORKDIR /build/deb
-
-RUN make flags sysroot binutils \
-  && dpkg -i *.deb \
-  && make gcc gdb gcc-defaults frcmake frc-toolchain \
-  && mkdir /packages \
-  && mv *.deb /packages/ \
-  && make clean
-
-# Build windows binaries
-FROM build-linux AS build-windows
-
-COPY windows/ /build/windows/
-
-WORKDIR /build/windows
-
-RUN dpkg -i /packages/*.deb \
-  && make sysroot binutils gcc gdb tree zip \
-  && rm -rf binutils* roborio* sysroot* gcc* expat* gdb*
-
-#
-# Build standalone packages image
-#
-
-FROM scratch AS linux-packages
-COPY --from=build-linux /packages /packages
-
-FROM scratch AS windows-packages
-COPY --from=build-windows /build/windows/*.zip /packages/

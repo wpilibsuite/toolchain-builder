@@ -1,7 +1,7 @@
 #!/bin/zsh
 source versions.sh
 
-wget -nc \
+wget -nc -nv \
     https://ftp.gnu.org/gnu/gcc/gcc-${V_GCC}/gcc-${V_GCC}.tar.bz2 \
     https://ftp.gnu.org/gnu/binutils/binutils-${V_BIN}.tar.bz2 \
     https://ftp.gnu.org/gnu/mpfr/mpfr-${V_MPFR}.tar.bz2 \
