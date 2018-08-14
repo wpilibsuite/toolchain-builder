@@ -1,3 +1,9 @@
+linux-libc-dev-frc2019-armel-cross (4.10-r0.15-1) stable; urgency=low
+
+  * Update to latest NI upstream (2018.1).
+
+ -- WPILib Developers <wpilib@wpi.edu>  Mon, 13 Aug 2018 13:29:12 -0400
+
 linux-libc-dev-frc2019-armel-cross (4.10-r0.7-1) stable; urgency=low
 
   * Initial release.

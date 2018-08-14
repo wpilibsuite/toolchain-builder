@@ -1,3 +1,9 @@
+roborio2019-sysroot (1.5) stable; urgency=medium
+
+  * Update to latest NI upstream (2018.1).
+
+ -- WPILib Developers <wpilib@wpi.edu>  Mon, 13 Aug 2018 13:31:12 -0400
+
 roborio2019-sysroot (1.4) stable; urgency=medium
 
   * Initial release.

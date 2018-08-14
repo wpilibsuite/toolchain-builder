@@ -7,7 +7,7 @@ Build-Depends: debhelper (>= 9)
 
 Package: roborio2019-sysroot
 Architecture: all
-Depends: libc6-dev-frc2019-armel-cross (>= 2.24-r0.17), libc6-frc2019-armel-cross (>= 2.24-r0.17), linux-libc-dev-frc2019-armel-cross (>= 4.10-r0.7), ${misc:Depends}
+Depends: libc6-dev-frc2019-armel-cross (>= 2.24-r0.23), libc6-frc2019-armel-cross (>= 2.24-r0.23), linux-libc-dev-frc2019-armel-cross (>= 4.10-r0.15), ${misc:Depends}
 Description: System Root for RoboRIO targets (metapackage) 
  This package contains the headers and library files necessary for
  building linux programs. This is a metapackage that will always depend
