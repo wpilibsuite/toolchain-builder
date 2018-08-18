@@ -1,45 +1,45 @@
-Source: gcc-defaults-frc2019-armel-cross
+Source: gcc-defaults-frc2018-armel-cross
 Maintainer: WPILib Developers <wpilib@wpi.edu>
 Section: devel
 Priority: extra
 Standards-Version: 3.9.6
 Build-Depends: debhelper (>= 9)
 
-Package: cpp-arm-frc2019-linux-gnueabi
+Package: cpp-arm-frc2018-linux-gnueabi
 Priority: optional
 Architecture: all
 Section: interpreters
-Depends: cpp-6.3-arm-frc2019-linux-gnueabi, ${misc:Depends}
+Depends: cpp-5.5-arm-frc2018-linux-gnueabi, ${misc:Depends}
 Suggests: cpp-doc
-Description: The GNU C preprocessor (cpp) for frc2019-armel architecture
+Description: The GNU C preprocessor (cpp) for frc2018-armel architecture
  The GNU C preprocessor is a macro processor that is used automatically
  by the GNU C compiler to transform programs before actual compilation.
  .
  This package has been separated from gcc for the benefit of those who
- require the preprocessor but not the cross-compiler for frc2019-armel 
+ require the preprocessor but not the cross-compiler for frc2018-armel 
  architecture.
  .
  This is a dependency package providing the default GNU C preprocessor for
- frc2019-armel architecture.
+ frc2018-armel architecture.
 
-Package: g++-arm-frc2019-linux-gnueabi
+Package: g++-arm-frc2018-linux-gnueabi
 Priority: optional
 Architecture: all
-Depends: cpp-arm-frc2019-linux-gnueabi (>= 6.3), gcc-arm-frc2019-linux-gnueabi (>= 6.3), g++-6.3-arm-frc2019-linux-gnueabi, gcc-6.3-arm-frc2019-linux-gnueabi, ${misc:Depends}
-Description: The GNU C++ compiler for frc2019-armel architecture
+Depends: cpp-arm-frc2018-linux-gnueabi (>= 5.5), gcc-arm-frc2018-linux-gnueabi (>= 5.5), g++-5.5-arm-frc2018-linux-gnueabi, gcc-5.5-arm-frc2018-linux-gnueabi, ${misc:Depends}
+Description: The GNU C++ compiler for frc2018-armel architecture
  This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
  .
  This is a dependency package providing the default GNU C++ cross-compiler for
- frc2019-armel architecture.
+ frc2018-armel architecture.
 
-Package: gcc-arm-frc2019-linux-gnueabi
+Package: gcc-arm-frc2018-linux-gnueabi
 Priority: optional
 Architecture: all
-Depends: cpp-arm-frc2019-linux-gnueabi (>= 6.3), gcc-6.3-arm-frc2019-linux-gnueabi, ${misc:Depends}
-Recommends: libc6-dev-frc2019-armel-cross
-Suggests: make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb-arm-frc2019-linux-gnueabi, gcc-doc
-Description: The GNU C compiler for frc2019-armel architecture
+Depends: cpp-arm-frc2018-linux-gnueabi (>= 5.5), gcc-5.5-arm-frc2018-linux-gnueabi, ${misc:Depends}
+Recommends: libc6-dev-frc2018-armel-cross
+Suggests: make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb-arm-frc2018-linux-gnueabi, gcc-doc
+Description: The GNU C compiler for frc2018-armel architecture
  This is the GNU C compiler, a fairly portable optimizing compiler for C.
  .
  This is a dependency package providing the default GNU C cross-compiler for
- frc2019-armel architecture.
+ frc2018-armel architecture.

@@ -15,8 +15,8 @@ Author: Patrick Plenefisch <phplenefisch@wpi.edu>
 +clean:
 +# all and clean targets need to be present for DESTDIR to work...
 +install:
-+	mkdir -p debian/libc6-frc2019-armel-cross/${PREFIX}
-+	mkdir -p debian/libc6-dev-frc2019-armel-cross/${PREFIX}
-+	cp libc6/* debian/libc6-frc2019-armel-cross/${PREFIX} -r
-+	cp libc6-dev/* debian/libc6-dev-frc2019-armel-cross/${PREFIX} -r
++	mkdir -p debian/libc6-frc2018-armel-cross/${PREFIX}
++	mkdir -p debian/libc6-dev-frc2018-armel-cross/${PREFIX}
++	cp libc6/* debian/libc6-frc2018-armel-cross/${PREFIX} -r
++	cp libc6-dev/* debian/libc6-dev-frc2018-armel-cross/${PREFIX} -r
 +

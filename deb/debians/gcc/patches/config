@@ -3,13 +3,13 @@ Author: WPILib Developers <wpilib@wpi.edu>
 
 ---
 
---- gcc-6.3.0/gcc/config/linux.h
-+++ gcc-6.3.0/gcc/config/linux.h
+--- gcc-5.5.0/gcc/config/linux.h
++++ gcc-5.5.0/gcc/config/linux.h
 @@ -42,6 +42,7 @@
      do {							\
  	if (OPTION_GLIBC)					\
  	  builtin_define ("__gnu_linux__");			\
-+	builtin_define ("__FRC_ROBORIO__=2019");		\
++	builtin_define ("__FRC_ROBORIO__=2018");		\
  	builtin_define_std ("linux");				\
  	builtin_define_std ("unix");				\
  	builtin_assert ("system=linux");			\

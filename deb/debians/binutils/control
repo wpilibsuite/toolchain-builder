@@ -1,4 +1,4 @@
-Source: binutils-frc2019-armel-cross
+Source: binutils-frc2018-armel-cross
 Section: devel
 Priority: optional
 Maintainer: WPILib Developers <wpilib@wpi.edu>
@@ -6,15 +6,15 @@ Build-Depends: debhelper (>= 9.0.0), autotools-dev, bison, flex, gettext, texinf
 Standards-Version: 3.9.6
 Homepage: http://www.gnu.org/software/binutils/
 
-Package: binutils-arm-frc2019-linux-gnueabi
+Package: binutils-arm-frc2018-linux-gnueabi
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: roborio2019-sysroot (>= 1.4)
-Suggests: g++-arm-frc2019-linux-gnueabi
-Description: GNU binary utilities, for arm-frc2019-linux-gnueabi target
+Recommends: roborio2018-sysroot (>= 1.4)
+Suggests: g++-arm-frc2018-linux-gnueabi
+Description: GNU binary utilities, for arm-frc2018-linux-gnueabi target
  This package provides GNU assembler, linker and binary utilities
- for arm-frc2019-linux-gnueabi target, for use in a cross-compilation environment.
+ for arm-frc2018-linux-gnueabi target, for use in a cross-compilation environment.
  .
  You don't need this package unless you plan to cross-compile programs
- for arm-frc2019-linux-gnueabi.
+ for arm-frc2018-linux-gnueabi.
 

@@ -1,5 +1,0 @@
-libc6-frc2019-armel-cross: arch-independent-package-contains-binary-or-object
-libc6-frc2019-armel-cross: shared-lib-without-dependency-information usr/arm-frc2019-linux-gnueabi/lib/ld-2.22.so
-libc6-frc2019-armel-cross: embedded-library usr/arm-frc2019-linux-gnueabi/lib/libm-2.21.so: libm
-libc6-frc2019-armel-cross: missing-depends-line
-libc6-frc2019-armel-cross: non-standard-dir-in-usr usr/arm-frc2019-linux-gnueabi/

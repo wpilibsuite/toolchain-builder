@@ -1,3 +1,0 @@
-libstdc++6-frc2019-armel-cross: arch-independent-package-contains-binary-or-object usr/arm-frc2019-linux-gnueabi/lib/libstdc++.so.6.0.22
-libstdc++6-frc2019-armel-cross: non-standard-dir-in-usr usr/arm-frc2019-linux-gnueabi/
-

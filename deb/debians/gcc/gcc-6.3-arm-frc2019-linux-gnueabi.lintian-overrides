@@ -1,3 +1,0 @@
-gcc-6.3-arm-frc2019-linux-gnueabi: binary-without-manpage usr/bin/arm-frc2019-linux-gnueabi-gcc-ar-6.3
-gcc-6.3-arm-frc2019-linux-gnueabi: binary-without-manpage usr/bin/arm-frc2019-linux-gnueabi-gcc-nm-6.3
-gcc-6.3-arm-frc2019-linux-gnueabi: binary-without-manpage usr/bin/arm-frc2019-linux-gnueabi-gcc-ranlib-6.3

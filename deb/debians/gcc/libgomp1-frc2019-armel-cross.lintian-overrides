@@ -1,3 +1,0 @@
-libgomp1-frc2019-armel-cross: arch-independent-package-contains-binary-or-object usr/arm-frc2019-linux-gnueabi/lib/libgomp.so.1.0.0
-libgomp1-frc2019-armel-cross: missing-dependency-on-libc needed by usr/arm-frc2019-linux-gnueabi/lib/libgomp.so.1.0.0
-libgomp1-frc2019-armel-cross: non-standard-dir-in-usr usr/arm-frc2019-linux-gnueabi/

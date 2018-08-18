@@ -44,8 +44,8 @@ binutils:
 
 gcc:
 	rm -rf gcc-*
-	cp ../gcc-$(V_GCC).tar.bz2 gcc-frc$(V_YEAR)-armel-cross_$(V_GCC).orig.tar.bz2
-	tar xf gcc-frc$(V_YEAR)-armel-cross_$(V_GCC).orig.tar.bz2
+	cp ../gcc-$(V_GCC).tar.xz gcc-frc$(V_YEAR)-armel-cross_$(V_GCC).orig.tar.xz
+	tar xJf gcc-frc$(V_YEAR)-armel-cross_$(V_GCC).orig.tar.xz
 	cp debians/gcc gcc-$(V_GCC)/debian -r
 	cd gcc-$(V_GCC) && debuild $(DEBUILD_FLAGS)
 	

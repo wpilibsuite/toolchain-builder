@@ -1,5 +1,0 @@
-binutils-arm-frc2019-linux-gnueabi: non-standard-dir-in-usr usr/arm-frc2019-linux-gnueabi/
-binutils-arm-frc2019-linux-gnueabi: package-contains-hardlink
-binutils-arm-frc2019-linux-gnueabi: manpage-has-errors-from-man
-binutils-arm-frc2019-linux-gnueabi: binary-without-manpage usr/bin/arm-frc2019-linux-gnueabi-ld.bfd
-
