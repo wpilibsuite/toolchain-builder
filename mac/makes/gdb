@@ -3,7 +3,7 @@
 mkdir gdb-build
 mkdir gdb-install
 cd gdb-build
-../gdb-${V_GDB}/configure --target=arm-frc-linux-gnueabi --prefix=/usr/local --with-pkgversion='GDB for FRC' --disable-nls --with-libexpat --datadir=/usr/local/share/frc --with-system-gdbinit=/usr/local/share/frc/gdb/gdbinit --with-sysroot=/usr/local/arm-frc-linux-gnueabi/ --enable-lto|| exit $?
+../gdb-${V_GDB}/configure --target=arm-frc2019-linux-gnueabi --prefix=/usr/local --with-pkgversion='GDB for FRC' --disable-nls --with-libexpat --datadir=/usr/local/share/frc --with-system-gdbinit=/usr/local/share/frc/gdb/gdbinit --with-sysroot=/usr/local/arm-frc2019-linux-gnueabi/ --enable-lto|| exit $?
 make|| exit $?
 DESTDIR=$PWD/../gdb-install make install|| exit $?
 cd ../gdb-install

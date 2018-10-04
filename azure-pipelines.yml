@@ -1,0 +1,63 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+jobs:
+  - job: Windows_Linux
+    pool:
+      vmImage: 'Ubuntu 16.04'
+      timeoutInMinutes: 360
+    steps:
+    - script: |
+        ./build.sh
+      displayName: 'Build the image'
+    - task: CopyFiles@2
+      inputs:
+        contents: '**\windows-toolchain.zip'
+        targetFolder: $(Build.ArtifactStagingDirectory)
+    - task: PublishBuildArtifacts@1
+      inputs:
+        artifactName: 'WindowsCompiler'
+
+  - job: Mac
+    pool:
+      vmImage: 'xcode9-macos10.13'
+      timeoutInMinutes: 360
+    steps:
+    - script: |
+
+        curl -O http://s.sudre.free.fr/Software/files/Iceberg.dmg
+        sudo hdiutil attach Iceberg.dmg
+        ls -la "/Volumes/Iceberg 1.3.1"
+        sudo installer -pkg "/Volumes/Iceberg 1.3.1/Iceberg.mpkg" -target /
+        sudo hdiutil detach "/Volumes/Iceberg 1.3.1"
+
+        ./download.sh
+
+        brew install wget binutils gnu-tar coreutils
+        brew install gcc@6
+
+        chmod +x ./repack.sh
+        ./repack.sh
+        echo "ran repack"
+
+        ls -la
+
+        echo alias ar=gar
+        echo alias tar=gtar
+
+        cd mac
+        make sysroot
+        sudo gcp sysroot-install/usr/local/* /usr/local/ -r
+        make binutils
+        sudo gcp binutils-install/usr/local/* /usr/local/ -r
+
+        make gcc gdb tree pkg
+
+        gcp *.pkg.tar.gz $BUILD_ARTIFACTSTAGINGDIRECTORY
+
+      displayName: 'Build the image'
+    - task: PublishBuildArtifacts@1
+      inputs:
+        artifactName: 'MacCompiler'

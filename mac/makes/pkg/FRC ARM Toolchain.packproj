@@ -28,7 +28,7 @@
 						<key>Mode</key>
 						<integer>1</integer>
 						<key>Path</key>
-						<string>../../../windows/makes/msi-files/License.rtf</string>
+						<string>License.rtf</string>
 						<key>Path Type</key>
 						<integer>2</integer>
 					</dict>
@@ -467,7 +467,7 @@
 											<key>GID</key>
 											<integer>0</integer>
 											<key>Path</key>
-											<string>../../tree-install/usr/local/arm-frc2018-linux-gnueabi</string>
+											<string>../../tree-install/usr/local/arm-frc2019-linux-gnueabi</string>
 											<key>Path Type</key>
 											<integer>2</integer>
 											<key>Privileges</key>
@@ -768,17 +768,17 @@
 						<key>IFPkgDescriptionDeleteWarning</key>
 						<string></string>
 						<key>IFPkgDescriptionDescription</key>
-						<string>FRC 2018 Toolchain for arm-frc2018-linux-gnueabi with GCC and GNU Binutils</string>
+						<string>FRC 2019 Toolchain for arm-frc2019-linux-gnueabi with GCC and GNU Binutils</string>
 						<key>IFPkgDescriptionTitle</key>
-						<string>FRC 2018 ARM Toolchain</string>
+						<string>FRC 2019 ARM Toolchain</string>
 						<key>IFPkgDescriptionVersion</key>
-						<string>2018.04.00</string>
+						<string>2019.04.00</string>
 					</dict>
 				</dict>
 				<key>Display Information</key>
 				<dict>
 					<key>CFBundleGetInfoString</key>
-					<string>FRC 2018 ARM Toolchain Copyrights © 2016 WPI</string>
+					<string>FRC 2019 ARM Toolchain Copyrights © 2016 WPI</string>
 					<key>CFBundleIconFile</key>
 					<string></string>
 					<key>CFBundleIconFile Path Type</key>
@@ -814,7 +814,7 @@
 				<key>Version</key>
 				<dict>
 					<key>IFMajorVersion</key>
-					<integer>2018</integer>
+					<integer>2019</integer>
 					<key>IFMinorVersion</key>
 					<integer>040</integer>
 				</dict>
@@ -823,7 +823,7 @@
 		<key>IFPkgFlagPackageSelection</key>
 		<integer>1</integer>
 		<key>Name</key>
-		<string>FRC 2018 ARM Toolchain</string>
+		<string>FRC 2019 ARM Toolchain</string>
 		<key>Status</key>
 		<integer>1</integer>
 		<key>Type</key>
