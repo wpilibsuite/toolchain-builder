@@ -53,9 +53,10 @@ jobs:
         make binutils
         sudo gcp binutils-install/usr/local/* /usr/local/ -r
 
-        make gcc gdb tree pkg
+        make gcc gdb tree pkg tarpkg
 
         gcp *.pkg.tar.gz $BUILD_ARTIFACTSTAGINGDIRECTORY
+        gcp *Archive.tar.gz $BUILD_ARTIFACTSTAGINGDIRECTORY
 
       displayName: 'Build the image'
     - task: PublishBuildArtifacts@1

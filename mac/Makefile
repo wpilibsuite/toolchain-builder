@@ -47,6 +47,12 @@ pkg:
 	cd makes/pkg/build && tar czf FRC\ 2019\ ARM\ Toolchain.pkg.tar.gz FRC\ 2019\ ARM\ Toolchain.pkg
 	cp makes/pkg/build/FRC\ 2019\ ARM\ Toolchain.pkg.tar.gz .
 
+tarpkg:
+	mkdir -p frc2019
+	rm -rf frc2019
+	cp -R tree-install/usr/local frc2019
+	tar czf FRC\ 2019\ ARM\ Toolchain\ Archive.tar.gz frc2019
+
 clean:
 	rm -rf binutils* roborio* sysroot* gcc* tree-install makes/pkg/build *.pkg.tar.gz
 
