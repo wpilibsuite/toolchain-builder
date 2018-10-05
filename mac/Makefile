@@ -49,8 +49,9 @@ pkg:
 
 tarpkg:
 	mkdir -p frc2019
-	rm -rf frc2019
-	cp -R tree-install/usr/local frc2019
+	mkdir -p frc2019/roborio
+	rm -rf frc2019/robotio
+	cp -R tree-install/usr/local frc2019/roborio
 	tar czf FRC\ 2019\ ARM\ Toolchain\ Archive.tar.gz frc2019
 
 clean:
