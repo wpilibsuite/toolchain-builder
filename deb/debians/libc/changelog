@@ -1,3 +1,9 @@
+libc6-frc2019-armel-cross (2.24-1-r0.17-0) stable; urgency=low
+
+  * Revert to 2018 NI upstream.
+
+ -- WPILib Developers <wpilib@wpi.edu>  Sat, 06 Oct 2018 13:27:12 -0400
+
 libc6-frc2019-armel-cross (2.24-r0.23-0) stable; urgency=low
 
   * Update to latest NI upstream (2018.1).
