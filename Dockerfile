@@ -51,6 +51,7 @@ RUN apt-get update && apt-get install -y tzdata && apt-get install -y \
     quilt \
     rsync \
     subversion \
+    sudo \
     texinfo \
     wget \
     xsltproc \
