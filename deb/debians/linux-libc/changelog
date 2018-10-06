@@ -1,4 +1,4 @@
-linux-libc-dev-frc2019-armel-cross (4.10-1-r0.7-1) stable; urgency=low
+linux-libc-dev-frc2019-armel-cross (1:4.10-r0.7-1) stable; urgency=low
 
   * Revert to 2018 NI upstream.
 

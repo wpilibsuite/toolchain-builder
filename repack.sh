@@ -14,8 +14,8 @@ then
 fi
 
 mkdir -p repack/{libc6,libc6-dev,linux-libc-headers-dev}/out
-mv linux-libc-headers-dev_${Va_LINUX_ORIG}_cortexa9-vfpv3.ipk repack/linux-libc-headers-dev/
-mv libc6_${Va_LIBC_ORIG}_cortexa9-vfpv3.ipk repack/libc6/
+mv linux-libc-headers-dev_${Va_LINUX}_cortexa9-vfpv3.ipk repack/linux-libc-headers-dev/
+mv libc6_${Va_LIBC}_cortexa9-vfpv3.ipk repack/libc6/
 # the rest are in dev
 mv *.ipk repack/libc6-dev/
 
