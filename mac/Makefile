@@ -44,16 +44,16 @@ pkg:
 	rm -rf makes/pkg/build/
 	freeze makes/pkg/FRC\ ARM\ Toolchain.packproj
 	ls -la makes/pkg/build
-	cd makes/pkg/build && tar czf FRC\ 2019\ ARM\ Toolchain.pkg.tar.gz FRC\ 2019\ ARM\ Toolchain.pkg
-	cp makes/pkg/build/FRC\ 2019\ ARM\ Toolchain.pkg.tar.gz .
+	cd makes/pkg/build && tar czf FRC-$(V_YEAR)-Mac-Toolchain-$(V_GCC)-Installer.pkg.tar.gz FRC\ 2019\ ARM\ Toolchain.pkg
+	cp makes/pkg/build/FRC-$(V_YEAR)-Mac-Toolchain-$(V_GCC)-Installer.pkg.tar.gz .
 
 tarpkg:
 	mkdir -p frc2019
 	mkdir -p frc2019/roborio
 	rm -rf frc2019/robotio
 	cp -R tree-install/usr/local frc2019/roborio
-	tar czf FRC\ 2019\ ARM\ Toolchain\ Archive.tar.gz frc2019
+	tar czf FRC-$(V_YEAR)-Mac-Toolchain-$(V_GCC).tar.gz frc2019
 
 clean:
-	rm -rf binutils* roborio* sysroot* gcc* tree-install makes/pkg/build *.pkg.tar.gz
+	rm -rf binutils* roborio* sysroot* gcc* tree-install makes/pkg/build *.pkg.tar.gz *-Toolchain-*.tar.gz
 

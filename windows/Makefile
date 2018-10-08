@@ -1,7 +1,7 @@
 include ../versions.sh
 
 all: clean sysroot binutils gcc gdb tree zip
-	
+
 
 sysroot:
 	rm -rf sysroot-*
@@ -13,12 +13,12 @@ sysroot:
 binutils:
 	tar xf ../binutils-$(V_BINUTILS).tar.bz2
 	V_YEAR=$(V_YEAR) V_BINUTILS=$(V_BINUTILS) makes/binutils
-	
+
 expat-install: expat
 expat:
 	tar xf ../expat-$(Vw_EXPAT).tar.bz2
 	V_YEAR=$(V_YEAR) Vw_EXPAT=$(Vw_EXPAT) makes/expat
-	
+
 gdb: expat-install
 	tar xf ../gdb-$(V_GDB).tar.gz
 	V_YEAR=$(V_YEAR) V_GDB=$(V_GDB) makes/gdb
@@ -26,12 +26,12 @@ gdb: expat-install
 gcc:
 	@# gcc does its own extraction
 	makes/gcc
-	
+
 tree:
 	V_YEAR=$(V_YEAR) V_GCC=$(V_GCC) makes/tree
-	
+
 zip:
-	cd tree-install/c/Users/Public && zip -r ../../../../windows-toolchain.zip .
+	cd tree-install/c/Users/Public && zip -r ../../../../FRC-$(V_YEAR)-Windows-Toolchain-$(V_GCC).zip .
 
 clean:
 	rm -rf binutils* roborio* sysroot* gcc* tree-install msi-build expat* gdb*
