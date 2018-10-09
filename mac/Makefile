@@ -21,6 +21,8 @@ sysroot:
 	mkdir sysroot-libc-linux
 	cd sysroot-libc-linux && tar xf ../../libc6-frc2019-armel-cross_$(Va_LIBC).orig.tar.bz2
 	cd sysroot-libc-linux && tar xf ../../linux-libc-dev-frc2019-armel-cross_$(Va_LINUX).orig.tar.bz2
+	cd sysroot-libc-linux && tar xf ../../libgcc1-frc2019-armel-cross_$(Va_LIBGCC).orig.tar.bz2
+	cd sysroot-libc-linux && tar xf ../../libstdc++6-frc2019-armel-cross_$(Va_LIBSTDCPP).orig.tar.bz2
 	makes/sysroot
 
 binutils:

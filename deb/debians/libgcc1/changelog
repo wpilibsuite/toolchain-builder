@@ -1,0 +1,5 @@
+libgcc1-frc2019-armel-cross (1:6.3.0-r0.14-0) stable; urgency=low
+
+  * Use upstream instead of building.
+
+ -- WPILib Developers <wpilib@wpi.edu>  Sat, 06 Oct 2018 13:27:12 -0400

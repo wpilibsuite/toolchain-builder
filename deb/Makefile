@@ -7,7 +7,7 @@ all: flags sysroot binutils gcc gdb gcc-defaults frcmake frc-toolchain
 flags:
 	echo "Using DEBUILG_FLAGS=$(DEBUILD_FLAGS)"
 
-sysroot: libc6 linux-libc roborio-sysroot
+sysroot: libc6 linux-libc libgcc1 libstdcpp6 roborio-sysroot
 
 frcmake:
 	rm -rf frcmake*
@@ -34,6 +34,20 @@ linux-libc:
 	tar xf linux-libc-dev-frc$(V_YEAR)-armel-cross_$(Va_LINUX).orig.tar.bz2
 	cp debians/linux-libc linux-libc-$(Va_LINUX)/debian -r
 	cd linux-libc-$(Va_LINUX) && debuild $(DEBUILD_FLAGS)
+
+libgcc1:
+	rm -rf libgcc1-*
+	cp ../libgcc1-frc$(V_YEAR)-armel-cross_$(Va_LIBGCC).orig.tar.bz2 ./
+	tar xf libgcc1-frc$(V_YEAR)-armel-cross_$(Va_LIBGCC).orig.tar.bz2
+	cp debians/libgcc1 libgcc1-$(Va_LIBGCC)/debian -r
+	cd libgcc1-$(Va_LIBGCC) && debuild $(DEBUILD_FLAGS)
+
+libstdcpp6:
+	rm -rf libstdc++6-*
+	cp ../libstdc++6-frc$(V_YEAR)-armel-cross_$(Va_LIBSTDCPP).orig.tar.bz2 ./
+	tar xf libstdc++6-frc$(V_YEAR)-armel-cross_$(Va_LIBSTDCPP).orig.tar.bz2
+	cp debians/libstdc++6 libstdc++6-$(Va_LIBSTDCPP)/debian -r
+	cd libstdc++6-$(Va_LIBSTDCPP) && debuild $(DEBUILD_FLAGS)
 
 binutils:
 	rm -rf binutils-*

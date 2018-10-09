@@ -1,22 +1,15 @@
 #!/bin/zsh
 
 rm -rf tree-install
-mkdir -p tree-install/c/Users/Public
-sh -c 'cd gcc-install/ && tar cf - .' | sh -c 'cd tree-install/c/Users/Public && tar xf -'
+mkdir -p tree-install/c/Users/Public/frc${V_YEAR}/roborio
+sh -c 'cd gcc-install/frc2019/roborio && tar cf - bin share libexec' | sh -c 'cd tree-install/c/Users/Public/frc${V_YEAR}/roborio && tar xf -'
 sh -c 'cd binutils-install/ && tar cf - c' | sh -c 'cd tree-install/ && tar xf -'
 sh -c 'cd sysroot-install/ && tar cf - c' | sh -c 'cd tree-install/ && tar xf -'
 sh -c 'cd gdb-install/ && tar cf - c' | sh -c 'cd tree-install/ && tar xf -'
 cd tree-install/c/Users/Public/frc${V_YEAR}/roborio
 du -hs .
-pushd lib/gcc/arm-frc${V_YEAR}-linux-gnueabi/${V_GCC}
-arm-frc${V_YEAR}-linux-gnueabi-strip --strip-debug libgcc.a libgcc_eh.a libgcov.a 
-arm-frc${V_YEAR}-linux-gnueabi-strip --strip-debug crtbegin.o crtbeginS.o crtbeginT.o crtend.o crtendS.o
-popd
 i686-w64-mingw32-strip --remove-section=.comment --remove-section=.note --strip-unneeded **/*.exe
 rm -rf share/info share/man
-arm-frc${V_YEAR}-linux-gnueabi-strip --strip-debug arm-frc${V_YEAR}-linux-gnueabi/**/*.a
-arm-frc${V_YEAR}-linux-gnueabi-strip --remove-section=.comment --remove-section=.note --strip-unneeded arm-frc${V_YEAR}-linux-gnueabi/**/*.so
-arm-frc${V_YEAR}-linux-gnueabi-strip --remove-section=.comment --remove-section=.note --strip-unneeded arm-frc${V_YEAR}-linux-gnueabi/lib/libgcc_s.so.1
 
 pushd usr/include
 patch -p4 < ../../../../../../../../makes/case-sensitive-includes.diff

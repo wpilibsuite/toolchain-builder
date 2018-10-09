@@ -5,10 +5,15 @@ source ../versions.sh
 mkdir -p sysroot-install/c/Users/Public/frc${V_YEAR}/roborio
 mkdir -p sysroot-libc-linux/{usr,lib}
 # remove symlinks
-cp sysroot-libc-linux/linux-libc-${Va_LINUX}/usr/* sysroot-libc-linux/usr/ -r
-cp sysroot-libc-linux/libc6-${Va_LIBC}/libc6-dev/usr/* sysroot-libc-linux/usr/ -r
-cp sysroot-libc-linux/libc6-${Va_LIBC}/libc6-dev/lib/* sysroot-libc-linux/lib/ -r
-cp sysroot-libc-linux/libc6-${Va_LIBC}/libc6/lib/* sysroot-libc-linux/lib/ -r
+cp sysroot-libc-linux/linux-libc-${Va_LINUX}/usr sysroot-libc-linux/ -r
+cp sysroot-libc-linux/libc6-${Va_LIBC}/libc6-dev/usr sysroot-libc-linux/ -r
+cp sysroot-libc-linux/libc6-${Va_LIBC}/libc6-dev/lib sysroot-libc-linux/ -r
+cp sysroot-libc-linux/libc6-${Va_LIBC}/libc6/lib sysroot-libc-linux/ -r
+cp sysroot-libc-linux/libgcc1-${Va_LIBGCC}/libgcc-dev/usr sysroot-libc-linux/ -r
+cp sysroot-libc-linux/libgcc1-${Va_LIBGCC}/libgcc-dev/lib sysroot-libc-linux/ -r
+cp sysroot-libc-linux/libgcc1-${Va_LIBGCC}/libgcc1/lib sysroot-libc-linux/ -r
+cp sysroot-libc-linux/libstdc++6-${Va_LIBSTDCPP}/libstdc++6-dev/usr sysroot-libc-linux/ -r
+cp sysroot-libc-linux/libstdc++6-${Va_LIBSTDCPP}/libstdc++6/usr sysroot-libc-linux/ -r
 rsync sysroot-libc-linux/usr sysroot-install/c/Users/Public/frc${V_YEAR}/roborio -a --copy-links
 rsync sysroot-libc-linux/lib sysroot-install/c/Users/Public/frc${V_YEAR}/roborio -a --copy-links
 

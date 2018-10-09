@@ -1,0 +1,42 @@
+Source: libstdc++6-frc2019-armel-cross
+Maintainer: WPILib Developers <wpilib@wpi.edu>
+Section: devel
+Priority: extra
+Standards-Version: 3.9.6
+Build-Depends: debhelper (>= 9)
+
+Package: libstdc++6-frc2019-armel-cross
+Architecture: all
+Section: devel
+Priority: extra
+Provides: libstdc++6-armel-dcv1
+Conflicts: scim (<< 1.4.2-1)
+Breaks: libgomp1-frc2019-armel-cross (<< 6.3.0-1)
+Replaces: libgomp1-frc2019-armel-cross (<< 6.3.0-1)
+Description: GNU Standard C++ Library v3
+ This package contains an additional runtime library for C++ programs
+ built with the GNU compiler.
+ .
+ libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
+ was included up to g++-2.95. The first version of libstdc++-v3 appeared
+ in g++-3.0.
+ .
+ This package contains files for armel architecture, for use in cross-compile
+ environment.
+
+Package: libstdc++6-dev-frc2019-armel-cross
+Architecture: all
+Section: devel
+Priority: extra
+Provides: libstdc++-dev-frc2019-armel-cross, libstdc++-dev-armel-dcv1, libstdc++6-dev-armel-dcv1, libstdc++6-5-dev-frc2019-armel-cross
+Description: GNU Standard C++ Library v3 (development files)
+ This package contains the headers and static library files necessary for
+ building C++ programs which use libstdc++.
+ .
+ libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
+ was included up to g++-2.95. The first version of libstdc++-v3 appeared
+ in g++-3.0.
+ .
+ This package contains files for armel architecture, for use in cross-compile
+ environment.
+

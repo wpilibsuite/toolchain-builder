@@ -8,7 +8,7 @@ Build-Depends: debhelper (>= 9)
 Package: libc6-frc2019-armel-cross
 Architecture: all
 Depends: ${misc:Depends}
-Recommends: roborio2019-sysroot (>= 1.4)
+Recommends: roborio2019-sysroot (>= 1.6)
 Description: Embedded GNU C Library: Shared libraries (for cross-compiling)
  Contains the standard libraries that are used by nearly all programs on
  the system. This package includes shared versions of the standard C library
@@ -20,7 +20,7 @@ Description: Embedded GNU C Library: Shared libraries (for cross-compiling)
 Package: libc6-dev-frc2019-armel-cross
 Architecture: all
 Depends: libc6-frc2019-armel-cross (= ${binary:Version}), linux-libc-dev-frc2019-armel-cross, ${misc:Depends}
-Recommends: roborio2019-sysroot (>= 1.4)
+Recommends: roborio2019-sysroot (>= 1.6)
 Description: Embedded GNU C Library: Dev Libs and Header Files (for FRC)
  Contains the symlinks, headers, and object files needed to compile
  and link programs which use the standard C library.

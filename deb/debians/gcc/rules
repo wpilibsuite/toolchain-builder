@@ -38,10 +38,10 @@ export LDFLAGS_FOR_TARGET=-Wl,-Bsymbolic-functions -Wl,-z,relro
 
 override_dh_auto_configure:
 
-	dh_auto_configure -B${GCC_BUILD_DIR}  --  --enable-threads=posix --target=arm-frc2019-linux-gnueabi --with-cpu=cortex-a9 --with-float=softfp --with-fpu=vfpv3 --with-specs='%{save-temps: -fverbose-asm} %{funwind-tables|fno-unwind-tables|mabi=*|ffreestanding|nostdlib:;:-funwind-tables}' --enable-languages=c,c++ --enable-shared --enable-lto --disable-nls --with-pkgversion='GCC for FRC 2019' --with-cloog --disable-multilib --disable-multiarch --prefix=/usr --with-sysroot=/usr/arm-frc2019-linux-gnueabi --enable-poison-system-directories --enable-plugin --with-system-zlib --disable-libmudflap --with-build-sysroot=/usr/arm-frc2019-linux-gnueabi --program-suffix=-6.3 --program-prefix=arm-frc2019-linux-gnueabi-
+	dh_auto_configure -B${GCC_BUILD_DIR}  --  --enable-threads=posix --target=arm-frc2019-linux-gnueabi --with-cpu=cortex-a9 --with-float=softfp --with-fpu=vfpv3 --with-specs='%{save-temps: -fverbose-asm} %{funwind-tables|fno-unwind-tables|mabi=*|ffreestanding|nostdlib:;:-funwind-tables}' --enable-languages=c,c++ --enable-shared --enable-lto --disable-nls --with-pkgversion='GCC for FRC 2019' --with-cloog --disable-multilib --disable-multiarch --prefix=/usr --with-sysroot=/usr/arm-frc2019-linux-gnueabi --enable-poison-system-directories --enable-plugin --with-system-zlib --disable-libmudflap --with-build-sysroot=/usr/arm-frc2019-linux-gnueabi --libdir=/usr/arm-frc2019-linux-gnueabi/usr/lib --with-gxx-include-dir=/usr/arm-frc2019-linux-gnueabi/usr/include/c++/6.3.0 --program-suffix=-6.3 --program-prefix=arm-frc2019-linux-gnueabi-
 
 override_dh_shlibdeps:
-	LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/arm-frc2019-linux-gnueabi/lib dh_shlibdeps --  --ignore-missing-info
+	LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/arm-frc2019-linux-gnueabi/lib:/usr/arm-frc2019-linux-gnueabi/usr/lib dh_shlibdeps --  --ignore-missing-info
 	#all the post files are silly and don't apply to us
 	rm -rf debian/*post*
 	
@@ -54,18 +54,13 @@ override_dh_auto_install:
 	sed -i "/dependency_libs/ s/'.*'/''/" `find . -name '*.la'`
 	mkdir -p ${SRC_DIR}/debian/gcc-6.3-arm-frc2019-linux-gnueabi-base/usr/lib/${DEB_BUILD_MULTIARCH}/gcc/arm-frc2019-linux-gnueabi/6.3/
 	cd ${SRC_DIR}/debian/gcc-6.3-arm-frc2019-linux-gnueabi-base/usr/lib/${DEB_BUILD_MULTIARCH}/gcc/arm-frc2019-linux-gnueabi/ && ln -s 6.3/ 6.3.0
-	sed s/DEB_BUILD_GNU_TYPE/${DEB_BUILD_MULTIARCH}/ < debian/libgcc-dev-frc2019-armel-cross.install.in > debian/libgcc-dev-frc2019-armel-cross.install
 	sed s/DEB_BUILD_GNU_TYPE/${DEB_BUILD_MULTIARCH}/ < debian/gcc-6.3-arm-frc2019-linux-gnueabi.install.in > debian/gcc-6.3-arm-frc2019-linux-gnueabi.install
 	sed s/DEB_BUILD_GNU_TYPE/${DEB_BUILD_MULTIARCH}/ < debian/g++-6.3-arm-frc2019-linux-gnueabi.install.in > debian/g++-6.3-arm-frc2019-linux-gnueabi.install
 	sed s/DEB_BUILD_GNU_TYPE/${DEB_BUILD_MULTIARCH}/ < debian/cpp-6.3-arm-frc2019-linux-gnueabi.install.in > debian/cpp-6.3-arm-frc2019-linux-gnueabi.install
-	cd ${SRC_DIR}/debian/tmp && find usr/lib/${DEB_BUILD_MULTIARCH}/gcc/arm-frc2019-linux-gnueabi/6.3.0/include >> ${SRC_DIR}/debian/libgcc-dev-frc2019-armel-cross.install
-	cd ${SRC_DIR}/debian/tmp && find usr/lib/${DEB_BUILD_MULTIARCH}/gcc/arm-frc2019-linux-gnueabi/6.3.0/include-fixed >> ${SRC_DIR}/debian/libgcc-dev-frc2019-armel-cross.install
-
 	
 override_dh_strip:
 	DEB_HOST_GNU_TYPE=arm-frc2019-linux-gnueabi dh_strip -O-B${GCC_BUILD_DIR} -X liblto_plugin.so.0.0.0 -X cc1 -X lto -X collect2 -X arm-frc2019-linux-gnueabi- -X fixincl -X gengtype
-	dh_strip -O-B${GCC_BUILD_DIR} -X usr/arm-frc2019-linux-gnueabi/lib -X libgcov.a -X libgcc.a -X libgcc_eh.a
-	[ -d debian/libgcc1-frc2019-armel-cross ] && arm-frc2019-linux-gnueabi-strip --remove-section=.comment --remove-section=.note --strip-unneeded debian/libgcc1-frc2019-armel-cross/usr/arm-frc2019-linux-gnueabi/lib/lib*.so.* || true
+	dh_strip -O-B${GCC_BUILD_DIR} -X usr/arm-frc2019-linux-gnueabi/lib -X libgcov.a
 	rm -rf ${SRC_DIR}/debian/*/usr/share/man/man7
 	rm -rf ${SRC_DIR}/debian/*/usr/share/info
 	# this should probbably go into a better override

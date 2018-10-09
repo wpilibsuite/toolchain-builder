@@ -15,49 +15,12 @@ Description: GCC, the GNU Compiler Collection (base package)
  This package contains files common to all languages and libraries
  contained in the GNU Compiler Collection (GCC).
 
-Package: libgcc1-frc2019-armel-cross
-Architecture: all
-Section: devel
-Priority: extra
-Depends: gcc-6.3-arm-frc2019-linux-gnueabi-base (= ${binary:Version}), libc6-frc2019-armel-cross (>= 2.24), ${shlibs:Depends}, ${misc:Depends}
-Provides: libgcc1-armel-dcv1
-Description: GCC support library
- Shared version of the support library, a library of internal subroutines
- that GCC uses to overcome shortcomings of particular machines, or
- special needs for some languages.
- .
- This package contains files for armel architecture, for use in cross-compile
- environment.
-
-#Note: This is set to any because of paths that I have not yet figured out
-#Second note: This should be libgcc-5.4 but removed the versions because the contents aren't all in paths that contain the version
-Package: libgcc-dev-frc2019-armel-cross
-Architecture: any
-Section: libdevel
-Priority: optional
-Recommends: libc6-dev-frc2019-armel-cross (>= 2.24)
-Depends: gcc-6.3-arm-frc2019-linux-gnueabi-base (= ${binary:Version}), libgcc1-frc2019-armel-cross (>= ${binary:Version}), libgomp1-frc2019-armel-cross (>= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
-Breaks: libgcc-4.9-dev-frc2019-armel-cross (<< 6.3.0)
-Replaces: libgcc-4.9-dev-frc2019-armel-cross (<< 6.3.0)
-Description: GCC support library (development files)
- This package contains the headers and static library files necessary for
- building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
- 
-#See above...
-Package: libgcc-4.9-dev-frc2019-armel-cross
-Depends: libgcc-dev-frc2019-armel-cross, ${misc:Depends}
-Architecture: all
-Priority: optional
-Section: oldlibs
-Description: transitional package
- This is a transitional package. It can safely be removed.
-
 Package: gcc-6.3-arm-frc2019-linux-gnueabi
 Architecture: any
 Section: devel
 Priority: extra
-Depends: gcc-6.3-arm-frc2019-linux-gnueabi-base (= ${binary:Version}), cpp-6.3-arm-frc2019-linux-gnueabi (= ${binary:Version}), binutils-arm-frc2019-linux-gnueabi (>= ${binutils:Version}), libgcc-dev-frc2019-armel-cross (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
-Recommends: libc6-dev-frc2019-armel-cross (>= 2.24)
+Depends: gcc-6.3-arm-frc2019-linux-gnueabi-base (= ${binary:Version}), cpp-6.3-arm-frc2019-linux-gnueabi (= ${binary:Version}), binutils-arm-frc2019-linux-gnueabi (>= ${binutils:Version}), libgcc-dev-frc2019-armel-cross (>= 1:6.3.0), ${shlibs:Depends}, ${misc:Depends}
+Recommends: libc6-dev-frc2019-armel-cross (>= 1:2.24)
 Suggests: gcc-6.3-doc (>= ${gcc:SoftVersion}), gcc-6.3-locales (>= ${gcc:SoftVersion})
 Provides: c-compiler-arm-frc2019-linux-gnueabi
 Description: GNU C compiler
@@ -84,55 +47,11 @@ Package: g++-6.3-arm-frc2019-linux-gnueabi
 Architecture: any
 Section: devel
 Priority: extra
-Depends: gcc-6.3-arm-frc2019-linux-gnueabi-base (= ${binary:Version}), gcc-6.3-arm-frc2019-linux-gnueabi (= ${binary:Version}), libstdc++6-dev-frc2019-armel-cross (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Depends: gcc-6.3-arm-frc2019-linux-gnueabi-base (= ${binary:Version}), gcc-6.3-arm-frc2019-linux-gnueabi (= ${binary:Version}), libstdc++6-dev-frc2019-armel-cross (>= 1:6.3.0), ${shlibs:Depends}, ${misc:Depends}
 Provides: c++-compiler-arm-frc2019-linux-gnueabi, c++abi2-dev
 Suggests: gcc-6.3-doc (>= ${gcc:SoftVersion})
 Description: GNU C++ compiler
  This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
  .
  This package contains C++ cross-compiler for armel architecture.
-
-Package: libgomp1-frc2019-armel-cross
-Section: devel
-Architecture: all
-Priority: extra
-Depends: gcc-6.3-arm-frc2019-linux-gnueabi-base (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
-Description: GCC OpenMP (GOMP) support library
- GOMP is an implementation of OpenMP for the C, C++, and Fortran compilers
- in the GNU Compiler Collection.
-
-Package: libstdc++6-frc2019-armel-cross
-Architecture: all
-Section: devel
-Priority: extra
-Depends: gcc-6.3-arm-frc2019-linux-gnueabi-base (= ${binary:Version}), libc6-frc2019-armel-cross (>= 2.24), ${shlibs:Depends}, ${misc:Depends}
-Provides: libstdc++6-armel-dcv1
-Conflicts: scim (<< 1.4.2-1)
-Description: GNU Standard C++ Library v3
- This package contains an additional runtime library for C++ programs
- built with the GNU compiler.
- .
- libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
- was included up to g++-2.95. The first version of libstdc++-v3 appeared
- in g++-3.0.
- .
- This package contains files for armel architecture, for use in cross-compile
- environment.
-
-Package: libstdc++6-dev-frc2019-armel-cross
-Architecture: all
-Section: devel
-Priority: extra
-Depends: gcc-6.3-arm-frc2019-linux-gnueabi-base (= ${binary:Version}), libgcc-dev-frc2019-armel-cross (= ${binary:Version}), libstdc++6-frc2019-armel-cross (>= ${binary:Version}), libc6-dev-frc2019-armel-cross (>= 2.24), ${misc:Depends}
-Provides: libstdc++-dev-frc2019-armel-cross, libstdc++-dev-armel-dcv1, libstdc++6-dev-armel-dcv1, libstdc++6-5-dev-frc2019-armel-cross
-Description: GNU Standard C++ Library v3 (development files)
- This package contains the headers and static library files necessary for
- building C++ programs which use libstdc++.
- .
- libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
- was included up to g++-2.95. The first version of libstdc++-v3 appeared
- in g++-3.0.
- .
- This package contains files for armel architecture, for use in cross-compile
- environment.
 

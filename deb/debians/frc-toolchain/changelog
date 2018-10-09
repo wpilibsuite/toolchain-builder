@@ -1,3 +1,9 @@
+frc2019-toolchain (2019.3) stable; urgency=low
+
+  * Update to NI library upstream for libgcc and libstdc++.
+
+ -- WPILib Developers <wpilib@wpi.edu>  Sun, 07 Oct 2018 23:22:52 -0400
+
 frc2019-toolchain (2019.2) stable; urgency=low
 
   * Initial release.

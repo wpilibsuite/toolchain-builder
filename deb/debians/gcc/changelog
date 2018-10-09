@@ -1,3 +1,9 @@
+gcc-frc2019-armel-cross (6.3.0-2) stable; urgency=medium
+
+  * Update to use NI upstream libraries for libgcc and libstdc++.
+
+ -- WPILib Developers <wpilib@wpi.edu>  Sun, 07 Oct 2018 23:15:12 -0400
+
 gcc-frc2019-armel-cross (6.3.0-1) stable; urgency=medium
 
   * Initial release.
