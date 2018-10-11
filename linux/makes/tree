@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+rm -rf tree-install
+mkdir tree-install
+cp -r gcc-install/* tree-install/
+cp -r binutils-install/* tree-install/
+cp -r sysroot-install/* tree-install/
+cp -r gdb-install/* tree-install/
+cd tree-install/
+du -hs .
+
+strip usr/local/bin/*
+strip usr/local/arm-frc*/bin/*
+find usr/local/libexec -type f |xargs strip
+
+du -hs .
