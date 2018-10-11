@@ -36,5 +36,5 @@ zip:
 	cd tree-install/c/Users/Public && zip -r ../../../../FRC-$(V_YEAR)-Windows-Toolchain-$(V_GCC).zip .
 
 clean:
-	rm -rf binutils* roborio* sysroot* gcc* tree-install msi-build expat* gdb*
+	rm -rf binutils* roborio* sysroot* gcc* tree-install expat* gdb* *-Toolchain-*.zip
 

@@ -2,7 +2,7 @@
 source ../versions.sh
 
 
-mkdir -p sysroot-install/usr/local/arm-frc2019-linux-gnueabi
+mkdir -p sysroot-install/usr/local/arm-frc${V_YEAR}-linux-gnueabi
 mkdir -p sysroot-libc-linux/{usr,lib}
 cp -a sysroot-libc-linux/linux-libc-${Va_LINUX}/usr sysroot-libc-linux/
 cp -a sysroot-libc-linux/libc6-${Va_LIBC}/libc6-dev/usr sysroot-libc-linux/
@@ -13,5 +13,5 @@ cp -a sysroot-libc-linux/libgcc1-${Va_LIBGCC}/libgcc-dev/lib sysroot-libc-linux/
 cp -a sysroot-libc-linux/libgcc1-${Va_LIBGCC}/libgcc1/lib sysroot-libc-linux/
 cp -a sysroot-libc-linux/libstdc++6-${Va_LIBSTDCPP}/libstdc++6-dev/usr sysroot-libc-linux/
 cp -a sysroot-libc-linux/libstdc++6-${Va_LIBSTDCPP}/libstdc++6/usr sysroot-libc-linux/
-cp -a sysroot-libc-linux/{usr,lib} sysroot-install/usr/local/arm-frc2019-linux-gnueabi/
+cp -a sysroot-libc-linux/{usr,lib} sysroot-install/usr/local/arm-frc${V_YEAR}-linux-gnueabi/
 

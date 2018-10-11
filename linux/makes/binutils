@@ -3,8 +3,16 @@
 mkdir binutils-build
 mkdir binutils-install
 cd binutils-build
-../binutils-${V_BINUTILS}/configure --prefix=/usr/local --target=arm-frc2019-linux-gnueabi '--with-pkgversion=GNU Binutils for FRC' --enable-poison-system-directories --with-sysroot=/usr/local/arm-frc2019-linux-gnueabi --disable-nls --enable-lto --with-build-sysroot=/usr/local/arm-frc2019-linux-gnueabi --disable-werror
+../binutils-${V_BINUTILS}/configure \
+    --prefix=/usr/local \
+    --target=arm-frc${V_YEAR}-linux-gnueabi \
+    "--with-pkgversion=GNU Binutils for FRC ${V_YEAR}" \
+    --enable-poison-system-directories \
+    --with-sysroot=/usr/local/arm-frc${V_YEAR}-linux-gnueabi \
+    --disable-nls \
+    --enable-lto \
+    --with-build-sysroot=/usr/local/arm-frc${V_YEAR}-linux-gnueabi \
+    --disable-werror
 make -j3
 DESTDIR=$PWD/../binutils-install make install
 cd ../binutils-install
-#strip --remove-section=.comment --remove-section=.note --strip-unneeded **/*.exe

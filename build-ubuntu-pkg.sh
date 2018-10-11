@@ -3,7 +3,7 @@
 docker pull wpilib/toolchain-builder:18.04 \
  && docker run -v ${PWD}:/artifacts wpilib/toolchain-builder:18.04 bash -c "\
   cp /artifacts/download.sh /artifacts/repack.sh /artifacts/versions.sh . \
-  && cp -R /artifacts/deb /artifacts/tools /artifacts/windows . \
+  && cp -R /artifacts/deb /artifacts/tools . \
   && zsh download.sh \
   && zsh repack.sh \
   && cd deb \
@@ -13,8 +13,5 @@ docker pull wpilib/toolchain-builder:18.04 \
   && dpkg -i *.deb \
   && make gcc gdb gcc-defaults frcmake frc-toolchain \
   && dpkg -i *.deb \
-  && cp *.deb /artifacts/ \
-  && cd ../windows \
-  && make sysroot binutils gcc gdb tree zip \
-  && cp *.zip /artifacts/" \
+  && cp *.deb /artifacts/" \
  && docker build -t wpilib/roborio-toolchain:2019-18.04 -f Dockerfile.packages .

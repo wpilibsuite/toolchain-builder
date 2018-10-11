@@ -1,12 +1,12 @@
 #!/bin/bash
 source ../versions.sh
 
-
 export CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security"
 export CPPFLAGS="-D_FORTIFY_SOURCE=2"
 export CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security"
 export FFLAGS=-"g -O2"
 export LDFLAGS=""
+
 export CFLAGS_FOR_TARGET="-g -O2 --param=ssp-buffer-size=4 -Wformat -Wformat-security"
 # BUG: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=61164
 # so we just disable it
@@ -42,9 +42,32 @@ mv gmp-${V_GMPf} gcc-${V_GCC}/gmp
 mkdir gcc-build
 mkdir gcc-install
 cd gcc-build
-../gcc-${V_GCC}/configure --enable-threads=posix --target=arm-frc2019-linux-gnueabi --with-cpu=cortex-a9 --with-float=softfp --with-fpu=vfpv3 --with-specs='%{save-temps: -fverbose-asm} %{funwind-tables|fno-unwind-tables|mabi=*|ffreestanding|nostdlib:;:-funwind-tables}' --enable-languages=c,c++ --enable-shared --enable-lto --disable-nls --with-pkgversion='GCC for FRC' --with-cloog --disable-multilib --disable-multiarch --prefix=/usr/local --with-sysroot=/usr/local/arm-frc2019-linux-gnueabi --enable-poison-system-directories --disable-libmudflap --with-build-sysroot=/usr/local/arm-frc2019-linux-gnueabi --libdir=/usr/local/arm-frc2019-linux-gnueabi/usr/lib --with-gxx-include-dir=/usr/local/arm-frc2019-linux-gnueabi/usr/include/c++/6.3.0 --with-system-zlib || exit $?
-make -j3 || exit $?
-DESTDIR=$PWD/../gcc-install make install || exit $?
+../gcc-${V_GCC}/configure \
+    --enable-threads=posix \
+    --target=arm-frc${V_YEAR}-linux-gnueabi \
+    --with-cpu=cortex-a9 \
+    --with-float=softfp \
+    --with-fpu=vfpv3 \
+    --with-specs='%{save-temps: -fverbose-asm} %{funwind-tables|fno-unwind-tables|mabi=*|ffreestanding|nostdlib:;:-funwind-tables}' \
+    --enable-languages=c,c++ \
+    --enable-shared \
+    --enable-lto \
+    --disable-nls \
+    "--with-pkgversion=GCC for FRC ${V_YEAR}" \
+    --with-cloog \
+    --disable-multilib \
+    --disable-multiarch \
+    --prefix=/usr/local \
+    --with-sysroot=/usr/local/arm-frc${V_YEAR}-linux-gnueabi \
+    --enable-poison-system-directories \
+    --disable-libmudflap \
+    --with-build-sysroot=/usr/local/arm-frc${V_YEAR}-linux-gnueabi \
+    --libdir=/usr/local/arm-frc${V_YEAR}-linux-gnueabi/usr/lib \
+    --with-gxx-include-dir=/usr/local/arm-frc${V_YEAR}-linux-gnueabi/usr/include/c++/6.3.0 \
+    --with-system-zlib \
+    || exit $?
+make -j3 all-gcc || exit $?
+DESTDIR=$PWD/../gcc-install make install-gcc || exit $?
 
 cd ../gcc-install
 

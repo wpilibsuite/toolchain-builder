@@ -2,7 +2,7 @@
 
 rm -rf tree-install
 mkdir -p tree-install/c/Users/Public/frc${V_YEAR}/roborio
-sh -c 'cd gcc-install/frc2019/roborio && tar cf - bin share libexec' | sh -c 'cd tree-install/c/Users/Public/frc${V_YEAR}/roborio && tar xf -'
+sh -c "cd gcc-install/frc${V_YEAR}/roborio && tar cf - bin share libexec" | sh -c "cd tree-install/c/Users/Public/frc${V_YEAR}/roborio && tar xf -"
 sh -c 'cd binutils-install/ && tar cf - c' | sh -c 'cd tree-install/ && tar xf -'
 sh -c 'cd sysroot-install/ && tar cf - c' | sh -c 'cd tree-install/ && tar xf -'
 sh -c 'cd gdb-install/ && tar cf - c' | sh -c 'cd tree-install/ && tar xf -'
@@ -16,6 +16,4 @@ patch -p4 < ../../../../../../../../makes/case-sensitive-includes.diff
 popd
 rm -rf lib/xtables
 
-sync
 du -hs .
-
