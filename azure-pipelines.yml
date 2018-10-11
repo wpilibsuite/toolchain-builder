@@ -4,7 +4,20 @@
 # https://aka.ms/yaml
 
 jobs:
-  - job: Windows_Linux
+  - job: Linux
+    pool:
+      vmImage: 'Ubuntu 16.04'
+    timeoutInMinutes: 0
+    steps:
+    - script: |
+        ./build-linux-tgz.sh
+        cp FRC-*-Linux*.tar.gz $BUILD_ARTIFACTSTAGINGDIRECTORY
+      displayName: 'Build The Image'
+    - task: PublishBuildArtifacts@1
+      inputs:
+        artifactName: 'LinuxCompiler'
+
+  - job: Windows
     pool:
       vmImage: 'Ubuntu 16.04'
     timeoutInMinutes: 0
