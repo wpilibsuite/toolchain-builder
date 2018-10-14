@@ -1,18 +1,20 @@
 #!/bin/zsh
 
 rm -rf tree-install
-mkdir -p tree-install/c/Users/Public/frc${V_YEAR}/roborio
-sh -c "cd gcc-install/frc${V_YEAR}/roborio && tar cf - bin share libexec" | sh -c "cd tree-install/c/Users/Public/frc${V_YEAR}/roborio && tar xf -"
-sh -c 'cd binutils-install/ && tar cf - c' | sh -c 'cd tree-install/ && tar xf -'
-sh -c 'cd sysroot-install/ && tar cf - c' | sh -c 'cd tree-install/ && tar xf -'
-sh -c 'cd gdb-install/ && tar cf - c' | sh -c 'cd tree-install/ && tar xf -'
+mkdir tree-install
+cp -r gcc-install/* tree-install/
+cp -r binutils-install/* tree-install/
+cp -r sysroot-install/* tree-install/
+cp -r gdb-install/* tree-install/
 cd tree-install/c/Users/Public/frc${V_YEAR}/roborio
 du -hs .
-i686-w64-mingw32-strip --remove-section=.comment --remove-section=.note --strip-unneeded **/*.exe
+i686-w64-mingw32-strip bin/*.exe
+i686-w64-mingw32-strip arm-frc*/bin/*.exe
+find libexec -name \*.exe | xargs i686-w64-mingw32-strip
 rm -rf share/info share/man
 
-pushd usr/include
-patch -p4 < ../../../../../../../../makes/case-sensitive-includes.diff
+pushd arm-frc${V_YEAR}-linux-gnueabi/usr/include
+patch -p4 < ../../../../../../../../../makes/case-sensitive-includes.diff
 popd
 rm -rf lib/xtables
 

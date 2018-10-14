@@ -58,13 +58,13 @@ cd gcc-build
     --with-cloog \
     --disable-multilib \
     --disable-multiarch \
-    --prefix=/frc${V_YEAR}/roborio \
-    --with-sysroot=/frc${V_YEAR}/roborio \
+    --prefix=/c/Users/Public/frc${V_YEAR}/roborio \
+    --with-sysroot=/c/Users/Public/frc${V_YEAR}/roborio/arm-frc${V_YEAR}-linux-gnueabi \
     --enable-poison-system-directories \
     --disable-libmudflap \
     --with-build-sysroot=/usr/local/arm-frc${V_YEAR}-linux-gnueabi \
-    --libdir=/frc${V_YEAR}/roborio/usr/lib \
-    --with-gxx-include-dir=/frc${V_YEAR}/roborio/usr/include/c++/6.3.0 \
+    --libdir=/c/Users/Public/frc${V_YEAR}/roborio/arm-frc${V_YEAR}-linux-gnueabi/usr/lib \
+    --with-gxx-include-dir=/c/Users/Public/frc${V_YEAR}/roborio/arm-frc${V_YEAR}-linux-gnueabi/usr/include/c++/6.3.0 \
     || exit $?
 make -j3 all-gcc || exit $?
 DESTDIR=$PWD/../gcc-install make install-gcc || exit $?

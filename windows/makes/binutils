@@ -9,11 +9,11 @@ cd binutils-build
     --target=arm-frc${V_YEAR}-linux-gnueabi \
     "--with-pkgversion=GNU Binutils for FRC ${V_YEAR}" \
     --enable-poison-system-directories \
-    --with-sysroot=/c/Users/Public/frc${V_YEAR}/roborio \
+    --with-sysroot=/c/Users/Public/frc${V_YEAR}/roborio/arm-frc${V_YEAR}-linux-gnueabi \
     --enable-plugins \
     --disable-nls \
     --enable-lto \
     --with-build-sysroot=/usr/local/arm-frc${V_YEAR}-linux-gnueabi
-make
+make -j3
 DESTDIR=$PWD/../binutils-install make install
 cd ../binutils-install
