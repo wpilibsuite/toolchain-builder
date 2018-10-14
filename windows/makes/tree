@@ -2,10 +2,10 @@
 
 rm -rf tree-install
 mkdir tree-install
-cp -r gcc-install/* tree-install/
-cp -r binutils-install/* tree-install/
-cp -r sysroot-install/* tree-install/
-cp -r gdb-install/* tree-install/
+rsync gcc-install/ tree-install -a --copy-links
+rsync binutils-install/ tree-install -a --copy-links
+rsync sysroot-install/ tree-install -a --copy-links
+rsync gdb-install/ tree-install -a --copy-links
 cd tree-install/c/Users/Public/frc${V_YEAR}/roborio
 du -hs .
 i686-w64-mingw32-strip bin/*.exe
