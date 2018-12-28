@@ -9,7 +9,7 @@ rm -rf repack
 if [[ `gcc -dumpmachine` == *apple* ]]
 then
 	echo "Aliasing ar and tar to use GNU variants gar and gtar..."
-	alias ar=gar
+	alias ar=/usr/local/opt/binutils/bin/gar
 	alias tar=gtar
 fi
 
@@ -43,7 +43,7 @@ for dir in libc6 libc6-dev linux-libc-headers-dev libgcc1 libgcc-dev libstdc\+\+
 	pushd repack/$dir
 		for file in *.ipk; do
 			ar x $file
-			
+
 			# don't need these
 			rm control.tar.gz debian-binary
 			pushd out
@@ -102,7 +102,7 @@ popd
 # Make frcmake tarball
 rm -rf frcmake${V_YEAR}-${V_FRCMAKE}
 mkdir frcmake${V_YEAR}-${V_FRCMAKE}
-pushd frcmake${V_YEAR}-${V_FRCMAKE} 
+pushd frcmake${V_YEAR}-${V_FRCMAKE}
 sed -e "s/frc/frc${V_YEAR}/g" ../tools/frcmake > frcmake${V_YEAR}
 chmod a+x frcmake${V_YEAR}
 sed -e "s/frc/frc${V_YEAR}/g" ../tools/frc-cmake-toolchain > frc${V_YEAR}-cmake-toolchain
